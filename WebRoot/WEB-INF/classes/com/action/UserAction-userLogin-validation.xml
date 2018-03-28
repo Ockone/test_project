@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+  <field name="user.userTele"><!-- 检查用户账号 -->
+  	<field-validator type="requiredstring"><!-- 必须输入的值 -->
+	  <param name="trim">true</param><!-- 去掉空格检查 -->
+	  <message>账号不能为空!</message><!-- 提示消息 -->  		
+  	</field-validator>
+  </field>
+  <field name="user.userPwd">
+  	<field-validator type="requiredstring">
+  		<message>密码不能为空！</message>
+  	</field-validator>
+  </field>
+</validators>
