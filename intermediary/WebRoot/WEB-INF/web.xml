@@ -18,7 +18,7 @@
 	<listener>
 	      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!-- <filter>
+	 <filter>
     <filter-name>ReDispatcherFilter</filter-name>
     <filter-class>com.intermediary.util.ReDispatcherFilter</filter-class>
     <init-param>
@@ -29,7 +29,7 @@
   <filter-mapping>
     <filter-name>ReDispatcherFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>-->
+  </filter-mapping>
 	<filter>
         <filter-name>struts2</filter-name>
          
