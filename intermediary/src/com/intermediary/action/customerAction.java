@@ -42,12 +42,11 @@ public class customerAction extends ActionSupport implements SessionAware{
 		if(listCustomer.size()==0){
 			this.errMessage="此用户可用。";
 			System.out.print(this.errMessage);
-			String pass =this.customer.getPassword();
+			String pass =customer.getPassword();
 			if(pass.equals(this.getConfirmpass())){
 				System.out.println("确认密码一致。");
-		        session.put("customer", customer);
 		        customerDao.addCustomer(customer);
-		        return "show_view";	
+		        session.put("customer", customer);
 			}else{
 				System.out.println("密码必须一致。");
 				return "fail";
@@ -58,6 +57,7 @@ public class customerAction extends ActionSupport implements SessionAware{
 			System.out.print(this.errMessage);
 		return "fail";
 		}
+		return "show_view";	
 	}
 	
 	private String errMessage;

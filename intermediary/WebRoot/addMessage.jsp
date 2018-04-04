@@ -212,8 +212,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <s:textfield name="message.jobname" label="职　　位" placeholder="jobname"></s:textfield>
            <s:textfield name="message.available" label="招聘数量" placeholder="acount"></s:textfield>
            <s:textfield name="message.demand" label="要　　求" placeholder="require"></s:textfield>
-           <!--<s:file name="uploadFile" label="选择文件"/>-->
-           <input type="file" name="uploadFile"/>
+           <s:file name="uploadFile" label="选择文件"/>
+           
        <h3><s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden></h3>
        
       <s:submit value="提交" cssClass="btn btn-primary btn-block btn-large" style="width:30%;margin:10px 60px 0px 0px"></s:submit>
