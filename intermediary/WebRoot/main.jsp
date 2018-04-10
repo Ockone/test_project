@@ -17,90 +17,128 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	 <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/simple-line-icons.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/templatemo_style.css">
+	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
+	<link rel="stylesheet" href="css/one.css">
   </head>
   
   <body>
-<header class="site-header container animated fadeInDown">
-		<div class="header-wrapper">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="site-branding">
-						<a href="#"><h1>EWork</h1></a>					
-					</div>
-				</div>
-				<a href="#" class="toggle-nav hidden-md hidden-lg">
-					<i class="fa fa-bars"></i>
-				</a>
-				<div class="col-md-8">
-					<nav id="nav" class="main-navigation hidden-xs hidden-sm">
-						<ul class="main-menu">
-			<c:choose>
-			<c:when test="${session.customer.name==null}">
-   		    <li><a class="show-1 active homebutton" href="#">  主页</a></li>
-			<li><a class="show-2 aboutbutton" href="#">  关于我们</a></li>
-			<li><a class="show-3 projectbutton" href="#">  成果展示</a></li>
-			<li><a class="show-4 blogbutton" href="#">  公司优势</a></li>
-			<li><a class="show-5 contactbutton" href="#">  联系我们</a></li>
-			<div class="main-job" style="text-align: right;float:inline">
-			<ul class="main-menu">
-			<li><a href="login.jsp">登录</a></li>
-			</ul>
-             <li><s:form action="message/message_queryMessage" method="post">
-            <input type="text" name="keyWords" placeholder="请输入关键词" >
-         	<s:submit value="查 询" cssClass="btn btn-primary btn-block btn-large" style="width: 50%;margin: 10px -6px 10px 104px;"></s:submit>
-             </s:form></li>
-				
-			</div>  			
-   		</c:when>
-   		<c:otherwise>
-   		   <c:choose>
-   		      <c:when test="${session.customer.if_==1}">	
-		        	<li><a href="message/message_queryMessage?keyWords=">我的工作</a></li>
-			        <li><a href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a></li>
-	         		<li><a href="Customer_message.jsp">我的信息</a></li>
-	         		<div class="main-job" style="text-align: right">
-			        <ul class="main-menu">
-			        <li><span class="blue"><h4><c:out value="${session.customer.name}"></c:out>　欢迎您</h4></span></li>
-                    <li><a href="main/main_re">注销</a></li>
-				</ul>
-			</div>  	
-   		      </c:when>
-   		      <c:otherwise>
-   		            <li><a  href="message/message_queryMessage?keyWords=">工作</a></li>
-   		            <li><a  href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a></li>
-   		            <li><a  href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a></li>
-   		            <li><a  href="Customer_message.jsp">我的信息</a></li>
-   		            <div class="main-job" style="text-align: right">
-			        <ul class="main-menu">
-			        <li><span class="blue"><h4><c:out value="${session.customer.name}"></c:out>　欢迎您</h4></span></li>
-                    <li><a href="main/main_re">注销</a></li>
-				</ul>
-			</div> 
-   		      </c:otherwise>
-   		   </c:choose>
-
-			
-   		</c:otherwise>
-   		
-   	</c:choose>
+  <div class="header">
+    <!-- bar start -->
+    <div class="bar">
+        <div class="in">
+            
+            <span class="l">|</span>
+            <div class="app">
+                <ul>
+                    <li><em class="e_icon"></em>EWORK<em class="icon_arrow"></em></li>
+                </ul>
+            </div>
+            <p class="rlk">
+                <a href="https://jobs.51job.com" target="_blank">招聘信息</a>
+                <span class="l">|</span>
+                <a href="https://ehire.51job.com" target="_blank">企业服务</a>
+            </p>
+            <div class="uer">
+                    <p class="op">
+                    <c:choose>
+                    <c:when test="${session.customer.name==null}">
+                        <a href="login.jsp" rel="external nofollow">登录</a> / <a href="reg.jsp" rel="external nofollow">注册</a>
+                        </c:when>
+                        <c:otherwise>
+                        <c:choose>
+                          <c:when test="${session.customer.if_==1}">
+                          <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
+                          </c:when>
+                        <c:otherwise>
+                         <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
+                        </c:otherwise>
+                        </c:choose>
+                        </c:otherwise>
+                        </c:choose>
+                    </p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="nag" id="topIndex">
+        <div class="in">
+           <img class="logo" id="logo" width="66" height="46" src="images/logo.png" alt="前程无忧">
+                <img class="slogen" id="slogen"  height="46"  src="images/pp.png">
+            
+            <p class="nlink">
+            <c:choose>
+            <c:when test="${session.customer.name==null}">
+            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="#">关于我们</a>
+            <a class="" href="#">成果展示</a>
+            <a class="" href="#">公司优势</a>
+            <a class="" href="#">联系我们</a>
+            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
+            </c:when>
+            <c:otherwise>
+            <c:choose>
+            <c:when test="${session.customer.if_==1}">
+            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
+            <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
+            <a class="" href="Customer_message.jsp">我的信息</a>
+            <a class="" href="#">联系我们</a>
+            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
+            </c:when>
+            <c:otherwise>
+            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="message/message_queryMessage?keyWords=">工作</a>
+            <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
+            <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
+            <a class="" href="Customer_message.jsp">我的信息</a>
+            <a href="#" target="_blank">无忧精英</a>
+            </c:otherwise>
+            </c:choose>
+            </c:otherwise>
+            </c:choose>
+    </p>        
    </div>
- </header>
+   </div>
+   </div>
+   <div id="circleContent" class="carousel slide"> 
+       <ol class="carousel-indicators"> 
+         <li data-target="#circleContent" data-slide-to="0" class="active"></li> 
+         <li data-target="#circleContent" data-slide-to="1"></li> 
+         <li data-target="#circleContent" data-slide-to="2"></li> 
+       </ol> 
+           <div class="carousel-inner"> 
+               <div class="item active"> 
+                    <img src="images/index3.jpg" style="width:1000px;height:510px;margin:0 auto"> 
+                         <div class="carousel-caption"> 一步到位，轻松找到好工作</div> 
+               </div> 
+           <div class="item"> 
+                    <img src="images/index4.jpg" style="width:1000px;height:510px;margin:0 auto"> 
+                         <div class="carousel-caption">外物之味，久则可厌，读书之味，愈久愈深</div> 
+               </div> 
+           <div class="item"> 
+                    <img src="images/index1.jpg" style="width:1000px;height:510px;margin:0 auto"> 
+                          <div class="carousel-caption">真理的大海，让未发现的一切事物躺卧在我的眼前，任我去探寻</div> 
+                </div>
+          </div>
+        <a class="carousel-control left" href="#circleContent" data-slide="prevent">‹</a> 
+        <a class="carousel-control right" href="#circleContent" data-slide="next">›</a> 
+    </div> 
+    <div class="cresume">
+		<a href="Customer_message.jsp">立即创建简历，发现好工作<em class="e_icon"></em></a>
+		<img src="images/pen_32px_504846_easyicon.net.png" style="width:20px">
+	</div>	
+          
+  
+
  <div id="menu-container">
 		<div id="menu-1" class="homepage home-section container">
 			<div class="home-intro text-center">
 				<h2 class="welcome-title animated fadeInLeft">Introduction</h2>
 				<p class="animated fadeInRight"><span class="blue">E work</span>，为您提供海量招聘信息，不管是销售，还是服务，不管是设计还是创业，我们都将为您提供。<span class="blue">E work</span>绝对是您的事业之舟上一盏永不熄灭的<span class="green">明灯</span>，一个永不错误的<span class="green">罗盘</span>。</p>
-				<ul class="list-icons animated fadeInUp">
-					<li><i class="icon-trophy"></i></li>
-					<li><i class="icon-badge"></i></li>
-					<li><i class="icon-magic-wand"></i></li>
-					<li><i class="icon-screen-desktop"></i></li>
-				</ul>
 			</div>
 			<div class="home-projects">
 				<div class="row">
@@ -115,33 +153,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
 								<div class="project-item one animated fadeInRight">
-									<img src="<%=basePath%>images/1.jpg" alt="" width="600px" height="200px">
+									<img src="<%=basePath%>images/1.jpg" alt="" width="240px" height="200px">
 									<div class="overlay">
-										<h4><a href="#">Project One</a></h4>
+										<h4><a href="#">McDonald‘s</a></h4>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
 								<div class="project-item two animated fadeInRight">
-									<img src="<%=basePath%>images/2.jpg" alt="" width="600px" height="200px">
+									<img src="<%=basePath%>images/2.jpg" alt="" width="240px" height="200px">
 									<div class="overlay">
-										<h4><a href="#">Project Two</a></h4>
+										<h4><a href="#">Baidu</a></h4>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
 								<div class="project-item three animated fadeInRight">
-									<img src="<%=basePath%>images/3.jpg" alt="" width="600px" height="200px">
+									<img src="<%=basePath%>images/3.jpg" alt="" width="240px" height="200px">
 									<div class="overlay">
-										<h4><a href="#">Project Three</a></h4>
+										<h4><a href="#">P&G</a></h4>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
 								<div class="project-item four animated fadeInRight">
-									<img src="<%=basePath%>images/4.jpg" alt="" width="600px" height="200px">
+									<img src="<%=basePath%>images/4.jpg" alt="" width="240px" height="200px">
 									<div class="overlay">
-										<h4><a href="#">Project Four</a></h4>
+										<h4><a href="#">JD</a></h4>
 									</div>
 								</div>
 							</div>
@@ -182,7 +220,7 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 						<div class="col-md-6">
 							<div class="offer-item offer-1 animated fadeInLeft">
 								<figure>
-									<img src="images/9.jpg" alt="">
+									<img src="images/9.jpg" alt="" >
 								</figure>
 								<div class="offer-content text-center">
 									<h4>HAPPY WORKING WITH US</h4>
@@ -195,7 +233,7 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 						<div class="col-md-6">
 							<div class="offer-item offer-2 animated fadeInRight">
 								<figure>
-									<img src="images/a2.jpg" alt="">
+									<img src="images/222.jpg" alt=""  width="480px" height="300px">
 								</figure>
 								<div class="offer-content text-center">
 									<h4>OUR COMPANY BACKGROUND</h4>
@@ -212,8 +250,8 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 
 		<div id="menu-3" class="content project-section container">
 			<div class="projects-header">
-				<h2 class="animated fadeInRight">Our projects</h2>
-				<p class="animated fadeInLeft">E work招聘，已遍布全国为目标，尽全力将其打造成大型招聘网。各类工作信息均有发布在E work上，无论是服务行业，还是电子商务，或是IT编程。不管你想要应聘什么工作，在E work上都能让你梦想成真。
+				<h2 class="animated fadeInRight" style="text-align:center">Our projects</h2>
+				<p class="animated fadeInLeft" style="text-align:center">E work招聘，已遍布全国为目标，尽全力将其打造成大型招聘网。各类工作信息均有发布在E work上，无论是服务行业，还是电子商务，或是IT编程。不管你想要应聘什么工作，在E work上都能让你梦想成真。
 </p>
 			</div>
 			<div class="projects-holder">
@@ -327,7 +365,7 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 			<div class="contact-header text-center">
 				<h2 class="animated fadeInLeft">Get in Touch</h2>
 				<p class="animated fadeInRight">如果有任何不明白事宜或者有需求请联系我们，我们很乐意为您解答.</p>
-				<ul class="contact-social animated fadeInUp">
+				<ul class="contact-social animated fadeInUp" style="list-style:none;">
 					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 					<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
@@ -336,12 +374,12 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 			</div>
 			<div class="contact-holder">
 				<div class="row">
-					<div class="col-md-6 col-sm-12">
-			            <div class="googlemap-wrapper animated fadeInLeft">
+					<div class="col-md-6 col-sm-12" >
+			            <div class="googlemap-wrapper animated fadeInLeft" >
                             <div id="map_canvas" class="map-canvas"></div>
                         </div>
 					</div>
-					<div class="col-md-6 col-sm-12">
+					<div class="col-md-6 col-sm-12" >
 						<div class="contact-form animated fadeInUp">
 							<h4>Send us a Message</h4>
 							<div class="row">
