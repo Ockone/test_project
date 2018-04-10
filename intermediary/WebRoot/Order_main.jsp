@@ -24,15 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/templatemo_style.css">
   </head>
   <style>
- a {
-    color: #00FEFE;
-    text-decoration: blink;
-    -webkit-transition: all 100ms ease-in-out;
-    -moz-transition: all 100ms ease-in-out;
-    -ms-transition: all 100ms ease-in-out;
-    -o-transition: all 100ms ease-in-out;
-    transition: all 100ms ease-in-out;
-}
+ 
 <style>
   input { 
 	width: 110%; 
@@ -68,14 +60,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
   </style>
-  </style>
+
   <body>
       <header class="site-header container animated fadeInDown">
 		<div class="header-wrapper">
 			<div class="row">
 				<div class="col-md-4">
 					<div class="site-branding">
-						<a href="#"><h1>EWork</h1></a>
+						<a href="#"><h1 style="color:black">EWork</h1></a>
 					</div>
 				</div>
 				<a href="#" class="toggle-nav hidden-md hidden-lg">
@@ -96,93 +88,88 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="login.jsp">登录</a></li>
 				</ul>
 			</div>  			
-   		</c:when>
-   		<c:otherwise>
+   		   </c:when>
+   		   <c:otherwise>
    		   <c:choose>
    		      <c:when test="${session.customer.if_==1}">	
-		        	<li><a href="message/message_queryMessage?keyWords=">我的工作</a></li>
-			        <li><a href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a></li>
-	         		<li><a href="Customer_message.jsp">我的信息</a></li>
+		        	<li><a href="message/message_queryMessage?keyWords=" style="color:black">我的工作</a></li>
+			        <li><a href="customerorder/customerorder_editOrder?key=${session.customer.customerid}" style="color:black">我的预约</a></li>
+	         		<li><a href="Customer_message.jsp" style="color:black">我的信息</a></li>
 	         		<div class="main-job" style="text-align: right">
 			        <ul class="main-menu">
 			        <li><span class="blue"><h4><c:out value="${session.customer.name}"></c:out>　欢迎您</h4></span></li>
-                    <li><a href="main/main_re">注销</a></li>
+                    <li><a href="main/main_re" style="color:black">注销</a></li>
 				</ul>
-			</div>  	
+			     </div>  	
    		      </c:when>
    		      <c:otherwise>
-   		            <li><a  href="message/message_queryMessage?keyWords=">工作</a></li>
-   		            <li><a  href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a></li>
-   		            <li><a  href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a></li>
-   		            <li><a  href="Customer_message.jsp">我的信息</a></li>
+   		            <li><a  href="message/message_queryMessage?keyWords=" style="color:black">工作</a></li>
+   		            <li><a  href="message/message_fwork?message.fid=${session.customer.customerid}" style="color:black">我发布的工作</a></li>
+   		            <li><a  href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}" style="color:black">回应</a></li>
+   		            <li><a  href="Customer_message.jsp" style="color:black">我的信息</a></li>
    		            <div class="main-job" style="text-align: right">
 			        <ul class="main-menu">
 			        <li><span class="blue"><h4><c:out value="${session.customer.name}"></c:out>　欢迎您</h4></span></li>
-                    <li><a href="main/main_re">注销</a></li>
-				</ul>
-			</div> 
+                    <li><a href="main/main_re" style="color:black">注销</a></li>
+				    </ul>
+			        </div> 
    		      </c:otherwise>
    		   </c:choose>
-
-			
-   		</c:otherwise>
-   		
-   	</c:choose>
+         </c:otherwise>
+   	 </c:choose>
    </div>
  </header>
+ <div class="site-header container animated fadeInDown">
     <c:choose>
        <c:when test="${customerorderList.size()==0}">
           <h1>没有信息</h1>
        </c:when>
        <c:otherwise>
-       
-          <c:forEach var="customerorder" items="${customerorderList}" varStatus="status" >
-          <div class="border" style="border:4px solid blue;margin: 10px 500px 10px 500px;display:inline;float:left">
-            <h3>申请号:<c:out value="${customerorder.orderid}"></c:out></h3>
-            <h3>时间：<c:out value="${customerorder.time}"></c:out></h3>
-            <h3><a href="listFile.jsp?key=${customerorder.id}">简历</a></h3>
-           <c:if test="${customer.if_==1}"> 
-            <h3>详情：
-            
-            <c:choose>
-              <c:when test="${customerorder.retime=='未通过'}">
-                                                                      很遗憾，<c:out value="${customerorder.retime}"/>
-              </c:when>
-              <c:when test="${customerorder.retime==null}">
-                                                                        待审核
-              </c:when>
-              <c:otherwise>
-                                                                       恭喜您，面试时间为<c:out value="${customerorder.retime}"/>
-              </c:otherwise>
-            </c:choose>
-           </h3>
-           </c:if>
-            <c:choose>
-              <c:when test="${session.customer.if_==1}">
-                   <h3><a href="customerorder/customerorder_deleteyourorder?key=${customerorder.orderid}">
-                     <c:choose>
-                      <c:when test="${customerorder.retime=='未通过'}">
-                                                                                             删除
-                      </c:when>
-                      <c:otherwise>
-                                                                                          取消申请
-                      </c:otherwise>
-                     </c:choose>       
-                   </a></h3>
-              </c:when>
-              <c:otherwise>
-                   <c:if test="${customerorder.retime==null}">
-                    <s:form action="customerorder/customerorder_updataorder" method="post">
-                      <s:textfield name="customerorder.retime" placeholder="面试时间"></s:textfield>
+           <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+	           <thead>
+	               <tr>
+	                    <th>订单号</th>
+						<th>工作编号</th>
+						<th>用户编号</th>
+						<th>下单时间</th> 
+						<th>发布人编号</th> 
+					    <th>信息</th> 
+					    <th>操作</th>
+					</tr>
+	            </thead>
+	            <tbody>
+	                <s:iterator value="customerorderList" var="customerorder" status="status">
+	                <tr>
+	                     <td><s:property value="#customerorder.orderid"></s:property></td>
+	                     <td><s:property value="#customerorder.jobid"></s:property></td>
+	                     <td><s:property value="#customerorder.id"></s:property></td>
+	                     <td><s:property value="#customerorder.time"></s:property></td>
+	                     <td><s:property value="#customerorder.fid"></s:property></td>
+	                      <td>
+	                      <c:if test="${ session.customer.if_==1}">
+	                       <c:choose>
+                            <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">很遗憾，<c:out value="${customerorder.retime}" /></span>
+                            </c:when>
+                            <c:when test="${customerorder.retime==null}"><span style="color:black">待审核</span>
+                            </c:when>
+                            <c:otherwise><span style="color:black">恭喜您，面试时间为<c:out value="${customerorder.retime}"/></span>
+                             </c:otherwise>
+                           </c:choose>
+                           </c:if>
+                           <c:if test="${ session.customer.if_==0}">
+                               <c:if test="${customerorder.retime==null}">
+                    <s:form action="customerorder/customerorder_updataorder" style="display:none" method="post" id="form1">
+                      <s:hidden name="customerorder.retime" value="下周日上午9点"></s:hidden>
                       <s:hidden name="customerorder.orderid" value="%{#attr.customerorder.orderid}"></s:hidden>
                       <s:hidden name="customerorder.jobid"   value="%{#attr.customerorder.jobid}"></s:hidden>
                       <s:hidden name="customerorder.id"      value="%{#attr.customerorder.id}"></s:hidden>
                       <s:hidden name="customerorder.time"    value="%{#attr.customerorder.time}"></s:hidden>
                       <s:hidden name="customerorder.resume"  value="%{#attr.customerorder.resume}"></s:hidden>
                       <s:hidden name="customerorder.fid"     value="%{#attr.customerorder.fid}"></s:hidden>
-                      <s:submit value="同意申请" cssClass="btn btn-primary btn-block btn-large" style="width:60%;float:left"></s:submit>
-                      </s:form>
-                       <s:form action="customerorder/customerorder_updataorder" method="post">
+                      <s:submit value="同意申请"  style="display:none" id="btn1"></s:submit>
+                     </s:form>
+                     
+                       <s:form action="customerorder/customerorder_updataorder" style="display:none" method="post" id="form2">
                        <s:hidden name="customerorder.retime"  value="未通过"></s:hidden>
                        <s:hidden name="customerorder.orderid" value="%{#attr.customerorder.orderid}"></s:hidden>
                        <s:hidden name="customerorder.jobid"   value="%{#attr.customerorder.jobid}"></s:hidden>
@@ -190,17 +177,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        <s:hidden name="customerorder.time"    value="%{#attr.customerorder.time}"></s:hidden>
                        <s:hidden name="customerorder.resume"  value="%{#attr.customerorder.resume}"></s:hidden>
                        <s:hidden name="customerorder.fid"     value="%{#attr.customerorder.fid}"></s:hidden>
-                       <s:submit value="拒绝申请"  cssClass="btn btn-primary btn-block btn-large" style="float:left"></s:submit>
-                     </s:form>
+                       <s:submit value="拒绝申请"  style="display:none" id="btn2"></s:submit>
+                      </s:form>
+                     
                     </c:if>
+                           </c:if>
+                         </td>
+                        
+                         <td>
+                             <c:choose>
+                                 <c:when test="${session.customer.if_==1}">
+                                 <a href="customerorder/customerorder_deleteyourorder?key=${customerorder.orderid}">
+                                 <c:choose>
+                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">删除</span></c:when>
+                                 <c:otherwise><span style="color:black">取消申请</span></c:otherwise>
+                                 </c:choose>       
+                                     </a>
+                          </c:when>
+                   <c:otherwise>
+                    
+                          <a style="color:black" href="javascript:submit1();">同意申请</a>
+                          <a style="color:black" href="javascript:submit2();">拒绝申请</a>
                   </c:otherwise>
               </c:choose>
-              </div>
-          </c:forEach>
-          
-       </c:otherwise>
-    </c:choose>
-
+                         </td>
+                         
+	                 </tr>
+	                 </s:iterator>
+	            </tbody>
+	      </table>
+         </c:otherwise>
+</c:choose>
+</div>
 	<footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">
@@ -208,14 +216,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</footer>
+	<!-- 
 	<span class="border-top"></span>
 	<span class="border-left"></span>
 	<span class="border-right"></span>
 	<span class="border-bottom"></span>
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
-
+ -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
+	<script src="<%=basePath%>js/bootstrap.min.js"></script>
+	<script src="<%=basePath%>js/jquery.dataTables.js"></script>
+	<script src="<%=basePath%>js/dataTables.bootstrap.js"></script>
+	<script type="text/javascript">
+	    function submit1(){
+	    document.getElementById("btn1").submit();
+	    
+	    }
+	</script>
+	<script type="text/javascript">
+	    function submit2(){
+	    document.getElementById("btn2").submit();
+	    
+	    }
+	</script>
+	<script>
+	$(document).ready(function(){
+	    $('#dataTables-example').dataTable({
+	    "language":{
+	    "lengthMenu":"每页_MENU_条记录",
+	    "zeroRecords":"没有找到记录",
+	    "info":"第_PAGE_页（共_PAGES_页）",
+	    "infoEmpty":"无记录",
+	    "infoFiltered":"从_MAX_条记录过滤",
+	    "sInfoPostFix":"",
+	    "sSearch":"搜索：",
+	    "sUrl":"",
+	    "sEmptyTable":"表中数据为空",
+	    "sLoadingRecords":"载入中...",
+	    "sInfoThousands":",",
+	    "oPaginate":{
+	        "sFirst":"首页",
+	        "sPrevious":"上页",
+	        "sNext":"下页",
+	        "sLast":"末页"
+	    },
+	    "oAria":{
+	        "sSortAscending":"：以升序排列",
+	        "sSortDescending":"：以降序排列"
+	    },
+	    }
+	    });
+	});
+	
+	</script>
  </body>
 </html>
