@@ -66,6 +66,7 @@
              <result name="success2">/upload.jsp</result>
              <result name="success3">/success.jsp</result>
              <result name="ed">/Order_main.jsp</result>
+             <result name="allorder">/allorder.jsp</result>
           </action>
     </package>
     

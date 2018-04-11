@@ -23,7 +23,7 @@ public class customerorderDao {
 	
 	public ArrayList<Customerorder> queryAllOrder(){
 		Session s=factory.getCurrentSession();
-		String hql="From Order";
+		String hql="From Customerorder";
 		Query q=s.createQuery(hql);
 		List orderList=q.list();
 		return (ArrayList<Customerorder>)  orderList;

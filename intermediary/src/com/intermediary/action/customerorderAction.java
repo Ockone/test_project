@@ -44,6 +44,11 @@ public class customerorderAction extends ActionSupport {
 		return "ed";
 	}
 	
+	public String allorder(){
+		customerorderList = customerorderDao.queryAllOrder();
+		return "allorder";
+	}
+	
 	public String editOrder2(){
 		customerorderList = customerorderDao.queryCustomerorderInfo2(key);
 		return "ed";
