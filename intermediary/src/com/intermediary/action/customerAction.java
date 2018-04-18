@@ -55,7 +55,7 @@ public class customerAction extends ActionSupport implements SessionAware{
 		else{
 			this.errMessage="此用户已被注册。";
 			System.out.print(this.errMessage);
-		return "fail";
+			return "fail";
 		}
 		return "show_view";	
 	}

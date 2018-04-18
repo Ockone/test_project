@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
-                          <c:when test="${session.customer.if_==1}">
+                          <c:when test="${session.customer.ifcustomer==1}">
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </c:when>
             <c:otherwise>
             <c:choose>
-            <c:when test="${session.customer.if_==1}">
+            <c:when test="${session.customer.ifcustomer==1}">
             <a class="" href="main.jsp">首页</a>
             <a class="on" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>

@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
-                          <c:when test="${session.customer.if_==1}">
+                          <c:when test="${session.customer.ifcustomer==1}">
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </c:when>
             <c:otherwise>
             <c:choose>
-            <c:when test="${session.customer.if_==1}">
+            <c:when test="${session.customer.ifcustomer==1}">
             <a class="on" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
@@ -138,11 +138,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <h3><s:hidden name="customer.identification" label="照　片" value="%{#session.customer.identification}"></s:hidden></h3>
          <h3><s:textfield name="customer.password" label="密　码"></s:textfield></h3>
          <h3><s:hidden name="customer.customerid" label="id" value="%{#session.customer.customerid}"></s:hidden></h3>
-         <s:hidden name="customer.if_" value="%{#session.customer.if_}"></s:hidden>
+         <s:hidden name="customer.ifcustomer" value="%{#session.customer.ifcustomer}"></s:hidden>
          <s:submit value="保存" cssClass="btn btn-primary btn-block btn-large" style="width: 60%;"></s:submit>
        </s:form>
    <c:choose>
-     <c:when test="${session.customer.if_==0}">
+     <c:when test="${session.customer.ifcustomer==0}">
        <s:form action="customer/customer_editCustomer">
         <s:hidden name="customer.name" value="%{#session.customer.name}"></s:hidden>
          <s:hidden name="customer.customeradress" value="%{#session.customer.customeradress}"></s:hidden>
@@ -151,7 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <s:hidden name="customer.identification" value="%{#session.customer.identification}"></s:hidden>
          <s:hidden name="customer.password" value="%{#session.customer.password}"></s:hidden>
          <s:hidden name="customer.customerid" value="%{#session.customer.customerid}"></s:hidden>
-         <s:hidden name="customer.if_" value="1"></s:hidden>
+         <s:hidden name="customer.ifcustomer" value="1"></s:hidden>
          <s:submit value="我是求职者" cssClass="btn btn-primary btn-block btn-large" style="width: 129%;
     margin: 0px 1px 0px 8px"></s:submit>
        </s:form>
@@ -165,7 +165,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <s:hidden name="customer.identification" value="%{#session.customer.identification}"></s:hidden>
          <s:hidden name="customer.password" value="%{#session.customer.password}"></s:hidden>
          <s:hidden name="customer.customerid" value="%{#session.customer.customerid}"></s:hidden>
-         <s:hidden name="customer.if_" value="0"></s:hidden>
+         <s:hidden name="customer.ifcustomer" value="0"></s:hidden>
          <s:submit value="我是招聘方" cssClass="btn btn-primary btn-block btn-large" style="width: 129%;
     margin: 0px 1px 0px 8px"></s:submit>
        </s:form>

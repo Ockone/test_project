@@ -52,6 +52,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<span class="input-group-addon"><i class="fa fa-repeat"></i></span>
 			<input name="confirmpass" type="password" class="form-control" placeholder="请确认密码" required>
 			</div>
+			<div>
+			<input name="customer.ifcustomer" type="hidden" value="1" required>
+			</div>
 	</div>
 	<button type="submit" class="btn btn-success btn-login">注册</button>
 	<span>已有账号？去</span><a href="login.jsp" >登录</a>

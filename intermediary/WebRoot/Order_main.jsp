@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
-                          <c:when test="${session.customer.if_==1}">
+                          <c:when test="${session.customer.ifcustomer==1}">
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </c:when>
             <c:otherwise>
             <c:choose>
-            <c:when test="${session.customer.if_==1}">
+            <c:when test="${session.customer.ifcustomer==1}">
             <a class="" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="on" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
@@ -172,7 +172,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                     <td><s:property value="#customerorder.time"></s:property></td>
 	                     <td><s:property value="#customerorder.fid"></s:property></td>
 	                      <td>
-	                      <c:if test="${ session.customer.if_==1}">
+	                      <c:if test="${ session.customer.ifcustomer==1}">
 	                       <c:choose>
                             <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">很遗憾，<c:out value="${customerorder.retime}" /></span>
                             </c:when>
@@ -182,7 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                              </c:otherwise>
                            </c:choose>
                            </c:if>
-                           <c:if test="${ session.customer.if_==0}">
+                           <c:if test="${ session.customer.ifcustomer==0}">
                                <c:if test="${customerorder.retime==null}">
                     <s:form action="customerorder/customerorder_updataorder" style="display:none" method="post" id="form1">
                       <s:hidden name="customerorder.retime" value="下周日上午9点"></s:hidden>
@@ -212,7 +212,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         
                          <td>
                              <c:choose>
-                                 <c:when test="${session.customer.if_==1}">
+                                 <c:when test="${session.customer.ifcustomer==1}">
                                  <a href="customerorder/customerorder_deleteyourorder?key=${customerorder.orderid}">
                                  <c:choose>
                                  <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">删除</span></c:when>

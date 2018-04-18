@@ -28,13 +28,13 @@ CREATE TABLE `customer` (
   `password` char(30) DEFAULT NULL,
   `customerphoto` char(100) DEFAULT NULL,
   `Identification` char(18) DEFAULT NULL,
-  `if` int(6) DEFAULT NULL,
+  `ifcustomer` int(6) DEFAULT NULL,
   PRIMARY KEY (`customerid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `customer` */
 
-insert  into `customer`(`customerid`,`name`,`customeradress`,`customercontact`,`password`,`customerphoto`,`Identification`,`if`) values (1,'admin','111','222','111','two.png','001',0),(2,'ceshi','sss','sss','222','one.png','520',1),(3,'456','456','456','456',NULL,'456',1),(4,'789','789','789','789',NULL,'789',1),(5,'754','7535','75356','111',NULL,'753',1),(6,'789','789','123456789','789',NULL,'123456',1);
+insert  into `customer`(`customerid`,`name`,`customeradress`,`customercontact`,`password`,`customerphoto`,`Identification`,`ifcustomer`) values (1,'admin','111','222','111','two.png','001',0),(2,'ceshi','sss','sss','222','one.png','520',1),(3,'456','456','456','456',NULL,'456',1),(4,'789','789','789','789',NULL,'789',1),(5,'754','7535','75356','111',NULL,'753',1),(6,'789','789','123456789','789',NULL,'123456',1),(7,'212121','1212121','2121212','111',NULL,'212121212',NULL),(8,'122121111122222','12212212','21222','111',NULL,'21211112222',NULL),(9,'77788888','7878788','787878','777',NULL,'77777777777',NULL);
 
 /*Table structure for table `customerorder` */
 

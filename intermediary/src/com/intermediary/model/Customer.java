@@ -1,117 +1,105 @@
 package com.intermediary.model;
 
-
-
 /**
  * Customer entity. @author MyEclipse Persistence Tools
  */
 
-public class Customer  implements java.io.Serializable {
+public class Customer implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer customerid;
+	private String name;
+	private String customeradress;
+	private String customercontact;
+	private String password;
+	private String customerphoto;
+	private String identification;
+	private Integer ifcustomer;
 
-     private Integer customerid;
-     private String name;
-     private String customeradress;
-     private String customercontact;
-     private String password;
-     private String customerphoto;
-     private String identification;
-     private Integer if_;
+	// Constructors
 
+	/** default constructor */
+	public Customer() {
+	}
 
-    // Constructors
+	/** full constructor */
+	public Customer(String name, String customeradress, String customercontact,
+			String password, String customerphoto, String identification,
+			Integer ifcustomer) {
+		this.name = name;
+		this.customeradress = customeradress;
+		this.customercontact = customercontact;
+		this.password = password;
+		this.customerphoto = customerphoto;
+		this.identification = identification;
+		this.ifcustomer = ifcustomer;
+	}
 
-    /** default constructor */
-    public Customer() {
-    }
+	// Property accessors
 
-    
-    /** full constructor */
-    public Customer(String name, String customeradress, String customercontact, String password, String customerphoto, String identification, Integer if_) {
-        this.name = name;
-        this.customeradress = customeradress;
-        this.customercontact = customercontact;
-        this.password = password;
-        this.customerphoto = customerphoto;
-        this.identification = identification;
-        this.if_ = if_;
-    }
+	public Integer getCustomerid() {
+		return this.customerid;
+	}
 
-   
-    // Property accessors
+	public void setCustomerid(Integer customerid) {
+		this.customerid = customerid;
+	}
 
-    public Integer getCustomerid() {
-        return this.customerid;
-    }
-    
-    public void setCustomerid(Integer customerid) {
-        this.customerid = customerid;
-    }
+	public String getName() {
+		return this.name;
+	}
 
-    public String getName() {
-        return this.name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getCustomeradress() {
-        return this.customeradress;
-    }
-    
-    public void setCustomeradress(String customeradress) {
-        this.customeradress = customeradress;
-    }
+	public String getCustomeradress() {
+		return this.customeradress;
+	}
 
-    public String getCustomercontact() {
-        return this.customercontact;
-    }
-    
-    public void setCustomercontact(String customercontact) {
-        this.customercontact = customercontact;
-    }
+	public void setCustomeradress(String customeradress) {
+		this.customeradress = customeradress;
+	}
 
-    public String getPassword() {
-        return this.password;
-    }
-    
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getCustomercontact() {
+		return this.customercontact;
+	}
 
-    public String getCustomerphoto() {
-        return this.customerphoto;
-    }
-    
-    public void setCustomerphoto(String customerphoto) {
-        this.customerphoto = customerphoto;
-    }
+	public void setCustomercontact(String customercontact) {
+		this.customercontact = customercontact;
+	}
 
-    public String getIdentification() {
-        return this.identification;
-    }
-    
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
+	public String getPassword() {
+		return this.password;
+	}
 
-    public Integer getIf_() {
-        return this.if_;
-    }
-    
-    public void setIf_(Integer if_) {
-        this.if_ = if_;
-    }
-   
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
+	public String getCustomerphoto() {
+		return this.customerphoto;
+	}
 
+	public void setCustomerphoto(String customerphoto) {
+		this.customerphoto = customerphoto;
+	}
 
+	public String getIdentification() {
+		return this.identification;
+	}
 
+	public void setIdentification(String identification) {
+		this.identification = identification;
+	}
 
+	public Integer getIfcustomer() {
+		return this.ifcustomer;
+	}
 
-
+	public void setIfcustomer(Integer ifcustomer) {
+		this.ifcustomer = ifcustomer;
+	}
 
 }

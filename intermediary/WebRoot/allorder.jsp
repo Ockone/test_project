@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    		</c:when>
    		<c:otherwise>
    		   <c:choose>
-   		      <c:when test="${session.customer.if_==1}">	
+   		      <c:when test="${session.customer.ifcustomer==1}">	
 		        	<li><a href="message/message_queryMessage?keyWords=">我的工作</a></li>
 			        <li><a href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a></li>
 	         		<li><a href="Customer_message.jsp">我的信息</a></li>

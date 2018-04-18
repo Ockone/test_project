@@ -28,8 +28,8 @@
         <property name="identification" type="java.lang.String">
             <column name="Identification" length="18" />
         </property>
-        <property name="if_" type="java.lang.Integer">
-            <column name="if" />
+        <property name="ifcustomer" type="java.lang.Integer">
+            <column name="ifcustomer" />
         </property>
     </class>
 </hibernate-mapping>
