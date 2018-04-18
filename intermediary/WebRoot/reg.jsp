@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-			<input name="conf" type="password" class="form-control" placeholder="请确认密码" required>
+			<input name="confirmpass" type="password" class="form-control" placeholder="请确认密码" required>
 			</div>
 	</div>
 	<button type="submit" class="btn btn-success btn-login">注册</button>

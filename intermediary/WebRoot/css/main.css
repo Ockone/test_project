@@ -1,6 +1,22 @@
 body{
 	font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
 	font-size:16px;
+	width:100%;
+	height:100%;
+	background-image:url('../images/loginbg.png');
+	background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    padding-top:60px;
+   
+	
+}
+.bg-blur{
+	-webkit-filter: blur(15px);
+            -moz-filter: blur(15px);
+            -o-filter: blur(15px);
+            -ms-filter: blur(15px);
+            filter: blur(15px);
 }
 .mr200{
 	margin-right:200px;
@@ -15,7 +31,7 @@ a:hover {
 	text-decoration:none;
 }
 header {
-    background: #FF6633;
+   <!--background: #8643c3cb;-->
     height: 80px;
 }
 header .account{
@@ -40,16 +56,16 @@ header .account>a:hover{
 	
 }
 header .logo{
-	margin-top:10px;
+	margin-top:0px;
 	margin-left:50px;
     float:left;
 	line-height:60px;
 	font-size:28px;
-	color:white;
+	color:#FF6633;
 }
 
 main{
-	margin-top:10px;
+	margin-top:5px;
 }
 
 
@@ -123,19 +139,8 @@ main ul li p a.add-order:hover{
 }
 /*登录页*/
 
-.bg{
-	width:100%;
-	height:600px;
-	background-image:url('../images/bg.png');
-	background-repeat:no-repeat;
-    -webkit-background-size:cover;
-    -moz-background-size:cover;
-    padding-top:30px;
-
-	
-}
 .bg .login{
-	
+	text-align:center;
 	margin:0 auto;
 	width:400px;
 	padding:0 30px 30px 30px;
@@ -173,6 +178,7 @@ main ul li p a.add-order:hover{
 }
 
 .bg .login h3{
+	
     color: #666;
     padding:30px 0;
     letter-spacing: 4px;
@@ -209,10 +215,12 @@ main ul li p a.add-order:hover{
     left: 0;
 }
 
+
 .bg .login .form-group{
 	padding:10px 30px;
 }
 .bg .login button{
+	
 	margin:0 50px;
 }
 
@@ -258,3 +266,4 @@ main table td{
 	text-align:center;
 	height:40px;
 }
+

@@ -122,7 +122,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
             <a class="" href="#">联系我们</a>
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
             </c:when>
             <c:otherwise>
             <c:choose>
@@ -132,7 +131,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="on" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
             <a class="" href="#">联系我们</a>
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
             </c:when>
             <c:otherwise>
             <a class="" href="main.jsp">首页</a>
@@ -140,7 +138,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="on" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
-            <a href="#" target="_blank">无忧精英</a>
             </c:otherwise>
             </c:choose>
             </c:otherwise>
@@ -154,8 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <h1>没有信息</h1>
        </c:when>
        <c:otherwise>
-       
-          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+       <table class="table table-striped table-bordered table-hover" id="dataTables-example">
 	           <thead>
 	               <tr>
 	                    <th>订单号</th>
@@ -164,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th>下单时间</th> 
 						<th>发布人编号</th> 
 					    <th>信息</th> 
-						<!-- <th>操作</th>  -->
+					    <th>操作</th>
 					</tr>
 	            </thead>
 	            <tbody>
@@ -176,16 +172,62 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                     <td><s:property value="#customerorder.time"></s:property></td>
 	                     <td><s:property value="#customerorder.fid"></s:property></td>
 	                      <td>
+	                      <c:if test="${ session.customer.if_==1}">
 	                       <c:choose>
-                            <c:when test="${customerorder.retime=='未通过'}">很遗憾，<c:out value="${customerorder.retime}" />
+                            <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">很遗憾，<c:out value="${customerorder.retime}" /></span>
                             </c:when>
-                            <c:when test="${customerorder.retime==null}">待审核
+                            <c:when test="${customerorder.retime==null}"><span style="color:black">待审核</span>
                             </c:when>
-                            <c:otherwise>恭喜您，面试时间为<c:out value="${customerorder.retime}"/>
+                            <c:otherwise><span style="color:black">恭喜您，面试时间为<c:out value="${customerorder.retime}"/></span>
                              </c:otherwise>
                            </c:choose>
-                         </td>
+                           </c:if>
+                           <c:if test="${ session.customer.if_==0}">
+                               <c:if test="${customerorder.retime==null}">
+                    <s:form action="customerorder/customerorder_updataorder" style="display:none" method="post" id="form1">
+                      <s:hidden name="customerorder.retime" value="下周日上午9点"></s:hidden>
+                      <s:hidden name="customerorder.orderid" value="%{#attr.customerorder.orderid}"></s:hidden>
+                      <s:hidden name="customerorder.jobid"   value="%{#attr.customerorder.jobid}"></s:hidden>
+                      <s:hidden name="customerorder.id"      value="%{#attr.customerorder.id}"></s:hidden>
+                      <s:hidden name="customerorder.time"    value="%{#attr.customerorder.time}"></s:hidden>
+                      <s:hidden name="customerorder.resume"  value="%{#attr.customerorder.resume}"></s:hidden>
+                      <s:hidden name="customerorder.fid"     value="%{#attr.customerorder.fid}"></s:hidden>
+                      <s:submit value="同意申请"  style="display:none" id="btn1"></s:submit>
+                     </s:form>
                      
+                       <s:form action="customerorder/customerorder_updataorder" style="display:none" method="post" id="form2">
+                       <s:hidden name="customerorder.retime"  value="未通过"></s:hidden>
+                       <s:hidden name="customerorder.orderid" value="%{#attr.customerorder.orderid}"></s:hidden>
+                       <s:hidden name="customerorder.jobid"   value="%{#attr.customerorder.jobid}"></s:hidden>
+                       <s:hidden name="customerorder.id"      value="%{#attr.customerorder.id}"></s:hidden>
+                       <s:hidden name="customerorder.time"    value="%{#attr.customerorder.time}"></s:hidden>
+                       <s:hidden name="customerorder.resume"  value="%{#attr.customerorder.resume}"></s:hidden>
+                       <s:hidden name="customerorder.fid"     value="%{#attr.customerorder.fid}"></s:hidden>
+                       <s:submit value="拒绝申请"  style="display:none" id="btn2"></s:submit>
+                      </s:form>
+                     
+                    </c:if>
+                           </c:if>
+                         </td>
+                        
+                         <td>
+                             <c:choose>
+                                 <c:when test="${session.customer.if_==1}">
+                                 <a href="customerorder/customerorder_deleteyourorder?key=${customerorder.orderid}">
+                                 <c:choose>
+                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">删除</span></c:when>
+                                 <c:otherwise><span style="color:black">取消申请</span></c:otherwise>
+                                 </c:choose>       
+                                     </a>
+                          </c:when>
+                   <c:otherwise>
+                    
+                          <a style="color:black" href="javascript:submit1();">同意申请</a>
+                          <a style="color:black" href="javascript:submit2();">拒绝申请</a>
+                  </c:otherwise>
+              </c:choose>
+                         </td>
+                         
 	                 </tr>
 	                 </s:iterator>
 	            </tbody>
