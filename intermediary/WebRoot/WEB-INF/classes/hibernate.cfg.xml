@@ -10,6 +10,9 @@
 		<mapping resource="com/intermediary/model/Customer.hbm.xml" />
 		<mapping
 			resource="com/intermediary/model/Customerorder.hbm.xml" />
+		<mapping resource="com/intermediary/model/feedback.hbm.xml" />
+		<mapping resource="com/intermediary/model/Feedback.hbm.xml" />
+
 
 	</session-factory>
 
