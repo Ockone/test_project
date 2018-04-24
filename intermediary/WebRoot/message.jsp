@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
  <c:choose>
    <c:when test="${message!=null}">
-      <center>${message}</center> 
+      <center><h3>${message}</h3></center> 
    </c:when>
    <c:otherwise>
        <center><h3>未上传简历，申请成功！</h3></center>

@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 	 <div class="header">
@@ -93,10 +94,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-<center>
-
+<main>
+<ul>
 
 <c:forEach var="message" items="${messageList}" varStatus="status">
+ <li>
+                 <a href="message/message_getComMessage?message.jobid=${message.jobid}">
+	             <img src="<%=basePath%>upload/${message.companyphoto}">
+	             </a>
+	             <p>
+	                <a href="message/message_getComMessage?message.jobid=${message.jobid}">
+	                  <c:out value="${message.jobname}"></c:out>
+	                </a>
+	                <span class="price"> <c:out value="${message.companyname}"></c:out></span>
+	                <a href="customerorder/customerorder_wantOrder?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}" class="add-order">
+	                  <i class="fa fa-check-square"></i>申请
+	                </a>
+	             </p>
+	          </li>
+ <!-- 
   <div class="result" style="float:left;display:inline;margin-left:50px">
      <img src="<%=basePath%>upload/${message.companyphoto}" style="width:400px;height:300px;border:2px solid blue"/><br>
      <h3>职位:<c:out value="${message.jobname}"></c:out></h3>
@@ -108,9 +124,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <a href="message/message_getComMessage2?message.jobid=${message.jobid}">修改</a>
        </c:when>
      </c:choose>
-     </div>
+     </div> -->
   </c:forEach>
-</center>
+  </ul>
+</main>
 
 
 	<footer class="site-footer container text-center">

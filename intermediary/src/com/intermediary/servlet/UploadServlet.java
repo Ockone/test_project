@@ -53,7 +53,7 @@ public class UploadServlet extends HttpServlet {
         }
 
         // 消息提示
-        String message = "";
+        String message=null;
         try {
             // 使用Apache文件上传组件处理文件上传步骤：
             // 1.创建一个DiskFileItemFactory工厂

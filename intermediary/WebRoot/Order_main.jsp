@@ -146,6 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
+   
     <c:choose>
        <c:when test="${customerorderList.size()==0}">
           <h1>没有信息</h1>
@@ -183,7 +184,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                            </c:choose>
                            </c:if>
                            <c:if test="${ session.customer.ifcustomer==0}">
-                               <c:if test="${customerorder.retime==null}">
+                           <c:choose>
+                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">已拒绝</span></c:when>
+                                 <c:otherwise><span style="color:black">${customerorder.retime}面试</span></c:otherwise>
+                           </c:choose> 
+                           <a href="listFile.jsp?key=${customerorder.id}">
+                           <span style="color:red">简历</span></a>
+                           </c:if>
+                         </td>
+                        
+                         <td>
+                             <c:choose>
+                                 <c:when test="${session.customer.ifcustomer==1}">
+                                 <a href="customerorder/customerorder_deleteyourorder?key=${customerorder.orderid}">
+                                 <c:choose>
+                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:red">删除</span></c:when>
+                                 <c:otherwise><span style="color:red">取消申请</span></c:otherwise>
+                                 </c:choose>       
+                                     </a>
+                          </c:when>
+                   <c:otherwise>
+                    <c:if test="${customerorder.retime==null}">
                     <s:form action="customerorder/customerorder_updataorder" style="display:none" method="post" id="form1">
                       <s:hidden name="customerorder.retime" value="下周日上午9点"></s:hidden>
                       <s:hidden name="customerorder.orderid" value="%{#attr.customerorder.orderid}"></s:hidden>
@@ -207,23 +228,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       </s:form>
                      
                     </c:if>
-                           </c:if>
-                         </td>
-                        
-                         <td>
-                             <c:choose>
-                                 <c:when test="${session.customer.ifcustomer==1}">
-                                 <a href="customerorder/customerorder_deleteyourorder?key=${customerorder.orderid}">
-                                 <c:choose>
-                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">删除</span></c:when>
-                                 <c:otherwise><span style="color:black">取消申请</span></c:otherwise>
-                                 </c:choose>       
-                                     </a>
-                          </c:when>
-                   <c:otherwise>
-                    
-                          <a style="color:black" href="javascript:submit1();">同意申请</a>
-                          <a style="color:black" href="javascript:submit2();">拒绝申请</a>
+                          <a style="color:red" href="javascript:submit_form1();">同意申请</a>
+                          <a style="color:red" href="javascript:submit_form2();">拒绝申请</a>
                   </c:otherwise>
               </c:choose>
                          </td>
@@ -232,7 +238,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                 </s:iterator>
 	            </tbody>
 	      </table>
-          
        </c:otherwise>
     </c:choose>
 
@@ -241,6 +246,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="<%=basePath%>js/bootstrap.min.js"></script>
 	<script src="<%=basePath%>js/jquery.dataTables.js"></script>
 	<script src="<%=basePath%>js/dataTables.bootstrap.js"></script>
+	<script>
+	function submit_form1(){
+            var form1 = document.getElementById("form1");  
+            form1.submit();                        
+        }
+	</script>
+	<script>
+	function submit_form2(){
+            var form2 = document.getElementById("form2");  
+            form2.submit();                        
+        }
+	</script>
 	<script>
 	$(document).ready(function(){
 	    $('#dataTables-example').dataTable({

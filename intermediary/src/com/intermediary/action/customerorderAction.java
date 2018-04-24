@@ -54,7 +54,7 @@ public class customerorderAction extends ActionSupport {
 	}
 	public String updataorder() throws Exception{
 		customerorderDao.updateOrder(customerorder);
-		return "success3";
+		return "success1";
 	}
 
 	public Customerorder getCustomerorder(){

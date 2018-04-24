@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-    <meta http-equiv="Refresh" content="2;url=customerorder/customerorder_editOrder?key=${session.customer.customerid}">
+    <meta http-equiv="Refresh" content="2;url=customerorder/customerorder_editOrder2?key=${session.customer.customerid}">
 	
 	<title>EWork - Creative work website</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
