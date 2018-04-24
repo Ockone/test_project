@@ -364,39 +364,44 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 			<div class="contact-header text-center" id="touch">
 				<h2 class="animated fadeInLeft">Get in Touch</h2>
 				<p class="animated fadeInRight">如果有任何不明白事宜或者有需求请联系我们，我们很乐意为您解答.</p>
-				<ul class="contact-social animated fadeInUp" style="list-style:none;">
-					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-					<li><a href="#"><i class="fa fa-share-alt"></i></a></li>
-				</ul>
+				<li class="contact-social animated fadeInUp" style="list-style:none;">
+					<a href="#" title="twitter"><i class="fa fa-twitter"></i></a>&nbsp&nbsp&nbsp
+					<a href="#" title="dribbble"><i class="fa fa-dribbble"></i></a>&nbsp&nbsp&nbsp
+					<a href="#" title="instagram"><i class="fa fa-instagram"></i></a>&nbsp&nbsp&nbsp
+					<a href="#" title="share"><i class="fa fa-share-alt"></i></a><span></span>
+				</li>
 			</div>
 			<div class="contact-holder">
 				<div class="row">
 					<div class="col-md-6 col-sm-12" >
+					
 			            <div class="googlemap-wrapper animated fadeInLeft" >
-                            <div id="map_canvas" class="map-canvas"></div>
+                            <div id="map_canvas" class="map-canvas">
+                            <img src="upload/map.png" width="100%" height="50%"/>
+                            </div>
                         </div>
 					</div>
 					<div class="col-md-6 col-sm-12" >
 						<div class="contact-form animated fadeInUp">
 							<h4>Send us a Message</h4>
 							<div class="row">
+							<s:form action="feedback/feedback_addFeedback" method="post">
 								<fieldset class="col-md-6">
-									<input type="text" name="name" placeholder="姓  名">
+									<input type="text" name="feedback.name" placeholder="姓  名" required>
 								</fieldset>
 								<fieldset class="col-md-6">
-									<input type="email" name="email" placeholder="邮  箱">
+									<input type="text" name="feedback.contact" placeholder="联系方式（可不填）">
 								</fieldset>
 								<fieldset class="col-md-12">
-									<input type="text" name="subject" placeholder="职  位">
+									<textarea name="feedback.content" cols="30" rows="10" placeholder="描 述 一 下 你 的 期 望 与 需 求"></textarea>
 								</fieldset>
 								<fieldset class="col-md-12">
-									<textarea name="message" id="message" cols="30" rows="10" placeholder="描 述 一 下 你 的 期 望 与 需 求"></textarea>
+									<button type="submit">发送</button>
+									<c:if test="${session.customer.customerid==1}">
+									<a href="feedback/feedback_queryFeedback">查看反馈信息</a>
+									</c:if>
 								</fieldset>
-								<fieldset class="col-md-12">
-									<a href="#" class="message-button">发  送</a>
-								</fieldset>
+							</s:form>
 							</div>
 						</div>
 					</div>

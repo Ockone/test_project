@@ -38,6 +38,7 @@
 			      <value>com/intermediary/model/Customer.hbm.xml</value>
 			      <value>com/intermediary/model/Customerorder.hbm.xml</value>
 			      <value>com/intermediary/model/Message.hbm.xml</value>
+			      <value>com/intermediary/model/Feedback.hbm.xml</value>
 			    </list>
 		</property>
 		 <property name="hibernateProperties">

@@ -34,7 +34,7 @@ CREATE TABLE `customer` (
 
 /*Data for the table `customer` */
 
-insert  into `customer`(`customerid`,`name`,`customeradress`,`customercontact`,`password`,`customerphoto`,`Identification`,`ifcustomer`) values (1,'admin','111','222','111','two.png','001',0),(2,'ceshi','sss','sss','222','one.png','520',1),(3,'456','456','456','456',NULL,'456',1),(4,'789','789','789','789',NULL,'789',1),(5,'754','7535','75356','111',NULL,'753',1),(6,'789','789','123456789','789',NULL,'123456',1),(7,'212121','1212121','2121212','111',NULL,'212121212',NULL),(8,'122121111122222','12212212','21222','111',NULL,'21211112222',NULL),(9,'77788888','7878788','787878','777',NULL,'77777777777',NULL);
+insert  into `customer`(`customerid`,`name`,`customeradress`,`customercontact`,`password`,`customerphoto`,`Identification`,`ifcustomer`) values (1,'admin','111','222','111','two.png','001',0),(2,'ceshi','sss','sss','222','one.png','520',1),(3,'456','456','456','456',NULL,'456',1),(4,'789','789','789','789',NULL,'789',1),(5,'754','7535','75356','111',NULL,'753',1),(6,'789','789','123456789','789',NULL,'123456',1),(7,'212121','1212121','2121212','111',NULL,'212121212',NULL),(8,'122121111122222','12212212','21222','111',NULL,'21211112222',NULL),(9,'77788888','7878788','787878','777',NULL,'77777777777',NULL),(10,'00000','00000','00000','000',NULL,'00000',1),(11,'6666','6666','6666','666',NULL,'6666',1),(12,'0909090','0909090','0909090','111',NULL,'090090',1);
 
 /*Table structure for table `customerorder` */
 
@@ -52,11 +52,29 @@ CREATE TABLE `customerorder` (
   KEY `FK651874EFA3F9EAE` (`id`),
   KEY `FK651874EFE949568` (`jobid`),
   KEY `FK651874E587E9E50` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 /*Data for the table `customerorder` */
 
-insert  into `customerorder`(`orderid`,`jobid`,`id`,`time`,`resume`,`fid`,`retime`) values (5,1,1,'2017-12-22 11:00:36','',NULL,'未通过'),(6,5,2,'2018-01-05 10:52:53',NULL,NULL,NULL),(9,20,2,'2018-01-05 17:06:34','',1,'2018年1月1日'),(10,10,2,'2018-01-11 19:28:37',NULL,NULL,NULL),(11,20,2,'2018-01-11 19:29:24','',1,'未通过');
+insert  into `customerorder`(`orderid`,`jobid`,`id`,`time`,`resume`,`fid`,`retime`) values (5,1,1,'2017-12-22 11:00:36','',NULL,'未通过'),(12,1,10,'2018-04-18 17:11:47','',NULL,'下周日上午9点'),(13,1,1,'2018-04-18 18:13:50','',NULL,'下周日上午9点'),(14,1,1,'2018-04-18 18:13:56','',NULL,'下周日上午9点'),(15,1,1,'2018-04-18 18:14:19','',NULL,'下周日上午9点'),(16,1,1,'2018-04-18 18:14:30','',NULL,'下周日上午9点'),(17,32,2,'2018-04-24 20:14:20','',1,'下周日上午9点'),(18,35,2,'2018-04-24 20:14:27','',1,'下周日上午9点'),(19,36,2,'2018-04-24 20:20:34','',1,'未通过');
+
+/*Table structure for table `feedback` */
+
+DROP TABLE IF EXISTS `feedback`;
+
+CREATE TABLE `feedback` (
+  `feedbackid` int(10) NOT NULL AUTO_INCREMENT,
+  `name` char(10) NOT NULL,
+  `contact` char(20) DEFAULT NULL,
+  `sendtime` char(50) DEFAULT NULL,
+  `content` varchar(1000) NOT NULL,
+  PRIMARY KEY (`feedbackid`),
+  KEY `feedbackid` (`feedbackid`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+/*Data for the table `feedback` */
+
+insert  into `feedback`(`feedbackid`,`name`,`contact`,`sendtime`,`content`) values (1,'嗡嗡嗡','',NULL,'嗡嗡嗡'),(2,'嗡嗡嗡','','2018-04-25 00:16:12','嗡嗡嗡'),(3,'得到的','嘟打嘟','2018-04-25 00:16:28','嘟打嘟'),(4,'得到的','嘟打嘟','2018-04-25 00:18:39','嘟打嘟'),(5,'天天','天堂','2018-04-25 00:18:48','天堂'),(6,'天天','天堂','2018-04-25 00:32:49','天堂');
 
 /*Table structure for table `message` */
 
