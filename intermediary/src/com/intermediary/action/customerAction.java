@@ -1,10 +1,25 @@
 package com.intermediary.action;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
+=======
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+
+import org.apache.struts2.ServletActionContext;
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -22,7 +37,14 @@ public class customerAction extends ActionSupport implements SessionAware{
     private Map<String,Object> session;
     private String prePage;
     private String confirmpass;
+<<<<<<< HEAD
 
+=======
+    private String flag;
+    private File customerphoto;
+    private String customerphotoFileName,customerphotoContentType;
+    private String orginphoto;
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -45,6 +67,15 @@ public class customerAction extends ActionSupport implements SessionAware{
 			String pass =customer.getPassword();
 			if(pass.equals(this.getConfirmpass())){
 				System.out.println("确认密码一致。");
+<<<<<<< HEAD
+=======
+				if((this.getFlag()).equals("我是招聘方")){
+					customer.setIfcustomer(1);
+				}
+				else{
+					customer.setIfcustomer(0);
+				}
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 		        customerDao.addCustomer(customer);
 		        session.put("customer", customer);
 			}else{
@@ -55,7 +86,11 @@ public class customerAction extends ActionSupport implements SessionAware{
 		else{
 			this.errMessage="此用户已被注册。";
 			System.out.print(this.errMessage);
+<<<<<<< HEAD
 		return "fail";
+=======
+			return "fail";
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 		}
 		return "show_view";	
 	}
@@ -115,6 +150,10 @@ public class customerAction extends ActionSupport implements SessionAware{
 
 	public void setConfirmpass(String confirmpass) {
 		this.confirmpass = confirmpass;
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	}
 	public String showEdit() throws Exception {
     	customer = customerDao.getCustomerById(customer.getCustomerid());
@@ -122,7 +161,50 @@ public class customerAction extends ActionSupport implements SessionAware{
         return "customer_updatamessage";
     }
     public String editCustomer() throws Exception{
+<<<<<<< HEAD
         customerDao.updateCustomer(customer);
+=======
+    	System.out.println("sss");
+    	String path = ServletActionContext.getServletContext().getRealPath("/upload/customerp");
+    	String filename = "";
+    	if(customerphoto!=null){
+    		System.out.println("ssss");
+    		InputStream is = new FileInputStream(customerphoto);
+    		String fileContentType = this.getCustomerphotoContentType();
+    		System.out.println(fileContentType);
+    		if(fileContentType.equals("image/jpeg") || fileContentType.equals("image/pjeg"))
+    			filename = UUID.randomUUID().toString()+".jpg";
+			else if(fileContentType.equals("image/gif"))
+				 filename = UUID.randomUUID().toString()+".gif";
+			else if(fileContentType.equals("image/png"))
+				 filename = UUID.randomUUID().toString()+".png";
+    		OutputStream os =new FileOutputStream(new File(path,filename));
+    		byte[] b = new byte[1024];
+    		System.out.println("sssss");
+    		int bs = 0;
+			while((bs = is.read(b))>0){
+				 os.write(b,0,bs);
+			}
+			 is.close();
+			 os.close();
+			 System.out.println(filename);
+    	}else{
+    		System.out.println("没有图片");
+    		filename = orginphoto;
+    		System.out.println(filename);
+    	}
+    	
+    	customer.setCustomerphoto(filename);
+    	
+    	if((this.getFlag()).equals("我是招聘方")){
+			customer.setIfcustomer(1);
+		}
+		else{
+			customer.setIfcustomer(0);
+		}
+        customerDao.updateCustomer(customer);
+        session.put("customer", customer);
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
         return "main";
     }
     /*public String setif1(){
@@ -135,5 +217,49 @@ public class customerAction extends ActionSupport implements SessionAware{
     	return "main";
     }*/
 
+<<<<<<< HEAD
+=======
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+
+	public File getCustomerphoto() {
+		return customerphoto;
+	}
+
+	public void setCustomerphoto(File customerphoto) {
+		this.customerphoto = customerphoto;
+	}
+
+	public String getCustomerphotoFileName() {
+		return customerphotoFileName;
+	}
+
+	public void setCustomerphotoFileName(String customerphotoFileName) {
+		this.customerphotoFileName = customerphotoFileName;
+	}
+
+
+	public String getOrginphoto() {
+		return orginphoto;
+	}
+
+	public void setOrginphoto(String orginphoto) {
+		this.orginphoto = orginphoto;
+	}
+
+	public String getCustomerphotoContentType() {
+		return customerphotoContentType;
+	}
+
+	public void setCustomerphotoContentType(String customerphotoContentType) {
+		this.customerphotoContentType = customerphotoContentType;
+	}
+
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 
 }

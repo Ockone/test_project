@@ -23,6 +23,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+<<<<<<< HEAD
+=======
+	<link rel="stylesheet" href="css/main.css">
+	
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
   </head>
   
   <body>
@@ -42,6 +47,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
+<<<<<<< HEAD
+=======
+            <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
+
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -50,7 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
+<<<<<<< HEAD
                           <c:when test="${session.customer.if_==1}">
+=======
+                          <c:when test="${session.customer.ifcustomer==1}">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -60,7 +80,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:otherwise>
                         </c:choose>
                     </p>
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </div>
         </div>
     </div>
@@ -73,6 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:choose>
             <c:when test="${session.customer.name==null}">
             <a class="on" href="main.jsp">首页</a>
+<<<<<<< HEAD
             <a class="" href="#">关于我们</a>
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
@@ -82,12 +106,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:otherwise>
             <c:choose>
             <c:when test="${session.customer.if_==1}">
+=======
+            <a class="" href="main.jsp#aboutus">关于我们</a>
+            <a class="" href="main.jsp#ourwork">成果展示</a>
+            <a class="" href="main.jsp#advantages">公司优势</a>
+            <a class="" href="main.jsp#touch">联系我们</a>
+            </c:when>
+            <c:otherwise>
+            <c:choose>
+            <c:when test="${session.customer.ifcustomer==1}">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <a class="on" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
+<<<<<<< HEAD
             <a class="" href="#">联系我们</a>
             <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
+=======
+            <a class="" href="main.jsp#touch">联系我们</a>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:when>
             <c:otherwise>
             <a class="on" href="main.jsp">首页</a>
@@ -95,7 +133,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
+<<<<<<< HEAD
             <a href="#" target="_blank">无忧精英</a>
+=======
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:otherwise>
             </c:choose>
             </c:otherwise>
@@ -194,7 +235,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="story-bg animated fadeIn"></div>
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
+<<<<<<< HEAD
 						<div class="inner-story animated fadeInRight text-center">
+=======
+						<div class="inner-story animated fadeInRight text-center" id="aboutus">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 							<h2>ABOUT US</h2>
 							<p> E work成立于2018年1月8日，“work”已经代表E work是个招聘信息网，在这里，
 无论你是刚毕业的大学生，还是中途跳槽的人才，都可以通过E work找到你的最满意的功工作。
@@ -209,7 +254,11 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 				<div class="offer-header">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 text-center">
+<<<<<<< HEAD
 							<div class="offer-title animated fadeInDown">
+=======
+							<div class="offer-title animated fadeInDown" id="ourwork">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 								<h2>OUR WORK</h2>
 							</div>
 						</div>
@@ -319,7 +368,11 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 		</div>
 
 		<div id="menu-4" class="content blog-section container">
+<<<<<<< HEAD
 			<div class="blog-header text-center">
+=======
+			<div class="blog-header text-center" id="advantages">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 				<h2 class="animated fadeInRight">company advantage</h2>
 				<p class="animated fadeInLeft">我们公司能够在与其他公司的竞争中脱颖而出主要因为我们公司有如下几点优势.</p>
 				<a href="#" class="blog-button animated fadeInUp">加入我们</a>
@@ -362,6 +415,7 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 		</div>
 
 		<div id="menu-5" class="content contact-section container">
+<<<<<<< HEAD
 			<div class="contact-header text-center">
 				<h2 class="animated fadeInLeft">Get in Touch</h2>
 				<p class="animated fadeInRight">如果有任何不明白事宜或者有需求请联系我们，我们很乐意为您解答.</p>
@@ -371,10 +425,22 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
 					<li><a href="#"><i class="fa fa-share-alt"></i></a></li>
 				</ul>
+=======
+			<div class="contact-header text-center" id="touch">
+				<h2 class="animated fadeInLeft">Get in Touch</h2>
+				<p class="animated fadeInRight">如果有任何不明白事宜或者有需求请联系我们，我们很乐意为您解答.</p>
+				<li class="contact-social animated fadeInUp" style="list-style:none;">
+					<a href="#" title="twitter"><i class="fa fa-twitter"></i></a>&nbsp&nbsp&nbsp
+					<a href="#" title="dribbble"><i class="fa fa-dribbble"></i></a>&nbsp&nbsp&nbsp
+					<a href="#" title="instagram"><i class="fa fa-instagram"></i></a>&nbsp&nbsp&nbsp
+					<a href="#" title="share"><i class="fa fa-share-alt"></i></a><span></span>
+				</li>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 			</div>
 			<div class="contact-holder">
 				<div class="row">
 					<div class="col-md-6 col-sm-12" >
+<<<<<<< HEAD
 			            <div class="googlemap-wrapper animated fadeInLeft" >
                             <div id="map_canvas" class="map-canvas"></div>
                         </div>
@@ -456,12 +522,48 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
     </fieldset>
   </form>
 							
+=======
+					
+			            <div class="googlemap-wrapper animated fadeInLeft" >
+                            <div id="map_canvas" class="map-canvas">
+                            <img src="upload/map.png" width="100%" height="50%"/>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-md-6 col-sm-12" >
+						<div class="contact-form animated fadeInUp">
+							<h4>Send us a Message</h4>
+							<div class="row">
+							<s:form action="feedback/feedback_addFeedback" method="post">
+								<fieldset class="col-md-6">
+									<input type="text" name="feedback.name" placeholder="姓  名" required>
+								</fieldset>
+								<fieldset class="col-md-6">
+									<input type="text" name="feedback.contact" placeholder="联系方式（可不填）">
+								</fieldset>
+								<fieldset class="col-md-12">
+									<textarea name="feedback.content" cols="30" rows="10" placeholder="描 述 一 下 你 的 期 望 与 需 求"></textarea>
+								</fieldset>
+								<fieldset class="col-md-12">
+									<button type="submit">发送</button>
+									<c:if test="${session.customer.customerid==1}">
+									<a href="feedback/feedback_queryFeedback">查看反馈信息</a>
+									</c:if>
+								</fieldset>
+							</s:form>
+							</div>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 						</div>
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 		<!-- </div> -->
 	</div> 
+=======
+		</div>
+	</div>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 
 
 	<footer class="site-footer container text-center">

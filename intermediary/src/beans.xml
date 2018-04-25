@@ -17,7 +17,11 @@
 		<property name="driverClass" value="org.gjt.mm.mysql.Driver"/>
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/imtermediary?useUnicode=true&amp;characterEncoding=UTF-8"/>
 		<property name="user" value="root"/>
+<<<<<<< HEAD
 		<property name="password" value=""/>
+=======
+		<property name="password" value="xzh981028"/>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
 		<property name="initialPoolSize" value="1"/>
 		<!--连接池中保留的最小连接数。-->
@@ -38,6 +42,10 @@
 			      <value>com/intermediary/model/Customer.hbm.xml</value>
 			      <value>com/intermediary/model/Customerorder.hbm.xml</value>
 			      <value>com/intermediary/model/Message.hbm.xml</value>
+<<<<<<< HEAD
+=======
+			      <value>com/intermediary/model/Feedback.hbm.xml</value>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 			    </list>
 		</property>
 		 <property name="hibernateProperties">

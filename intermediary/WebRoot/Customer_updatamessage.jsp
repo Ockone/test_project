@@ -68,6 +68,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
+<<<<<<< HEAD
+=======
+            <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -76,7 +86,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
+<<<<<<< HEAD
                           <c:when test="${session.customer.if_==1}">
+=======
+                          <c:when test="${session.customer.ifcustomer==1}">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -103,17 +117,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
             <a class="" href="#">联系我们</a>
+<<<<<<< HEAD
             <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
             </c:when>
             <c:otherwise>
             <c:choose>
             <c:when test="${session.customer.if_==1}">
+=======
+            </c:when>
+            <c:otherwise>
+            <c:choose>
+            <c:when test="${session.customer.ifcustomer==1}">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <a class="on" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
             <a class="" href="#">联系我们</a>
+<<<<<<< HEAD
             <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
+=======
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:when>
             <c:otherwise>
             <a class="on" href="main.jsp">首页</a>
@@ -121,7 +145,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
+<<<<<<< HEAD
             <a href="#" target="_blank">无忧精英</a>
+=======
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:otherwise>
             </c:choose>
             </c:otherwise>
@@ -130,10 +157,94 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
+<<<<<<< HEAD
 
  <center>
   	<div>  
  	  <s:form  action ="customer/customer_editCustomer">
+=======
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+            <s:form action = "customer/customer_editCustomer" cssClass="form-horizontal"  enctype="multipart/form-data" method="post">
+            <s:hidden name="orginphoto" value="%{#session.customer.customerphoto}"></s:hidden>
+            <s:hidden name="customer.identification" value="%{#session.customer.identification}"></s:hidden>
+            <s:hidden name="customer.customerid" label="id" value="%{#session.customer.customerid}"></s:hidden>   
+               <div class="panel-heading">
+                 
+                    <h1 style="text-align:center"><i class="fa fa-plus" aria-hidden="true"></i>添加工作</h1>
+                 
+               </div>
+               <div class="panel-body">
+                   <div class="form-group">
+                     <label class="control-label col-md-3">名称</label>
+                     <div class="col-md-4">
+                        <input type="text" name="customer.name" value="${session.customer.name}" class="form-control input-sm" required>
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <label class="control-label col-md-3">地址</label>
+                     <div class="col-md-4">
+                        <input type="text" name="customer.customeradress" value="${session.customer.customeradress}" class="form-control input-sm" required>
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <label class="control-label col-md-3">联系方式</label>
+                     <div class="col-md-4">
+                        <input type="text" name="customer.customercontact"  value="${session.customer.customercontact}" class="form-control input-sm" required>
+                     </div>
+                   </div>
+
+                   <div class="form-group">
+                     <label class="control-label col-md-3">密码</label>
+                     <div class="col-md-4">
+                       <input type="text" name="customer.password"  value="${session.customer.password}" class="form-control input-sm" required>
+                     </div> 
+                   </div>
+                   
+                   <div class="form-group">
+                   <label class="control-label col-md-3">用户类别</label>
+                      <div class="col-md-4">
+                      
+                      <select name="flag" class="form-control">
+			                <option>我是应聘方</option>
+                            <option>我是招聘方</option>
+		              </select>
+		              </div>
+                   </div>
+                   <div class="form-group">
+                      <label class="control-label col-md-3">我的头像</label>
+                      <div class="col-md-4">
+                         <div class="fileupload fileuoload-new" data-provides="fileuoload">
+                            <div class="fileupload-new thumbnail" style="width:200px; height:150px">
+                               <img src="<%=basePath%>upload/customerp/${customer.customerphoto}" alt="" />
+                            </div>
+                            <div class="fileupload-previw fileupload-exists thumbnail" style="max-width:200px;max-height:150px;line-height:20px">
+                            </div>
+                            <div>
+                                <span class="btn btn-file btn-primary">
+                                    <span class="fileupload-new">浏览</span>
+                                    <span class="fileupload-exists">浏览</span>
+                                    <input type="file" name="customerphoto"/>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
+                                </span>       
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="form-group col-md-3">
+                       <button type="submit" class="btn btn-success pull-right">提交</button>
+                                      
+                   </div>
+               </div>
+            </s:form>
+        </div>
+    </div>
+ </main>
+ <!--<center>
+  	<div>  
+ 	  <s:form  action ="customer/customer_editCustomer" enctype="multipart/form-data">
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
          <h3><s:textfield name="customer.name" label="姓　名" ></s:textfield></h3>
          <h3><s:textfield name="customer.customeradress" label="住　址"></s:textfield></h3>
          <h3><s:textfield name="customer.customercontact" label="联系方式"></s:textfield></h3>
@@ -141,6 +252,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <h3><s:hidden name="customer.identification" label="照　片" value="%{#session.customer.identification}"></s:hidden></h3>
          <h3><s:textfield name="customer.password" label="密　码"></s:textfield></h3>
          <h3><s:hidden name="customer.customerid" label="id" value="%{#session.customer.customerid}"></s:hidden></h3>
+<<<<<<< HEAD
          <s:hidden name="customer.if_" value="%{#session.customer.if_}"></s:hidden>
          <s:submit value="保存" cssClass="btn btn-primary btn-block btn-large" style="width: 60%;"></s:submit>
        </s:form>
@@ -176,6 +288,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        </c:choose>
      </div>
  </center>
+=======
+         <h3><select name="flag" class="form-control">
+			   <option>我是应聘方</option>
+               <option>我是招聘方</option>
+		</select></h3>
+		<input type="file" name="customerphoto">
+		
+         <s:submit value="保存" cssClass="btn btn-primary btn-block btn-large" style="width: 60%;"></s:submit>
+       </s:form>
+     </div>
+ </center>-->
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
  <footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">
@@ -192,5 +316,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
+<<<<<<< HEAD
+=======
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-fileupload.js"></script>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
  </body>
  </html>

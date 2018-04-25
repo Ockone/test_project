@@ -1,6 +1,25 @@
 body{
 	font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
 	font-size:16px;
+<<<<<<< HEAD
+=======
+	width:100%;
+	height:100%;
+	background-image:url('../images/loginbg.png');
+	background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    padding-top:60px;
+   
+	
+}
+.bg-blur{
+	-webkit-filter: blur(15px);
+            -moz-filter: blur(15px);
+            -o-filter: blur(15px);
+            -ms-filter: blur(15px);
+            filter: blur(15px);
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 }
 .mr200{
 	margin-right:200px;
@@ -15,7 +34,11 @@ a:hover {
 	text-decoration:none;
 }
 header {
+<<<<<<< HEAD
     background: #FF6633;
+=======
+   <!--background: #8643c3cb;-->
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
     height: 80px;
 }
 header .account{
@@ -40,16 +63,28 @@ header .account>a:hover{
 	
 }
 header .logo{
+<<<<<<< HEAD
 	margin-top:10px;
+=======
+	margin-top:0px;
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	margin-left:50px;
     float:left;
 	line-height:60px;
 	font-size:28px;
+<<<<<<< HEAD
 	color:white;
 }
 
 main{
 	margin-top:10px;
+=======
+	color:#FF6633;
+}
+
+main{
+	margin-top:5px;
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 }
 
 
@@ -123,6 +158,7 @@ main ul li p a.add-order:hover{
 }
 /*登录页*/
 
+<<<<<<< HEAD
 .bg{
 	width:100%;
 	height:600px;
@@ -136,6 +172,10 @@ main ul li p a.add-order:hover{
 }
 .bg .login{
 	
+=======
+.bg .login{
+	text-align:center;
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	margin:0 auto;
 	width:400px;
 	padding:0 30px 30px 30px;
@@ -173,6 +213,10 @@ main ul li p a.add-order:hover{
 }
 
 .bg .login h3{
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
     color: #666;
     padding:30px 0;
     letter-spacing: 4px;
@@ -209,10 +253,18 @@ main ul li p a.add-order:hover{
     left: 0;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 .bg .login .form-group{
 	padding:10px 30px;
 }
 .bg .login button{
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	margin:0 50px;
 }
 
@@ -258,6 +310,7 @@ main table td{
 	text-align:center;
 	height:40px;
 }
+<<<<<<< HEAD
 <!--  我发布的工作-->
 center ul li .add{
 	
@@ -280,3 +333,6 @@ center ul li .add >a{
 center ul li .add:hover{
 	border:4px solid gray;
 }
+=======
+
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1

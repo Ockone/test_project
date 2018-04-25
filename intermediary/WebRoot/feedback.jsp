@@ -5,12 +5,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>EWork - Creative work website</title>
+    <title>My JSP 'main.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -25,15 +25,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/one.css">
   </head>
   <style>
-  .class1 h2{
-  font-size:18px;
-  padding:10px;
-  }
-  .class1{
-  padding-right: 300px;
-  padding-top: 10px;
-  }
-   @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+ a {
+    color: #00FEFE;
+    text-decoration: blink;
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -ms-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+}
+<style>
+  input { 
+	width: 110%; 
+	height:50px;
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
 .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
 .btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
@@ -42,17 +64,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .btn-primary.active { color: rgba(255, 255, 255, 0.75); }
 .btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
-.btn-block {     
-    width: 20%;
-    display: block;
-    margin: 50px -350px 18px 1px;
-    }
+.btn-block { width: 100%; display:block; margin: 15px 25px 18px 1px;}
 
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
-  
+
+  </style>
   </style>
   <body>
-    <div class="header">
+      <div class="header">
     <!-- bar start -->
     <div class="bar">
         <div class="in">
@@ -68,16 +87,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-<<<<<<< HEAD
-=======
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -86,11 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
-<<<<<<< HEAD
-                          <c:when test="${session.customer.if_==1}">
-=======
                           <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -112,46 +117,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <p class="nlink">
             <c:choose>
             <c:when test="${session.customer.name==null}">
-            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="main.jsp">首页</a>
             <a class="" href="#">关于我们</a>
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-            </c:when>
-            <c:otherwise>
-            <c:choose>
-            <c:when test="${session.customer.if_==1}">
-=======
-          
             </c:when>
             <c:otherwise>
             <c:choose>
             <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <a class="" href="main.jsp">首页</a>
-            <a class="on" href="message/message_queryMessage?keyWords=">我的工作</a>
-            <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
+            <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
+            <a class="on" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-=======
-            
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:when>
             <c:otherwise>
             <a class="" href="main.jsp">首页</a>
-            <a class="on" href="message/message_queryMessage?keyWords=">工作</a>
+            <a class="" href="message/message_queryMessage?keyWords=">工作</a>
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
-            <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
+            <a class="on" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
-<<<<<<< HEAD
-            <a href="#" target="_blank">无忧精英</a>
-=======
-            
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:otherwise>
             </c:choose>
             </c:otherwise>
@@ -160,27 +146,70 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
- <center>
-       <h1>${message.companyname}</h1>
-       <img src="<%=basePath%>images/${message.companyphoto}" style="float:left;width:250px;height:250px;margin-left: 350px"/>
-       <div class="class1">
-       <h2>地　址:${message.companyaddress}</h2>
-       <h2>薪　资:${message.salary}</h2>
-       <h2>剩　余:${message.available}</h2>
-       <h2>联系方式:${message.companycontact}</h2>
-       <h2 style="margin-left:600px">需　求:${message.demand}</h2>
-       <c:choose>
-          <c:when test="${session.customer.name!=null}">
-             <a href="customerorder/customerorder_wantOrder?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}" class="btn btn-primary btn-block btn-large">申请</a>
-          </c:when>
-       </c:choose>
-       </div>
-</center>
-  <footer class="site-footer container text-center">
-		<div class="row">
+   
+       <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+	           <thead>
+	               <tr>
+	                    <th>反馈单号</th>
+						<th>客户姓名</th>
+						<th>联系方式</th>
+						<th>反馈时间</th> 
+						<th>反馈内容</th> 
+					</tr>
+	            </thead>
+	            <tbody>
+	                <s:iterator value="feedbackList" var="feedback" status="status">
+	                <tr>
+	                     <td><s:property value="#feedback.feedbackid"></s:property></td>
+	                     <td><s:property value="#feedback.name"></s:property></td>
+	                     <td><s:property value="#feedback.contact"></s:property></td>
+	                     <td><s:property value="#feedback.sendtime"></s:property></td>
+	                     <td><s:property value="#feedback.content"></s:property></td>
+	                     
+                   </tr>
+                   </s:iterator>
+	            </tbody>
+	      </table>
+
+
+    <script src="js/jquery.min.js"></script>
+	<script src="js/templatemo_custom.js"></script>
+	<script src="<%=basePath%>js/bootstrap.min.js"></script>
+	<script src="<%=basePath%>js/jquery.dataTables.js"></script>
+	<script src="<%=basePath%>js/dataTables.bootstrap.js"></script>
+   <script>
+	$(document).ready(function(){
+	    $('#dataTables-example').dataTable({
+	    "language":{
+	    "lengthMenu":"每页_MENU_条记录",
+	    "zeroRecords":"没有找到记录",
+	    "info":"第_PAGE_页（共_PAGES_页）",
+	    "infoEmpty":"无记录",
+	    "infoFiltered":"从_MAX_条记录过滤",
+	    "sInfoPostFix":"",
+	    "sSearch":"搜索：",
+	    "sUrl":"",
+	    "sEmptyTable":"表中数据为空",
+	    "sLoadingRecords":"载入中...",
+	    "sInfoThousands":",",
+	    "oPaginate":{
+	        "sFirst":"首页",
+	        "sPrevious":"上页",
+	        "sNext":"下页",
+	        "sLast":"末页"
+	    },
+	    "oAria":{
+	        "sSortAscending":"：以升序排列",
+	        "sSortDescending":"：以降序排列"
+	    },
+	    }
+	    });
+	});
+	</script>
+
+	<footer class="site-footer container text-center">
 			<div class="col-md-12 copyright">
 				<p>Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>
-			</div>
 		</div>
 	</footer>
 	<span class="border-top"></span>
@@ -190,7 +219,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
 
-	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
+	
+	
  </body>
 </html>

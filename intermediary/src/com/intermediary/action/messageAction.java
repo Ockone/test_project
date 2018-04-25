@@ -78,7 +78,10 @@ public class messageAction extends ActionSupport{
 	 }
 	 
 	 public String addComMessage() throws Exception{
+<<<<<<< HEAD
 		 System.out.println("hhaahhhhhhh");
+=======
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 		 String path = ServletActionContext.getServletContext().getRealPath("/upload");
 		 String companyphotoFileName = "";
 		 if(uploadFile!=null){

@@ -50,7 +50,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-repeat"></i></span>
+<<<<<<< HEAD
 			<input name="conf" type="password" class="form-control" placeholder="请确认密码" required>
+=======
+			<input name="confirmpass" type="password" class="form-control" placeholder="请确认密码" required>
+			</div>
+			<div>
+			<select name="flag" class="form-control">
+			   <option>我是应聘方</option>
+               <option>我是招聘方</option>
+			</select>
+			<!-- <input name="customer.ifcustomer" type="hidden" value="1" required> -->
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 			</div>
 	</div>
 	<button type="submit" class="btn btn-success btn-login">注册</button>

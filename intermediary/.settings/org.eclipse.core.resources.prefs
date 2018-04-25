@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 #Sat Apr 07 18:11:00 CST 2018
 eclipse.preferences.version=1
+=======
+#Wed Apr 11 16:29:01 CST 2018
+eclipse.preferences.version=1
+encoding//WebRoot/css/main.css=UTF-8
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 encoding/<project>=UTF-8

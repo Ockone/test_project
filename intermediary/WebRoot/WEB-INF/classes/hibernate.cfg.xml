@@ -10,6 +10,12 @@
 		<mapping resource="com/intermediary/model/Customer.hbm.xml" />
 		<mapping
 			resource="com/intermediary/model/Customerorder.hbm.xml" />
+<<<<<<< HEAD
+=======
+		<mapping resource="com/intermediary/model/feedback.hbm.xml" />
+		<mapping resource="com/intermediary/model/Feedback.hbm.xml" />
+
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 
 	</session-factory>
 

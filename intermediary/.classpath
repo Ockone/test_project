@@ -5,5 +5,9 @@
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-3.1.13-bin.jar"/>
+>>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
