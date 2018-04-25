@@ -14,14 +14,8 @@
 			<generator class="increment"></generator>
 		</primary-key>
 	</table>
-	<table name="message" catalog="imtermediary"
-		class="com.intermediary.model.Message">
-		<primary-key>
-			<generator class="increment"></generator>
-		</primary-key>
-	</table>
-<table name="feedback" catalog="imtermediary"
-	class="com.intermediary.model.Feedback">
+<table name="message" catalog="imtermediary"
+	class="com.intermediary.model.Message">
 	<primary-key>
 		<generator class="increment"></generator>
 	</primary-key>
