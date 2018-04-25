@@ -70,6 +70,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
+            <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -131,10 +138,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
  <center>
  <p style="font-size:18px;font-weight:bold">我的信息:</p>
-                <img src="<%=basePath%>images/${customer.customerphoto}" style="float:left;width:250px;height:250px;margin-left: 350px;border:2px solid blue"/><br>
+                <img src="<%=basePath%>upload/customerp/${customer.customerphoto}" style="float:left;width:250px;height:250px;margin-left: 350px;border:2px solid blue"/ alt="" ><br>
 			    <div class="class1">
 			    <h2>  　身份证号:${customer.identification}</h2>
-			    <h2>　　  账　　号:${customer.name}</h2>
+			    <h2>　账　　号:${customer.name}</h2>
 	            <h2>　地　　址:${customer.customeradress}</h2>
 	            <h2>　联系方式:${customer.customercontact}</h2>
 	            <h2 style="margin-left:600px">用户编号:${customer.customerid}</h2>

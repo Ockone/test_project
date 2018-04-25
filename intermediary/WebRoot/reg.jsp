@@ -53,7 +53,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input name="confirmpass" type="password" class="form-control" placeholder="请确认密码" required>
 			</div>
 			<div>
-			<input name="customer.ifcustomer" type="hidden" value="1" required>
+			<select name="flag" class="form-control">
+			   <option>我是应聘方</option>
+               <option>我是招聘方</option>
+			</select>
+			<!-- <input name="customer.ifcustomer" type="hidden" value="1" required> -->
 			</div>
 	</div>
 	<button type="submit" class="btn btn-success btn-login">注册</button>
