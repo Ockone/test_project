@@ -16,10 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
-<<<<<<< HEAD
-=======
 	<link rel="stylesheet" href="css/main.css">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 </head>
 <body>
 	 <div class="header">
@@ -38,8 +35,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-<<<<<<< HEAD
-=======
             <!-- 添加的搜索方法，需要调整位置 -->
                 <div class="search">
                     <form action="message/message_queryMessage" method="post" class="form-inline">
@@ -47,7 +42,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        <button type="submit" class="btn btn-default">查询</button>    
                     </form>
                 </div>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -56,11 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
-<<<<<<< HEAD
-                          <c:when test="${session.customer.if_==1}">
-=======
                           <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -77,11 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="nag" id="topIndex">
         <div class="in">
            <img class="logo" id="logo" width="66" height="46" src="images/logo.png" alt="前程无忧">
-<<<<<<< HEAD
-                <!-- <img class="slogen" id="slogen"  height="46"  src="images/pp.png"> -->
-=======
                 <img class="slogen" id="slogen"  height="46"  src="images/pp.png">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             
             <p class="nlink">
             <c:choose>
@@ -91,27 +77,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-            </c:when>
-            <c:otherwise>
-            <c:choose>
-            <c:when test="${session.customer.if_==1}">
-=======
             </c:when>
             <c:otherwise>
             <c:choose>
             <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <a class="" href="main.jsp">首页</a>
             <a class="on" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-=======
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:when>
             <c:otherwise>
             <a class="" href="main.jsp">首页</a>
@@ -119,10 +93,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
-<<<<<<< HEAD
-            <a href="#" target="_blank">无忧精英</a>
-=======
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:otherwise>
             </c:choose>
             </c:otherwise>
@@ -131,19 +101,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-<<<<<<< HEAD
-<center>
-            <ul style="width:1040px;margin:0 auto;padding-left: 0;list-style: none;">
-            <c:forEach var="message" items="${messageList}" varStatus="status">
-     <li style="display:inline-block;float:left">
-     <img src="<%=basePath%>upload/${message.companyphoto}"  style="margin:30px 20px 0px 20px;padding:5px;width:300px;height:250px;border:4px solid silver;border-radius:8px;"/><br>
-     <p>职位:<c:out value="${message.jobname}"></c:out>
-=======
 <main>
+<div>
+<form action="message/message_sortMessage" method="post"><br><br>
+<input type="checkbox" name="box" value="商务/营销">商务/营销<br>
+<input type="checkbox" name="box" value="生活/医疗">生活/医疗<br>
+<input type="checkbox" name="box" value="劳工/制造">劳工/制造<br>
+<input type="checkbox" name="box" value="艺术/教育">艺术/教育<br>
+<input type="checkbox" name="box" value="科技/设计">科技/设计<br>
+<input type="submit" value="提交">
+</form>
+</div>
 <ul>
 
-<c:forEach var="message" items="${messageList}" varStatus="status">
- <li>
+          <c:forEach var="message" items="${messageList}" varStatus="status">
+              <li>
                  <a href="message/message_getComMessage?message.jobid=${message.jobid}">
 	             <img src="<%=basePath%>upload/${message.companyphoto}">
 	             </a>
@@ -157,40 +129,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                </a>
 	             </p>
 	          </li>
- <!-- 
-  <div class="result" style="float:left;display:inline;margin-left:50px">
-     <img src="<%=basePath%>upload/${message.companyphoto}" style="width:400px;height:300px;border:2px solid blue"/><br>
-     <h3>职位:<c:out value="${message.jobname}"></c:out></h3>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
-     <h3>招聘公司:<c:out value="${message.companyname}"></c:out></h3>
-     <a href="message/message_getComMessage?message.jobid=${message.jobid}">详情</a>
-     <c:choose>
-       <c:when test="${customer.customerid==1}">
-<<<<<<< HEAD
-       <p>
-          <a href="message/message_deleteComMessage?message.jobid=${message.jobid}"><i class="fa fa-trash"></i></a>
-          <a href="message/message_getComMessage2?message.jobid=${message.jobid}"><i class="fa fa-pencil"></i></a>
-          </p>
-       </c:when>
-     </c:choose>
-  </c:forEach>
-            
-            </ul>
-          
-
-
-
-</center>
-=======
-          <a href="message/message_deleteComMessage?message.jobid=${message.jobid}">删除</a>
-          <a href="message/message_getComMessage2?message.jobid=${message.jobid}">修改</a>
-       </c:when>
-     </c:choose>
-     </div> -->
+ 
   </c:forEach>
   </ul>
 </main>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 
 
 	<footer class="site-footer container text-center">

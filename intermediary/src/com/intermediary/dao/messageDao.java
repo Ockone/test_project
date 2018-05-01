@@ -60,6 +60,26 @@ public class messageDao {
     	}
     	return (ArrayList<Message>) messageList;
     }
+	/*
+    public ArrayList<Message> queryMessage(String sortname) {
+    	
+    	Session s = factory.getCurrentSession();
+    	List messageList;
+    	String hql = "From Message message where 1=1";
+    	if(!sortname.equals("")){ 
+    		
+    		hql = hql + " and message.sorts like '%" + sortname + "%'";
+	    	Query q = s.createQuery(hql);
+	    	messageList = q.list();
+	    	
+    	}else{
+    		
+    		messageList =queryAllMessage();	
+    	
+    	}
+    	return (ArrayList<Message>) messageList;
+    }
+	*/
 	public Message getMessageById(Integer jobid){
 		   Session s=factory.getCurrentSession();
 		   Message c=(Message)s.get(Message.class, jobid);

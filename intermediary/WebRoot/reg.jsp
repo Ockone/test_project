@@ -30,11 +30,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="form-group">
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
-			<input name="customer.identification" type="text" class="form-control" placeholder="您的ID" required>
+			<input name="customer.identification" type="text" class="form-control" placeholder="您的ID/企业ID" required>
 			</div>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-user"></i></span>
-			<input name="customer.name" type="text" class="form-control" placeholder="姓名" required>				
+			<input name="customer.name" type="text" class="form-control" placeholder="姓名/公司全称" required>				
 			</div>
             <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
@@ -50,9 +50,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-<<<<<<< HEAD
-			<input name="conf" type="password" class="form-control" placeholder="请确认密码" required>
-=======
 			<input name="confirmpass" type="password" class="form-control" placeholder="请确认密码" required>
 			</div>
 			<div>
@@ -61,7 +58,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <option>我是招聘方</option>
 			</select>
 			<!-- <input name="customer.ifcustomer" type="hidden" value="1" required> -->
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 			</div>
 	</div>
 	<button type="submit" class="btn btn-success btn-login">注册</button>

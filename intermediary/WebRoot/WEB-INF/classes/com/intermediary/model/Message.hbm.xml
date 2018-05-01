@@ -37,5 +37,8 @@
         <property name="fid" type="java.lang.Integer">
             <column name="fid" />
         </property>
+        <property name="sorts" type="java.lang.String">
+            <column name="sorts" length="30" />
+        </property>
     </class>
 </hibernate-mapping>

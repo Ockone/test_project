@@ -23,15 +23,9 @@ public class customerorderAction extends ActionSupport {
 	private int key;
 	private List<Customerorder> customerorderList;
 	public String wantOrder() throws Exception{
-<<<<<<< HEAD
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String s=df.format(new Date());
-		customerorder.setTime(s);	
-=======
 	/*	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String s=df.format(new Date());*/
 		customerorder.setTime("得到的");	
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 		customerorderDao.addOrder(customerorder);
 		System.out.println(customerorder.getTime());
 		return "success2";
@@ -60,11 +54,7 @@ public class customerorderAction extends ActionSupport {
 	}
 	public String updataorder() throws Exception{
 		customerorderDao.updateOrder(customerorder);
-<<<<<<< HEAD
-		return "success3";
-=======
 		return "success1";
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	}
 
 	public Customerorder getCustomerorder(){

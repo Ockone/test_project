@@ -1,12 +1,5 @@
 package com.intermediary.action;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
-=======
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,7 +12,6 @@ import java.util.UUID;
 import javax.annotation.Resource;
 
 import org.apache.struts2.ServletActionContext;
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -37,14 +29,10 @@ public class customerAction extends ActionSupport implements SessionAware{
     private Map<String,Object> session;
     private String prePage;
     private String confirmpass;
-<<<<<<< HEAD
-
-=======
     private String flag;
     private File customerphoto;
     private String customerphotoFileName,customerphotoContentType;
     private String orginphoto;
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -67,15 +55,12 @@ public class customerAction extends ActionSupport implements SessionAware{
 			String pass =customer.getPassword();
 			if(pass.equals(this.getConfirmpass())){
 				System.out.println("确认密码一致。");
-<<<<<<< HEAD
-=======
 				if((this.getFlag()).equals("我是招聘方")){
 					customer.setIfcustomer(1);
 				}
 				else{
 					customer.setIfcustomer(0);
 				}
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 		        customerDao.addCustomer(customer);
 		        session.put("customer", customer);
 			}else{
@@ -86,11 +71,7 @@ public class customerAction extends ActionSupport implements SessionAware{
 		else{
 			this.errMessage="此用户已被注册。";
 			System.out.print(this.errMessage);
-<<<<<<< HEAD
-		return "fail";
-=======
 			return "fail";
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 		}
 		return "show_view";	
 	}
@@ -150,10 +131,7 @@ public class customerAction extends ActionSupport implements SessionAware{
 
 	public void setConfirmpass(String confirmpass) {
 		this.confirmpass = confirmpass;
-<<<<<<< HEAD
-=======
 		
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 	}
 	public String showEdit() throws Exception {
     	customer = customerDao.getCustomerById(customer.getCustomerid());
@@ -161,9 +139,6 @@ public class customerAction extends ActionSupport implements SessionAware{
         return "customer_updatamessage";
     }
     public String editCustomer() throws Exception{
-<<<<<<< HEAD
-        customerDao.updateCustomer(customer);
-=======
     	System.out.println("sss");
     	String path = ServletActionContext.getServletContext().getRealPath("/upload/customerp");
     	String filename = "";
@@ -204,7 +179,6 @@ public class customerAction extends ActionSupport implements SessionAware{
 		}
         customerDao.updateCustomer(customer);
         session.put("customer", customer);
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
         return "main";
     }
     /*public String setif1(){
@@ -217,8 +191,6 @@ public class customerAction extends ActionSupport implements SessionAware{
     	return "main";
     }*/
 
-<<<<<<< HEAD
-=======
 	public String getFlag() {
 		return flag;
 	}
@@ -260,6 +232,5 @@ public class customerAction extends ActionSupport implements SessionAware{
 		this.customerphotoContentType = customerphotoContentType;
 	}
 
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 
 }

@@ -7,32 +7,7 @@
     <constant name="struts.objectFactory" value="spring"/>
     <!--  <constant name="struts.ui.theme" value="simple" />-->
   
-<<<<<<< HEAD
-   <!-- <package name="default" extends="struts-default">
-          <interceptors>
-              <interceptor name="LoginInterceptors" class="com.intermediary.util.LoginInterceptors">
-                <param name="excludeName">customer_login2,customer_reg,customer_showEdit,customer_editCustomer,customer_addComMessage2,message_addComMessage</param>
-                <param name="sessionName">customer</param>
-              </interceptor>
-              
-              <interceptor-stack name="myInterceptors">
-                 <interceptor-ref name="defaultStack"></interceptor-ref>
-                 <interceptor-ref name="LoginInterceptors"/>
-              </interceptor-stack>
-          </interceptors>
-          
-          <default-interceptor-ref name="myInterceptors"></default-interceptor-ref>
-          
-          <global-results>
-              <result name="login" type="redirect">/login.jsp</result>
-              <result name="success" type="redirect">${prePage}</result>
-          </global-results>  
-    
-    
-    </package>-->
-=======
    
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
     
     
     <package name="customer" namespace="/customer" extends="struts-default">
@@ -69,28 +44,15 @@
           <action name="customerorder_*" class="customerorderAction" method="{1}">
              <result name="success2">/upload.jsp</result>
              <result name="success3">/success.jsp</result>
-<<<<<<< HEAD
-=======
              <result name="success1">/success1.jsp</result>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
              <result name="ed">/Order_main.jsp</result>
           </action>
     </package>
     
-<<<<<<< HEAD
-    <!--     <package name="customer" namespace="/customer" extends="struts-default">
-         <action name="customer_*" class="customerAction" method="{1}">
-            <result name="message">/index.jsp</result>
-            <result name="show_view">/index.jsp</result>
-          <result name="reg">/reg.jsp</result>
-         </action>
-    </package> -->
-=======
     <package name="feedback" namespace="/feedback" extends="struts-default">
           <action name="feedback_*" class="feedbackAction" method="{1}">
              <result name="re">/main.jsp</result>
              <result name="fe">/feedback.jsp</result>
           </action>
     </package>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 </struts>

@@ -44,8 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-<<<<<<< HEAD
-=======
             <!-- 添加的搜索方法，需要调整位置 -->
                 <div class="search">
                     <form action="message/message_queryMessage" method="post" class="form-inline">
@@ -53,7 +51,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        <button type="submit" class="btn btn-default">查询</button>    
                     </form>
                 </div>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -62,11 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
-<<<<<<< HEAD
-                          <c:when test="${session.customer.if_==1}">
-=======
                           <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -93,27 +86,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-            </c:when>
-            <c:otherwise>
-            <c:choose>
-            <c:when test="${session.customer.if_==1}">
-=======
             </c:when>
             <c:otherwise>
             <c:choose>
             <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <a class="" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="on" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-=======
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:when>
             <c:otherwise>
             <a class="" href="main.jsp">首页</a>
@@ -121,10 +102,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
-<<<<<<< HEAD
-            <a href="#" target="_blank">无忧精英</a>
-=======
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:otherwise>
             </c:choose>
             </c:otherwise>

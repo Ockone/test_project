@@ -1,13 +1,7 @@
 #MyEclipse Hibernate Properties
-<<<<<<< HEAD
-#Mon Apr 02 21:37:08 GMT+08:00 2018
-sessionFactoryName=
-genBasicCompId=false
-=======
-#Wed Apr 25 00:18:31 CST 2018
+#Tue May 01 14:48:20 CST 2018
 sessionFactoryName=com.intermediary.model.HibernateSessionFactory
 genBasicCompId=true
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 profile=
 daoSFId=
 version=3.1
@@ -20,11 +14,7 @@ useJavaTypes=true
 keyGenerator=
 libInstallFolder=<no jars/zips in selected libraries>
 addLibs2Project=true
-<<<<<<< HEAD
-genVersionTag=false
-=======
 genVersionTag=true
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
 sessionFactoryId=
 basePersistenceClass=
 genAnnotations=false

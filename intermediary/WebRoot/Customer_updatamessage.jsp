@@ -68,8 +68,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-<<<<<<< HEAD
-=======
             <!-- 添加的搜索方法，需要调整位置 -->
                 <div class="search">
                     <form action="message/message_queryMessage" method="post" class="form-inline">
@@ -77,7 +75,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        <button type="submit" class="btn btn-default">查询</button>    
                     </form>
                 </div>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -86,11 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:when>
                         <c:otherwise>
                         <c:choose>
-<<<<<<< HEAD
-                          <c:when test="${session.customer.if_==1}">
-=======
                           <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
                           <a href="#"><c:out value="${session.customer.name}"></c:out>　欢迎您</a>/<a href="main/main_re">注销</a>
                           </c:when>
                         <c:otherwise>
@@ -117,27 +110,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-            </c:when>
-            <c:otherwise>
-            <c:choose>
-            <c:when test="${session.customer.if_==1}">
-=======
             </c:when>
             <c:otherwise>
             <c:choose>
             <c:when test="${session.customer.ifcustomer==1}">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
-            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
-            <a class="" href="Customer_message.jsp">我的信息</a>
+            <a class="on" href="Customer_message.jsp">我的信息</a>
             <a class="" href="#">联系我们</a>
-<<<<<<< HEAD
-            <a href="http://my.51job.com/my/gojingying.php?direct=https%3A%2F%2Fwww.51jingying.com%2Fcommon%2Fsearchcase.php%3F5CC4CE%3D1008" target="_blank">无忧精英</a>
-=======
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:when>
             <c:otherwise>
             <a class="on" href="main.jsp">首页</a>
@@ -145,10 +126,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
-<<<<<<< HEAD
-            <a href="#" target="_blank">无忧精英</a>
-=======
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
             </c:otherwise>
             </c:choose>
             </c:otherwise>
@@ -157,12 +134,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-<<<<<<< HEAD
-
- <center>
-  	<div>  
- 	  <s:form  action ="customer/customer_editCustomer">
-=======
 <main class="container-fluid">
     <div class="row">
         <div class="col-md-10">
@@ -244,7 +215,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <!--<center>
   	<div>  
  	  <s:form  action ="customer/customer_editCustomer" enctype="multipart/form-data">
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
          <h3><s:textfield name="customer.name" label="姓　名" ></s:textfield></h3>
          <h3><s:textfield name="customer.customeradress" label="住　址"></s:textfield></h3>
          <h3><s:textfield name="customer.customercontact" label="联系方式"></s:textfield></h3>
@@ -252,43 +222,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <h3><s:hidden name="customer.identification" label="照　片" value="%{#session.customer.identification}"></s:hidden></h3>
          <h3><s:textfield name="customer.password" label="密　码"></s:textfield></h3>
          <h3><s:hidden name="customer.customerid" label="id" value="%{#session.customer.customerid}"></s:hidden></h3>
-<<<<<<< HEAD
-         <s:hidden name="customer.if_" value="%{#session.customer.if_}"></s:hidden>
-         <s:submit value="保存" cssClass="btn btn-primary btn-block btn-large" style="width: 60%;"></s:submit>
-       </s:form>
-   <c:choose>
-     <c:when test="${session.customer.if_==0}">
-       <s:form action="customer/customer_editCustomer">
-        <s:hidden name="customer.name" value="%{#session.customer.name}"></s:hidden>
-         <s:hidden name="customer.customeradress" value="%{#session.customer.customeradress}"></s:hidden>
-         <s:hidden name="customer.customercontact" value="%{#session.customer.customercontact}"></s:hidden>
-         <s:hidden name="customer.customerphoto" value="%{#session.customer.customerphoto}"></s:hidden>
-         <s:hidden name="customer.identification" value="%{#session.customer.identification}"></s:hidden>
-         <s:hidden name="customer.password" value="%{#session.customer.password}"></s:hidden>
-         <s:hidden name="customer.customerid" value="%{#session.customer.customerid}"></s:hidden>
-         <s:hidden name="customer.if_" value="1"></s:hidden>
-         <s:submit value="我是求职者" cssClass="btn btn-primary btn-block btn-large" style="width: 129%;
-    margin: 0px 1px 0px 8px"></s:submit>
-       </s:form>
-     </c:when>
-     <c:otherwise>
-       <s:form action="customer/customer_editCustomer">
-         <s:hidden name="customer.name" value="%{#session.customer.name}"></s:hidden>
-         <s:hidden name="customer.customeradress" value="%{#session.customer.customeradress}"></s:hidden>
-         <s:hidden name="customer.customercontact" value="%{#session.customer.customercontact}"></s:hidden>
-         <s:hidden name="customer.customerphoto" value="%{#session.customer.customerphoto}"></s:hidden>
-         <s:hidden name="customer.identification" value="%{#session.customer.identification}"></s:hidden>
-         <s:hidden name="customer.password" value="%{#session.customer.password}"></s:hidden>
-         <s:hidden name="customer.customerid" value="%{#session.customer.customerid}"></s:hidden>
-         <s:hidden name="customer.if_" value="0"></s:hidden>
-         <s:submit value="我是招聘方" cssClass="btn btn-primary btn-block btn-large" style="width: 129%;
-    margin: 0px 1px 0px 8px"></s:submit>
-       </s:form>
-         </c:otherwise>
-       </c:choose>
-     </div>
- </center>
-=======
          <h3><select name="flag" class="form-control">
 			   <option>我是应聘方</option>
                <option>我是招聘方</option>
@@ -299,7 +232,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        </s:form>
      </div>
  </center>-->
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
  <footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">
@@ -316,10 +248,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
-<<<<<<< HEAD
-=======
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-fileupload.js"></script>
->>>>>>> 54477626bc6f6ca684b6ec5e9886a882a3536ef1
  </body>
  </html>
