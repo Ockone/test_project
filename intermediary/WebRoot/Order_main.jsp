@@ -192,7 +192,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                            </c:if>
                            <c:if test="${ session.customer.ifcustomer==0}">
                            <c:choose>
-                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">已拒绝</span></c:when>
+                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">-----</span></c:when>
                                  <c:otherwise><span style="color:black">${customerorder.retime}面试</span></c:otherwise>
                            </c:choose> 
                            <a href="listFile.jsp?key=${customerorder.id}">
@@ -200,9 +200,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                            </c:if>
                          </td>
                         
-                         <td>
-                             <c:choose>
-                                 <c:when test="${session.customer.ifcustomer==1}">
+                     <td>
+                        <c:choose>
+                          <c:when test="${session.customer.ifcustomer==1}">
                                  <a href="customerorder/customerorder_deleteyourorder?key=${customerorder.orderid}">
                                  <c:choose>
                                  <c:when test="${customerorder.retime=='未通过'}"><span style="color:red">删除</span></c:when>
@@ -211,7 +211,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                      </a>
                           </c:when>
                    <c:otherwise>
-                    <c:if test="${customerorder.retime==null}">
+                    <c:choose>
+                      <c:when test="${customerorder.retime==null}">
                     <s:form action="customerorder/customerorder_updataorder" style="display:none" method="post" id="form1">
                       <s:hidden name="customerorder.retime" value="下周日上午9点"></s:hidden>
                       <s:hidden name="customerorder.orderid" value="%{#attr.customerorder.orderid}"></s:hidden>
@@ -232,11 +233,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        <s:hidden name="customerorder.resume"  value="%{#attr.customerorder.resume}"></s:hidden>
                        <s:hidden name="customerorder.fid"     value="%{#attr.customerorder.fid}"></s:hidden>
                        <s:submit value="拒绝申请"  style="display:none" id="btn2"></s:submit>
-                      </s:form>
-                     
-                    </c:if>
-                          <a style="color:red" href="javascript:submit_form1();">同意申请</a>
-                          <a style="color:red" href="javascript:submit_form2();">拒绝申请</a>
+                       </s:form>
+                        <a style="color:red" href="javascript:submit_form1();">同意申请</a>
+                        <a style="color:red" href="javascript:submit_form2();">拒绝申请</a>
+                     </c:when>
+                     <c:otherwise>
+                                 <c:choose>
+                                 <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">已拒绝</span></c:when>
+                                 <c:otherwise><span style="color:black">已同意</span></c:otherwise>
+                                 </c:choose>
+                     </c:otherwise>
+                     </c:choose>
                   </c:otherwise>
               </c:choose>
                          </td>

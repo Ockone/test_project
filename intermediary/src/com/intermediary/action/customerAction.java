@@ -92,14 +92,14 @@ public class customerAction extends ActionSupport implements SessionAware{
 		if(listCustomer.size()==0) { 
 			this.errMessage = " 账号不存在 ";
 			System.out.print(this.errMessage);
-			return "input";
+			return "login";
 		}else{
 			
 		    Customer db_customer = listCustomer.get(0);
 			if(!db_customer.getPassword().equals(customer.getPassword())) {
 				this.errMessage = " 密码不正确! ";
 				System.out.print(this.errMessage);
-				return "input";
+				return "login";
 			
 		    }else{		
 				session.put("customer", db_customer);

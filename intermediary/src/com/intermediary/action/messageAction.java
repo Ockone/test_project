@@ -59,7 +59,6 @@ public class messageAction extends ActionSupport{
 			Message m= messageList.get(i);
 			t = 0;
 			for(int j=0;j<boxStr.length;j++){
-				System.out.println(boxStr[j]);
 				if(boxStr[j].equals(m.getSorts())){
 					t++;
 				}
