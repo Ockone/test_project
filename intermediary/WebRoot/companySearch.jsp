@@ -17,6 +17,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
 	<link rel="stylesheet" href="css/main.css">
+	<style>
+	.black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color: black; 
+            z-index:1001; 
+            -moz-opacity: 0.8; 
+            opacity:.80; 
+            filter: alpha(opacity=88); 
+        } 
+        .white_content { 
+            display: none; 
+            position: absolute; 
+            top: 25%; 
+            left: 25%; 
+            width: 55%; 
+            height: 55%; 
+            padding: 20px; 
+            border: 10px solid orange; 
+            background-color: white; 
+            z-index:1002; 
+            overflow: auto; 
+        } 
+	</style>
 </head>
 <body>
 	 <div class="header">
@@ -102,16 +130,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
 <main>
+<!-- 筛选框 -->
+<a href = "javascript:void(0)" onclick = "display();"><i class="fa fa-hourglass-o fa-2x" style="color:red;">筛选</i> </a>
+<div id="light" class="white_content">
 <div>
-<form action="message/message_sortMessage" method="post"><br><br>
-<input type="checkbox" name="box" value="商务/营销">商务/营销<br>
-<input type="checkbox" name="box" value="生活/医疗">生活/医疗<br>
-<input type="checkbox" name="box" value="劳工/制造">劳工/制造<br>
-<input type="checkbox" name="box" value="艺术/教育">艺术/教育<br>
+筛选 
+<form action="message/message_sortMessage" method="post">
+<span>工作类别</span><br>
+<input type="checkbox" name="box" value="商务/营销">商务/营销<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box" value="生活/医疗">生活/医疗<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box" value="劳工/制造">劳工/制造<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box" value="艺术/教育">艺术/教育<span>&nbsp;&nbsp;</span>
 <input type="checkbox" name="box" value="科技/设计">科技/设计<br>
-<input type="submit" value="提交">
+<br><span>学历要求</span><br>
+<input type="checkbox" name="box2" value="无要求">无要求<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="中专/高中">中专/高中<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="专科">专科<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="本科">本科<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="硕士">硕士<br>
+<br><span>薪资水平</span><br>
+<input name="minsalary" type="text" placeholder="最低薪酬">
+<span>~</span>
+<input name="maxsalary" type="text" placeholder="最高薪酬"><br>
+<br><input type="submit" value="筛选"><a href = "javascript:select();"><span style="color:red;">取消</span></a>
 </form>
 </div>
+</div> 
+<div id="fade" class="black_overlay"></div> 
+
 <ul>
 
           <c:forEach var="message" items="${messageList}" varStatus="status">
@@ -151,5 +197,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
+	<script type="text/javascript">
+	function display(){
+	    document.getElementById('light').style.display='block';
+	    document.getElementById('fade').style.display='block';
+	}
+	</script>
+	<script>
+	function select(){
+	  document.getElementById('light').style.display='none';
+	  document.getElementById('fade').style.display='none';
+	}
+	</script>
 </body>
 </html>

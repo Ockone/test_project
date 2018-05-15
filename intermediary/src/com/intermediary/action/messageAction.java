@@ -51,19 +51,53 @@ public class messageAction extends ActionSupport{
 	
 	public String sortMessage() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String boxStr[]=request.getParameterValues("box");
 		messageList=messageDao.queryAllMessage();
 		int t;
+		//工作类别筛选
+		String boxStr[]=request.getParameterValues("box");
 		for(int i=0;i<messageList.size();i++){
 			if(boxStr==null)break;
 			Message m= messageList.get(i);
 			t = 0;
 			for(int j=0;j<boxStr.length;j++){
-				if(boxStr[j].equals(m.getSorts())){
+				if(m.getSorts().equals(boxStr[j])){
 					t++;
 				}
 			}
 			if(t==0){
+				messageList.remove(i);
+				i--;
+			}
+	    }
+		//学历要求筛选
+		String boxStr2[]=request.getParameterValues("box2");
+		for(int i=0;i<messageList.size();i++){
+			if(boxStr2==null)break;
+			Message m= messageList.get(i);
+			t = 0;
+			for(int j=0;j<boxStr2.length;j++){
+				if(boxStr2[j].equals(m.getDemand())){
+					t++;
+				}
+			}
+			if(t==0){
+				messageList.remove(i);
+				i--;
+			}
+	    }
+		//薪资筛选
+		String minsalary=request.getParameter("minsalary");
+		System.out.println(minsalary);
+		String maxsalary=request.getParameter("maxsalary");
+		System.out.println(maxsalary);
+		for(int i=0;i<messageList.size();i++){
+			Message m= messageList.get(i);
+			t = 0;
+			if(minsalary==""||m.getSalary()>=Integer.parseInt(minsalary))
+				t++;
+			if(maxsalary==""||m.getSalary()<=Integer.parseInt(maxsalary))
+				t++;
+			if(t<2){
 				messageList.remove(i);
 				i--;
 			}
