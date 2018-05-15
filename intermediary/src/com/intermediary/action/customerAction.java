@@ -30,6 +30,7 @@ public class customerAction extends ActionSupport implements SessionAware{
     private String prePage;
     private String confirmpass;
     private String flag;
+    private String deg;
     private File customerphoto;
     private String customerphotoFileName,customerphotoContentType;
     private String orginphoto;
@@ -60,6 +61,19 @@ public class customerAction extends ActionSupport implements SessionAware{
 				}
 				else{
 					customer.setIfcustomer(0);
+				}
+				
+				System.out.println("xueli"+deg);
+				if(deg.equals("高中")){
+					customer.setDegree(1);
+				}else if(deg.equals("大专")){
+					customer.setDegree(2);
+				}else if(deg.equals("本科")){
+					customer.setDegree(3);
+				}else if(deg.equals("研究生")){
+					customer.setDegree(4);
+				}else{
+					customer.setDegree(5);
 				}
 		        customerDao.addCustomer(customer);
 		        session.put("customer", customer);
@@ -177,6 +191,18 @@ public class customerAction extends ActionSupport implements SessionAware{
 		else{
 			customer.setIfcustomer(0);
 		}
+    	System.out.println(deg);
+		if(deg.equals("高中")){
+			customer.setDegree(1);
+		}else if(deg.equals("大专")){
+			customer.setDegree(2);
+		}else if(deg.equals("本科")){
+			customer.setDegree(3);
+		}else if(deg.equals("研究生")){
+			customer.setDegree(4);
+		}else{
+			customer.setDegree(5);
+		}
         customerDao.updateCustomer(customer);
         session.put("customer", customer);
         return "main";
@@ -230,6 +256,14 @@ public class customerAction extends ActionSupport implements SessionAware{
 
 	public void setCustomerphotoContentType(String customerphotoContentType) {
 		this.customerphotoContentType = customerphotoContentType;
+	}
+
+	public String getDeg() {
+		return deg;
+	}
+
+	public void setDeg(String deg) {
+		this.deg = deg;
 	}
 
 

@@ -184,6 +184,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		              </div>
                    </div>
                    <div class="form-group">
+                   <label class="control-label col-md-3">学历</label>
+                      <div class="col-md-4">
+                      
+                      <select name="deg" class="form-control">
+			                <option>高中</option>
+                            <option>大专</option>
+                            <option>本科</option>
+                            <option>研究生</option>
+                            <option>博士</option>
+		              </select>
+		              </div>
+                   </div>
+                   <div class="form-group">
                       <label class="control-label col-md-3">我的头像</label>
                       <div class="col-md-4">
                          <div class="fileupload fileuoload-new" data-provides="fileuoload">

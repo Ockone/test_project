@@ -11,15 +11,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <base href="<%=basePath%>">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+    <meta http-equiv="Refresh" content="2;url=message/message_queryMessage?keyWords=">
+	
 	<title>EWork - Creative work website</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
+	<!-- <link rel="stylesheet" href="css/simple-line-icons.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
-	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	 <div class="header">
+	<div class="header">
     <!-- bar start -->
     <div class="bar">
         <div class="in">
@@ -35,13 +43,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -72,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <p class="nlink">
             <c:choose>
             <c:when test="${session.customer.name==null}">
-            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="main.jsp">首页</a>
             <a class="" href="#">关于我们</a>
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
@@ -82,14 +83,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:choose>
             <c:when test="${session.customer.ifcustomer==1}">
             <a class="" href="main.jsp">首页</a>
-            <a class="on" href="message/message_queryMessage?keyWords=">我的工作</a>
+            <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
             <a class="" href="#">联系我们</a>
             </c:when>
             <c:otherwise>
             <a class="" href="main.jsp">首页</a>
-            <a class="on" href="message/message_queryMessage?keyWords=">工作</a>
+            <a class="" href="message/message_queryMessage?keyWords=">工作</a>
             <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
@@ -101,45 +102,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-<main>
-<div>
-<form action="message/message_sortMessage" method="post"><br><br>
-<input type="checkbox" name="box" value="商务/营销">商务/营销<br>
-<input type="checkbox" name="box" value="生活/医疗">生活/医疗<br>
-<input type="checkbox" name="box" value="劳工/制造">劳工/制造<br>
-<input type="checkbox" name="box" value="艺术/教育">艺术/教育<br>
-<input type="checkbox" name="box" value="科技/设计">科技/设计<br>
-<input type="submit" value="提交">
-</form>
-</div>
-<ul>
-
-          <c:forEach var="message" items="${messageList}" varStatus="status">
-              <li>
-                 <a href="message/message_getComMessage?message.jobid=${message.jobid}">
-	             <img src="<%=basePath%>upload/${message.companyphoto}">
-	             </a>
-	             <p>
-	                <a href="message/message_getComMessage?message.jobid=${message.jobid}">
-	                  <c:out value="${message.jobname}"></c:out>
-	                </a>
-	                <span class="price"> <c:out value="${message.companyname}"></c:out></span>
-	                <a href="customerorder/customerorder_wantOrder?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}" class="add-order">
-	                  <i class="fa fa-check-square"></i>申请
-	                </a>
-	             </p>
-	          </li>
- 
-  </c:forEach>
-  </ul>
-</main>
+<center>
+	<h1>对不起，您的学历不够，申请失败</h1>
+</center>
+	
+	
 
 
 	<footer class="site-footer container text-center">
-
+		<div class="row">
 			<div class="col-md-12 copyright">
-				<p>Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>
-			
+				<p style="padding-top:188px">Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>
+			</div>
 		</div>
 	</footer>
 	<span class="border-top"></span>
@@ -149,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/templatemo_custom.js"></script>
+	<script src="201706077/html/js/jquery.min.js"></script>
+	<script src="201706077/html/js/templatemo_custom.js"></script>
 </body>
 </html>

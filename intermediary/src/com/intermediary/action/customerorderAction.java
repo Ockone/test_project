@@ -21,11 +21,30 @@ public class customerorderAction extends ActionSupport {
 	private Message message;
 	private static final long serialVersionUID = 1L;
 	private int key;
+	private int flag;
+	private int degree;
 	private List<Customerorder> customerorderList;
 	public String wantOrder() throws Exception{
-	/*	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String s=df.format(new Date());*/
-		customerorder.setTime("得到的");	
+		System.out.println(degree);
+		if(flag==0){
+			System.out.println("过了");//不限
+		}else if(flag==1){
+			if(degree==1)//大专以上
+				return "ban";
+		}else if(flag==2){
+			if(degree<=2)//本科以上
+				return "ban";
+		}else if(flag==3){
+			if(degree<=3)//研究生以上
+				return "ban";
+		}else if(flag==4){
+			if(degree<=4)//博士以上
+				return "ban";
+		}	
+		System.out.println("过了");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String s=df.format(new Date());
+		customerorder.setTime(s);	
 		customerorderDao.addOrder(customerorder);
 		System.out.println(customerorder.getTime());
 		return "success2";
@@ -80,4 +99,17 @@ public class customerorderAction extends ActionSupport {
 	public void setCustomerorderList(List<Customerorder> customerorderList) {
 		this.customerorderList = customerorderList;
 	}
+	public int getFlag() {
+		return flag;
+	}
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
+	public int getDegree() {
+		return degree;
+	}
+	public void setDegree(int degree) {
+		this.degree = degree;
+	}
+
 }

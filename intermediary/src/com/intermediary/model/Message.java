@@ -16,7 +16,7 @@ public class Message implements java.io.Serializable {
 	private String companycontact;
 	private String companyphoto;
 	private String jobname;
-	private String demand;
+	private Integer demand;
 	private Integer fid;
 	private String sorts;
 
@@ -29,7 +29,7 @@ public class Message implements java.io.Serializable {
 	/** full constructor */
 	public Message(String companyname, String companyaddress, Integer salary,
 			Integer available, String companycontact, String companyphoto,
-			String jobname, String demand, Integer fid, String sorts) {
+			String jobname, Integer demand, Integer fid, String sorts) {
 		this.companyname = companyname;
 		this.companyaddress = companyaddress;
 		this.salary = salary;
@@ -108,11 +108,11 @@ public class Message implements java.io.Serializable {
 		this.jobname = jobname;
 	}
 
-	public String getDemand() {
+	public Integer getDemand() {
 		return this.demand;
 	}
 
-	public void setDemand(String demand) {
+	public void setDemand(Integer demand) {
 		this.demand = demand;
 	}
 

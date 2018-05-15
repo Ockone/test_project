@@ -64,6 +64,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!-- <input name="customer.ifcustomer" type="hidden" value="1" required> -->
 			</div>
 			<div>
+			<select name="deg" class="form-control">
+			   <option>高中</option>
+               <option>大专</option>
+               <option>本科</option>
+               <option>研究生</option>
+               <option>博士</option>
+			</select>
+			<!-- <input name="customer.ifcustomer" type="hidden" value="1" required> -->
+			</div>
+			<div>
                  <span id="tipun" class="fielderror"></span>
             </div>
 	</div>

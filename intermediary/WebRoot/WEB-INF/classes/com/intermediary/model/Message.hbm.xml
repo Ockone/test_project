@@ -31,7 +31,7 @@
         <property name="jobname" type="java.lang.String">
             <column name="jobname" length="30" />
         </property>
-        <property name="demand" type="java.lang.String">
+        <property name="demand" type="java.lang.Integer">
             <column name="demand" />
         </property>
         <property name="fid" type="java.lang.Integer">

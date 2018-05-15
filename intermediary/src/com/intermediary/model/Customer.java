@@ -16,6 +16,7 @@ public class Customer implements java.io.Serializable {
 	private String customerphoto;
 	private String identification;
 	private Integer ifcustomer;
+	private Integer degree;
 
 	// Constructors
 
@@ -26,7 +27,7 @@ public class Customer implements java.io.Serializable {
 	/** full constructor */
 	public Customer(String name, String customeradress, String customercontact,
 			String password, String customerphoto, String identification,
-			Integer ifcustomer) {
+			Integer ifcustomer, Integer degree) {
 		this.name = name;
 		this.customeradress = customeradress;
 		this.customercontact = customercontact;
@@ -34,6 +35,7 @@ public class Customer implements java.io.Serializable {
 		this.customerphoto = customerphoto;
 		this.identification = identification;
 		this.ifcustomer = ifcustomer;
+		this.degree = degree;
 	}
 
 	// Property accessors
@@ -100,6 +102,14 @@ public class Customer implements java.io.Serializable {
 
 	public void setIfcustomer(Integer ifcustomer) {
 		this.ifcustomer = ifcustomer;
+	}
+
+	public Integer getDegree() {
+		return this.degree;
+	}
+
+	public void setDegree(Integer degree) {
+		this.degree = degree;
 	}
 
 }
