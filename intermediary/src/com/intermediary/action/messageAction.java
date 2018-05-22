@@ -26,6 +26,7 @@ public class messageAction extends ActionSupport{
 	private Message message;
 	private String keyWords;
 	String sortname;
+	private String deg;
 	private File uploadFile;
 	private String uploadFileFileName,uploadFileContentType;
 	private static final long serialVersionUID = 1L;
@@ -76,7 +77,7 @@ public class messageAction extends ActionSupport{
 			Message m= messageList.get(i);
 			t = 0;
 			for(int j=0;j<boxStr2.length;j++){
-				if(boxStr2[j].equals(m.getDemand())){
+				if(Integer.parseInt(boxStr2[j])==(m.getDemand())){
 					t++;
 				}
 			}
@@ -158,6 +159,17 @@ public class messageAction extends ActionSupport{
 			 os.close();
 		 }
 		 message.setCompanyphoto(companyphotoFileName);
+		    if(deg.equals("不限")){
+				message.setDemand(0);
+			}else if(deg.equals("大专以上")){
+				message.setDemand(1);
+			}else if(deg.equals("本科以上")){
+				message.setDemand(2);
+			}else if(deg.equals("研究生以上")){
+				message.setDemand(3);
+			}else{
+				message.setDemand(4);
+			}
 		 messageDao.addMessage(message);
 		 System.out.println("hh");
 		 return "success";
@@ -172,6 +184,17 @@ public class messageAction extends ActionSupport{
      
 	  
 	 public String editMessage()  throws Exception{
+		 if(deg.equals("不限")){
+				message.setDemand(0);
+			}else if(deg.equals("大专以上")){
+				message.setDemand(1);
+			}else if(deg.equals("本科以上")){
+				message.setDemand(2);
+			}else if(deg.equals("研究生以上")){
+				message.setDemand(3);
+			}else{
+				message.setDemand(4);
+			}
 		 messageDao.updateMessage(message);
 		 return "success";
 	 }
@@ -224,6 +247,16 @@ public class messageAction extends ActionSupport{
 
 	public void setSortname(String sortname) {
 		this.sortname = sortname;
+	}
+
+
+	public String getDeg() {
+		return deg;
+	}
+
+
+	public void setDeg(String deg) {
+		this.deg = deg;
 	}
 
 }

@@ -143,11 +143,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="checkbox" name="box" value="艺术/教育">艺术/教育<span>&nbsp;&nbsp;</span>
 <input type="checkbox" name="box" value="科技/设计">科技/设计<br>
 <br><span>学历要求</span><br>
-<input type="checkbox" name="box2" value="无要求">无要求<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="中专/高中">中专/高中<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="专科">专科<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="本科">本科<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="硕士">硕士<br>
+<input type="checkbox" name="box2" value="0">高中及以下<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="1">大专<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="2">本科<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="3">硕士<span>&nbsp;&nbsp;</span>
+<input type="checkbox" name="box2" value="4">博士及以上<br>
 <br><span>薪资水平</span><br>
 <input name="minsalary" type="text" placeholder="最低薪酬">
 <span>~</span>

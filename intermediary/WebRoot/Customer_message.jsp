@@ -144,6 +144,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <h2>　账　　号:${customer.name}</h2>
 	            <h2>　地　　址:${customer.customeradress}</h2>
 	            <h2>　联系方式:${customer.customercontact}</h2>
+	            <h2> 我的学历:           <c:choose>
+                                                <c:when test="${customer.degree==1}">高中
+                                                </c:when>
+                                                <c:when test="${customer.degree==2}">大专
+                                                </c:when>
+                                                <c:when test="${customer.degree==3}">本科
+                                                </c:when>
+                                                <c:when test="${customer.degree==4}">研究生
+                                                </c:when>
+                                                <c:when test="${customer.degree==5}">博士
+                                                </c:when>
+                                            </c:choose></h2>
 	            <h2 style="margin-left:600px">用户编号:${customer.customerid}</h2>
 	            <h2><a href="customer/customer_showEdit?customer.customerid=${customer.customerid}" class="btn btn-primary btn-block btn-large">编辑</a></h2>
   				</div>

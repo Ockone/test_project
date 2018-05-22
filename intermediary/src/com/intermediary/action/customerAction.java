@@ -3,6 +3,7 @@ package com.intermediary.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
@@ -30,9 +33,11 @@ public class customerAction extends ActionSupport implements SessionAware{
     private String prePage;
     private String confirmpass;
     private String flag;
+    private String deg;
     private File customerphoto;
     private String customerphotoFileName,customerphotoContentType;
     private String orginphoto;
+    private String name;
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -41,12 +46,27 @@ public class customerAction extends ActionSupport implements SessionAware{
 		this.customer = customer;
 	}
 	
-	/*public String reg() throws Exception{
-		//System.out.println(customer.getCustomerid());
-		customerDao.addCustomer(customer);
-		session.put("customer", customer);
-		return "show_view";	
-	}*/
+	public String quName() throws IOException{
+	    HttpServletRequest request = ServletActionContext.getRequest();
+	    HttpServletResponse respons = ServletActionContext.getResponse(); 
+		String sendString;
+		//String name = request.getParameter("username");
+		respons.setContentType("text/html;charset=utf-8");
+		ArrayList<Customer> listCustomer=customerDao.QueryCustomerInfo(name);
+		if(listCustomer.size()==0){
+			System.out.print("走了yes");
+			sendString = "yes";
+			respons.getWriter().print(sendString);
+		}
+		else{
+			System.out.print("走了no");
+			sendString = "no";
+		    respons.getWriter().print(sendString);
+		}
+		return null;
+		
+	}
+	
 	public String reg() throws Exception{
 		ArrayList<Customer> listCustomer=customerDao.QueryCustomerInfo2(customer.getIdentification());
 		if(listCustomer.size()==0){
@@ -60,6 +80,19 @@ public class customerAction extends ActionSupport implements SessionAware{
 				}
 				else{
 					customer.setIfcustomer(0);
+				}
+				
+				System.out.println("xueli"+deg);
+				if(deg.equals("高中")){
+					customer.setDegree(1);
+				}else if(deg.equals("大专")){
+					customer.setDegree(2);
+				}else if(deg.equals("本科")){
+					customer.setDegree(3);
+				}else if(deg.equals("研究生")){
+					customer.setDegree(4);
+				}else{
+					customer.setDegree(5);
 				}
 		        customerDao.addCustomer(customer);
 		        session.put("customer", customer);
@@ -138,7 +171,7 @@ public class customerAction extends ActionSupport implements SessionAware{
     	System.out.println(customer.getCustomerid());
         return "customer_updatamessage";
     }
-    public String editCustomer() throws Exception{
+	public String editCustomer() throws Exception{
     	System.out.println("sss");
     	String path = ServletActionContext.getServletContext().getRealPath("/upload/customerp");
     	String filename = "";
@@ -176,6 +209,18 @@ public class customerAction extends ActionSupport implements SessionAware{
 		}
 		else{
 			customer.setIfcustomer(0);
+		}
+    	System.out.println(deg);
+		if(deg.equals("高中")){
+			customer.setDegree(1);
+		}else if(deg.equals("大专")){
+			customer.setDegree(2);
+		}else if(deg.equals("本科")){
+			customer.setDegree(3);
+		}else if(deg.equals("研究生")){
+			customer.setDegree(4);
+		}else{
+			customer.setDegree(5);
 		}
         customerDao.updateCustomer(customer);
         session.put("customer", customer);
@@ -232,5 +277,22 @@ public class customerAction extends ActionSupport implements SessionAware{
 		this.customerphotoContentType = customerphotoContentType;
 	}
 
+	public String getDeg() {
+		return deg;
+	}
+
+	public void setDeg(String deg) {
+		this.deg = deg;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
 
 }

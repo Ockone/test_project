@@ -232,6 +232,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <s:textfield name="message.available" label="招聘数量" placeholder="acount"></s:textfield>
            <s:textfield name="message.demand" label="要　　求" placeholder="require"></s:textfield>
            <s:select name="message.sorts" label="分　　类" placeholder="Catagory" list="{'商务/营销','生活/医疗','劳工/制造','艺术/教育','科技/设计'}"></s:select>
+           <select name="deg" class="form-control">
+			   <option>不限</option>
+               <option>大专以上</option>
+               <option>本科以上</option>
+               <option>研究生以上</option>
+               <option>博士以上</option>
+			</select>
            <s:file name="uploadFile" label="选择文件"/>
            
        <h3><s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden></h3>

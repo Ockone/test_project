@@ -145,10 +145,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <h2>薪　资:${message.salary}</h2>
        <h2>剩　余:${message.available}</h2>
        <h2>联系方式:${message.companycontact}</h2>
-       <h2 style="margin-left:600px">需　求:${message.demand}</h2>
+       <h2 style="margin-left:600px">需　求:<c:choose>
+                                                <c:when test="${message.demand==0}">无
+                                                </c:when>
+                                                <c:when test="${message.demand==1}">大专以上
+                                                </c:when>
+                                                <c:when test="${message.demand==2}">本科以上
+                                                </c:when>
+                                                <c:when test="${message.demand==3}">研究生以上
+                                                </c:when>
+                                                <c:when test="${message.demand==4}">博士以上
+                                                </c:when>
+                                            </c:choose></h2>
        <c:choose>
           <c:when test="${session.customer.name!=null}">
-             <a href="customerorder/customerorder_wantOrder?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}" class="btn btn-primary btn-block btn-large">申请</a>
+             <a href="customerorder/customerorder_wantOrder?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}&flag=${message.demand}&degree=${customer.degree}" class="btn btn-primary btn-block btn-large">申请</a>
           </c:when>
        </c:choose>
        </div>
