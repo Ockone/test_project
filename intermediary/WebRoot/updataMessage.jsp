@@ -70,13 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+          
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -97,6 +91,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
+              <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">
@@ -146,6 +147,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <s:textfield name="message.available" label="招聘人数"></s:textfield>
          <s:textfield name="message.companycontact" label="联系方式"></s:textfield>
          <s:select name="message.sorts" label="分　　类" placeholder="Catagory" list="{'商务/营销','生活/医疗','劳工/制造','艺术/教育','科技/设计'}"></s:select>
+         <select name="deg" class="form-control">
+			   <option>不限</option>
+               <option>大专以上</option>
+               <option>本科以上</option>
+               <option>研究生以上</option>
+               <option>博士以上</option>
+			</select>
          <s:hidden name="message.companyphoto" value="%{#attr.message.companyphoto}"></s:hidden>
          <s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden>
         <s:submit value="保存" cssClass="btn btn-primary btn-block btn-large" style="width: 31%;

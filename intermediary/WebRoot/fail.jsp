@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-    <meta http-equiv="Refresh" content="2;url=customerorder/customerorder_editOrder?key=${session.customer.customerid}">
+    <meta http-equiv="Refresh" content="2;url=message/message_queryMessage?keyWords=">
 	
 	<title>EWork - Creative work website</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -43,7 +43,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -64,13 +63,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">
@@ -111,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
 <center>
-	<h1>恭喜您，操作成功！</h1>
+	<h1>对不起，您的学历不够，申请失败</h1>
 </center>
 	
 	

@@ -50,10 +50,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<ul class="main-menu">
 			<li><a href="login.jsp">登录</a></li>
 			</ul>
-             <li><s:form action="message/message_queryMessage" method="post">
+            <<li><s:form action="message/message_queryMessage" method="post">
             <input type="text" name="keyWords" placeholder="请输入关键词" >
          	<s:submit value="查 询" cssClass="btn btn-primary btn-block btn-large" style="width: 50%;margin: 10px -6px 10px 104px;"></s:submit>
-             </s:form></li>
+             </s:form></li> 
 				
 			</div>  			
    		</c:when>

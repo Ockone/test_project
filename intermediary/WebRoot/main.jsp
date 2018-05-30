@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div class="header">
+  <div class="header" style="position:fixed;font:14px;z-index:998;width:100%" >
     <!-- bar start -->
     <div class="bar">
         <div class="in">
@@ -45,13 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置  --> 
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+            
 
             <div class="uer">
                     <p class="op">
@@ -72,9 +66,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:choose>
                     </p>
             </div>
+            <!-- 添加的搜索方法，需要调整位置  --> 
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
-    <div class="nag" id="topIndex">
+    <div class="nag" id="topIndex" style="height:52px">
          <div class="in">
            <img class="logo" id="logo" width="66" height="46" src="images/logo.png" alt="前程无忧">
              <img class="slogen" id="slogen"  height="46"  src="images/pp.png">  
@@ -111,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-   <div id="circleContent" class="carousel slide"> 
+   <div id="circleContent" class="carousel slide" style="padding-top:90px"> 
        <ol class="carousel-indicators"> 
          <li data-target="#circleContent" data-slide-to="0" class="active"></li> 
          <li data-target="#circleContent" data-slide-to="1"></li> 

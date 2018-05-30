@@ -45,6 +45,7 @@
           <action name="customerorder_*" class="customerorderAction" method="{1}">
              <result name="success2">/upload.jsp</result>
              <result name="success3">/success.jsp</result>
+              <result name="ban">/fail.jsp</result>
              <result name="success1">/success1.jsp</result>
              <result name="ed">/Order_main.jsp</result>
           </action>

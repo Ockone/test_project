@@ -31,5 +31,8 @@
         <property name="ifcustomer" type="java.lang.Integer">
             <column name="ifcustomer" />
         </property>
+        <property name="degree" type="java.lang.Integer">
+            <column name="degree" />
+        </property>
     </class>
 </hibernate-mapping>

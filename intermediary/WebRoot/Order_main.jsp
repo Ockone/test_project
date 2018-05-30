@@ -1,3 +1,4 @@
+
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
@@ -87,13 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+            
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -114,6 +109,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
+            <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">
@@ -193,6 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                            <c:if test="${ session.customer.ifcustomer==0}">
                            <c:choose>
                                  <c:when test="${customerorder.retime=='未通过'}"><span style="color:black">-----</span></c:when>
+                                 <c:when test="${customerorder.retime==null}"><span style="color:black">待操作</span></c:when>
                                  <c:otherwise><span style="color:black">${customerorder.retime}面试</span></c:otherwise>
                            </c:choose> 
                            <a href="listFile.jsp?key=${customerorder.id}">

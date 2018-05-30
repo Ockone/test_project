@@ -26,6 +26,7 @@ public class messageAction extends ActionSupport{
 	private Message message;
 	private String keyWords;
 	String sortname;
+	private String deg;
 	private File uploadFile;
 	private String uploadFileFileName,uploadFileContentType;
 	private static final long serialVersionUID = 1L;
@@ -51,19 +52,53 @@ public class messageAction extends ActionSupport{
 	
 	public String sortMessage() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String boxStr[]=request.getParameterValues("box");
 		messageList=messageDao.queryAllMessage();
 		int t;
+		//工作类别筛选
+		String boxStr[]=request.getParameterValues("box");
 		for(int i=0;i<messageList.size();i++){
 			if(boxStr==null)break;
 			Message m= messageList.get(i);
 			t = 0;
 			for(int j=0;j<boxStr.length;j++){
-				if(boxStr[j].equals(m.getSorts())){
+				if(m.getSorts().equals(boxStr[j])){
 					t++;
 				}
 			}
 			if(t==0){
+				messageList.remove(i);
+				i--;
+			}
+	    }
+		//学历要求筛选
+		String boxStr2[]=request.getParameterValues("box2");
+		for(int i=0;i<messageList.size();i++){
+			if(boxStr2==null)break;
+			Message m= messageList.get(i);
+			t = 0;
+			for(int j=0;j<boxStr2.length;j++){
+				if(Integer.parseInt(boxStr2[j])==(m.getDemand())){
+					t++;
+				}
+			}
+			if(t==0){
+				messageList.remove(i);
+				i--;
+			}
+	    }
+		//薪资筛选
+		String minsalary=request.getParameter("minsalary");
+		System.out.println(minsalary);
+		String maxsalary=request.getParameter("maxsalary");
+		System.out.println(maxsalary);
+		for(int i=0;i<messageList.size();i++){
+			Message m= messageList.get(i);
+			t = 0;
+			if(minsalary==""||m.getSalary()>=Integer.parseInt(minsalary))
+				t++;
+			if(maxsalary==""||m.getSalary()<=Integer.parseInt(maxsalary))
+				t++;
+			if(t<2){
 				messageList.remove(i);
 				i--;
 			}
@@ -124,6 +159,17 @@ public class messageAction extends ActionSupport{
 			 os.close();
 		 }
 		 message.setCompanyphoto(companyphotoFileName);
+		    if(deg.equals("不限")){
+				message.setDemand(0);
+			}else if(deg.equals("大专以上")){
+				message.setDemand(1);
+			}else if(deg.equals("本科以上")){
+				message.setDemand(2);
+			}else if(deg.equals("研究生以上")){
+				message.setDemand(3);
+			}else{
+				message.setDemand(4);
+			}
 		 messageDao.addMessage(message);
 		 System.out.println("hh");
 		 return "success";
@@ -138,6 +184,17 @@ public class messageAction extends ActionSupport{
      
 	  
 	 public String editMessage()  throws Exception{
+		 if(deg.equals("不限")){
+				message.setDemand(0);
+			}else if(deg.equals("大专以上")){
+				message.setDemand(1);
+			}else if(deg.equals("本科以上")){
+				message.setDemand(2);
+			}else if(deg.equals("研究生以上")){
+				message.setDemand(3);
+			}else{
+				message.setDemand(4);
+			}
 		 messageDao.updateMessage(message);
 		 return "success";
 	 }
@@ -190,6 +247,16 @@ public class messageAction extends ActionSupport{
 
 	public void setSortname(String sortname) {
 		this.sortname = sortname;
+	}
+
+
+	public String getDeg() {
+		return deg;
+	}
+
+
+	public void setDeg(String deg) {
+		this.deg = deg;
 	}
 
 }

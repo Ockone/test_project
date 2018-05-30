@@ -70,13 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+           
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -97,6 +91,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
+             <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">
@@ -144,6 +145,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <h2>　账　　号:${customer.name}</h2>
 	            <h2>　地　　址:${customer.customeradress}</h2>
 	            <h2>　联系方式:${customer.customercontact}</h2>
+	            <h2 style="margin-left:600px"> 我的学历:           <c:choose>
+                                                <c:when test="${customer.degree==1}">高中
+                                                </c:when>
+                                                <c:when test="${customer.degree==2}">大专
+                                                </c:when>
+                                                <c:when test="${customer.degree==3}">本科
+                                                </c:when>
+                                                <c:when test="${customer.degree==4}">研究生
+                                                </c:when>
+                                                <c:when test="${customer.degree==5}">博士
+                                                </c:when>
+                                            </c:choose></h2>
 	            <h2 style="margin-left:600px">用户编号:${customer.customerid}</h2>
 	            <h2><a href="customer/customer_showEdit?customer.customerid=${customer.customerid}" class="btn btn-primary btn-block btn-large">编辑</a></h2>
   				</div>
