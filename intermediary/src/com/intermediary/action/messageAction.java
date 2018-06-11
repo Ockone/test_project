@@ -30,6 +30,9 @@ public class messageAction extends ActionSupport{
 	private File uploadFile;
 	private String uploadFileFileName,uploadFileContentType;
 	private static final long serialVersionUID = 1L;
+    private File companyphoto;
+    private String companyphotoFileName,companyphotoContentType;
+    private String orginphoto;
 	
 	public String getAll(){
 		messageList=messageDao.queryAllMessage();
@@ -61,7 +64,7 @@ public class messageAction extends ActionSupport{
 			Message m= messageList.get(i);
 			t = 0;
 			for(int j=0;j<boxStr.length;j++){
-				if(m.getSorts().equals(boxStr[j])){
+				if(boxStr[j].equals(m.getSorts())){
 					t++;
 				}
 			}
@@ -184,6 +187,34 @@ public class messageAction extends ActionSupport{
      
 	  
 	 public String editMessage()  throws Exception{
+		 String path = ServletActionContext.getServletContext().getRealPath("/upload");
+	    	String filename = "";
+	    	if(companyphoto!=null){
+	    		System.out.println("ssss");
+	    		InputStream is = new FileInputStream(companyphoto);
+	    		String fileContentType = this.getCompanyphotoContentType();
+	    		System.out.println(fileContentType);
+	    		if(fileContentType.equals("image/jpeg") || fileContentType.equals("image/pjeg"))
+	    			filename = UUID.randomUUID().toString()+".jpg";
+				else if(fileContentType.equals("image/gif"))
+					 filename = UUID.randomUUID().toString()+".gif";
+				else if(fileContentType.equals("image/png"))
+					 filename = UUID.randomUUID().toString()+".png";
+	    		OutputStream os =new FileOutputStream(new File(path,filename));
+	    		byte[] b = new byte[1024];
+	    		int bs = 0;
+				while((bs = is.read(b))>0){
+					 os.write(b,0,bs);
+				}
+				 is.close();
+				 os.close();
+				 System.out.println(filename);
+	    	}else{
+	    		System.out.println("没有图片");
+	    		filename = orginphoto;
+	    		System.out.println(filename);
+	    	}
+	    	message.setCompanyphoto(filename);
 		 if(deg.equals("不限")){
 				message.setDemand(0);
 			}else if(deg.equals("大专以上")){
@@ -257,6 +288,46 @@ public class messageAction extends ActionSupport{
 
 	public void setDeg(String deg) {
 		this.deg = deg;
+	}
+
+
+	public File getCompanyphoto() {
+		return companyphoto;
+	}
+
+
+	public void setCompanyphoto(File companyphoto) {
+		this.companyphoto = companyphoto;
+	}
+
+
+	public String getCompanyphotoFileName() {
+		return companyphotoFileName;
+	}
+
+
+	public void setCompanyphotoFileName(String companyphotoFileName) {
+		this.companyphotoFileName = companyphotoFileName;
+	}
+
+
+	public String getCompanyphotoContentType() {
+		return companyphotoContentType;
+	}
+
+
+	public void setCompanyphotoContentType(String companyphotoContentType) {
+		this.companyphotoContentType = companyphotoContentType;
+	}
+
+
+	public String getOrginphoto() {
+		return orginphoto;
+	}
+
+
+	public void setOrginphoto(String orginphoto) {
+		this.orginphoto = orginphoto;
 	}
 
 }

@@ -70,13 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+          
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -97,6 +91,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
+              <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">
@@ -138,8 +139,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
  <center>
     <div>  
- 	  <s:form  action ="message/message_editMessage">
+ 	  <s:form  action ="message/message_editMessage" enctype="multipart/form-data" method="post">
          <s:textfield name="message.jobid" label="工作编号" readonly="true"></s:textfield>
+         <s:textfield name="message.jobname" label="工作职位"></s:textfield>
          <s:textfield name="message.companyaddress" label="地　　址"></s:textfield>
          <s:textfield name="message.companyname" label="公司名称"></s:textfield>
          <s:textfield name="message.salary" label="薪资水平"></s:textfield>
@@ -152,7 +154,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <option>本科以上</option>
                <option>研究生以上</option>
                <option>博士以上</option>
-			</select>
+		</select>
+		<input type="file" name="companyphoto"/>
          <s:hidden name="message.companyphoto" value="%{#attr.message.companyphoto}"></s:hidden>
          <s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden>
         <s:submit value="保存" cssClass="btn btn-primary btn-block btn-large" style="width: 31%;

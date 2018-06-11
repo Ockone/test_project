@@ -68,13 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+            
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -95,6 +89,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
+            <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">
@@ -141,11 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <s:hidden name="orginphoto" value="%{#session.customer.customerphoto}"></s:hidden>
             <s:hidden name="customer.identification" value="%{#session.customer.identification}"></s:hidden>
             <s:hidden name="customer.customerid" label="id" value="%{#session.customer.customerid}"></s:hidden>   
-               <div class="panel-heading">
-                 
-                    <h1 style="text-align:center"><i class="fa fa-plus" aria-hidden="true"></i>添加工作</h1>
-                 
-               </div>
+               
                <div class="panel-body">
                    <div class="form-group">
                      <label class="control-label col-md-3">名称</label>

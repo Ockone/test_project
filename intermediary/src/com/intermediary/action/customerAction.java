@@ -34,10 +34,10 @@ public class customerAction extends ActionSupport implements SessionAware{
     private String confirmpass;
     private String flag;
     private String deg;
+    private String name;
     private File customerphoto;
     private String customerphotoFileName,customerphotoContentType;
     private String orginphoto;
-    private String name;
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -46,6 +46,12 @@ public class customerAction extends ActionSupport implements SessionAware{
 		this.customer = customer;
 	}
 	
+	/*public String reg() throws Exception{
+		//System.out.println(customer.getCustomerid());
+		customerDao.addCustomer(customer);
+		session.put("customer", customer);
+		return "show_view";	
+	}*/
 	public String quName() throws IOException{
 	    HttpServletRequest request = ServletActionContext.getRequest();
 	    HttpServletResponse respons = ServletActionContext.getResponse(); 
@@ -66,7 +72,7 @@ public class customerAction extends ActionSupport implements SessionAware{
 		return null;
 		
 	}
-	
+
 	public String reg() throws Exception{
 		ArrayList<Customer> listCustomer=customerDao.QueryCustomerInfo2(customer.getIdentification());
 		if(listCustomer.size()==0){
@@ -76,10 +82,10 @@ public class customerAction extends ActionSupport implements SessionAware{
 			if(pass.equals(this.getConfirmpass())){
 				System.out.println("确认密码一致。");
 				if((this.getFlag()).equals("我是招聘方")){
-					customer.setIfcustomer(1);
+					customer.setIfcustomer(0);
 				}
 				else{
-					customer.setIfcustomer(0);
+					customer.setIfcustomer(1);
 				}
 				
 				System.out.println("xueli"+deg);
@@ -293,6 +299,5 @@ public class customerAction extends ActionSupport implements SessionAware{
 		this.name = name;
 	}
 
-	
 
 }

@@ -20,7 +20,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
 	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=basePath%>css/font-awesome.min.css">
-	
+	<style type="text/css">
+	body{background:url(images/city1.jpg);
+	background-color:white;opacity: 0.9;}
+	</style>
   </head>
   
   <body>
@@ -28,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="logo"><i class="fa fa-users"></i>EWORK</div>	    
     </header>
  
- <main class="bg">
+ <main class="bg"  style="padding-top:100px">
      <s:form action="customer/customer_login2" method="post" cssClass="login">
 	    <h3>login</h3>
 

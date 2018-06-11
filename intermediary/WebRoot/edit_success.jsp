@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-    <meta http-equiv="Refresh" content="2;url=customerorder/customerorder_editOrder?key=${session.customer.customerid}">
+    <meta http-equiv="Refresh" content="2;url=message/message_fwork?message.fid=${session.customer.customerid}">
 	<title>EWork - Creative work website</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -44,13 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+           
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -71,6 +65,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
+             <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">

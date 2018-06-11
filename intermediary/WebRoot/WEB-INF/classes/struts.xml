@@ -30,7 +30,7 @@
              <result name="one">/companyMessage.jsp</result>
              <result name="two">/updataMessage.jsp</result>
              <result name="show_view">/companySearch.jsp</result>
-             <result name="success">/success.jsp</result>
+             <result name="success">/edit_success.jsp</result>
              <result name="fwork">/works.jsp</result>
           </action>
     </package>

@@ -20,8 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/simple-line-icons.css">
-	<!-- <link rel="stylesheet" href="css/simple-line-icons.css">
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- <link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
   </head>
@@ -60,13 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
-            <!-- 添加的搜索方法，需要调整位置 -->
-                <div class="search">
-                    <form action="message/message_queryMessage" method="post" class="form-inline">
-                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
-                    </form>
-                </div>
+            
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -87,6 +81,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
+            <!-- 添加的搜索方法，需要调整位置 -->
+                <div class="search">
+                    <form action="message/message_queryMessage" method="post" class="form-inline">
+                       <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
+                       <button type="submit" class="btn btn-default">查询</button>    
+                    </form>
+                </div>
         </div>
     </div>
     <div class="nag" id="topIndex">
@@ -126,7 +127,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
- <center>
+   <br>
+   <main>
+   <ul>
+
+          <c:forEach var="message" items="${messageList}" varStatus="status">
+              <li>
+                 <a href="message/message_getComMessage2?message.jobid=${message.jobid}">
+	             <img src="<%=basePath%>upload/${message.companyphoto}"/>
+	             </a>
+	             <p style="font-size:12px;">
+	                <a href="message/message_getComMessage2?message.jobid=${message.jobid}">
+	                  <span><c:out value="${message.jobname}"></c:out></span>
+	                </a>
+	                <span class="price"> <c:out value="${message.companyname}"></c:out></span>
+	                <a href="message/message_deleteComMessage?message.jobid=${message.jobid}">删除</a>
+	             </p>
+	             
+	          </li>
+ 
+  </c:forEach>
+  </ul>
+  </main>
+  <!-- <main>
    <c:forEach var="message" items="${messageList}" varStatus="status">
    <div class="result" style="border:2px solid blue;margin:30px 400px 0px 400px;padding:10px">
      <img src="<%=basePath%>upload/${message.companyphoto}" style="width:400px;height:300px"/><br>
@@ -138,7 +161,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </c:forEach>
    <a href="addMessage.jsp" class="btn btn-primary btn-block btn-large">发布新工作</a>
- </center>
+ </main> -->
+ 
   <footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">

@@ -19,13 +19,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=basePath%>css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=basePath%>css/bootstrapValidator.css">
+  <style type="text/css">
+	body{background:url(images/city1.jpg);
+	background-color:white;opacity: 0.9;}
+	</style>
   </head>
   
   <body>
      <header>
        <div class="logo"><i class="fa fa-users"></i>EWORK</div>	    
     </header>
-  <main class="bg">
+  <main class="bg" style="padding-top:20px">
      <s:form action="customer/customer_reg" method="post" cssClass="login" id="defaultForm">
     <h3>注册</h3>
     <div class="form-group">
@@ -35,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-user"></i></span>
-			<input name="customer.name" type="text" onblur="checkName();" class="form-control" id="ha" placeholder="姓名/公司全称" required>				
+			<input name="customer.name" type="text" onblur="checkName();" id="ha" class="form-control" placeholder="姓名/公司全称" required>				
 			</div>
             <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
@@ -46,15 +50,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input name="customer.customercontact" type="text" class="form-control" placeholder="联系方式" required>
 			</div>
 			<div class="input-group">
-			<span class="input-group-addon"><i class="fa fa-key"></i></span>
+			<span  id="sp1" class="input-group-addon"><i class="fa fa-key"></i></span>
 			<!-- <input name="customer.password" type="password" class="form-control" pattern="^[a-zA-Z]\w{5,15}$" placeholder="请输入密码" required> -->
 			<!-- <input name="customer.password" type="password" class="form-control" placeholder="请输入密码"> -->
-			<input name="customer.password" type="password" class="form-control" id="pa" onkeyup="checkPassword();" placeholder="请输入密码">
+			<input  name="customer.password" type="password" class="form-control" id="pa" onblur="checkPassword();" placeholder="请输入密码">
 			</div>
 			<!--<s:fielderror fieldName="customer.password" cssClass="fielderror"></s:fielderror>-->
 			<div class="input-group">
-			<span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-			<input name="confirmpass" type="password" class="form-control" placeholder="请确认密码" required>
+			<span  id="sp2"  class="input-group-addon"><i class="fa fa-repeat"></i></span>
+			<input name="confirmpass" type="password" class="form-control" onblur="checkConfirm();" id="papa" placeholder="请确认密码" required>
 			</div>
 			<div>
 			<select name="deg" class="form-control">
@@ -76,6 +80,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div>
                  <span id="tipun" class="fielderror"></span>
             </div>
+            <div>
+                 <span id="tipu" class="fielderror"></span>
+            </div>
 	</div>
 	<button type="submit" class="btn btn-success btn-login" onclick="check();">注册</button>
 	<span>已有账号？去</span><a href="login.jsp" >登录</a>
@@ -85,52 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="<%=basePath%>js/jquery.min.js"></script>
     <script src="<%=basePath%>js/bootstrap.min.js"></script>
     <script src="<%=basePath%>js/bootstrapValidator.js"></script>
-    <script type="text/javascript">
-       function checkPassword() {
-           var pa = document.getElementById("pa");
-           var txt = pa.value;
-           var tipun = document.getElementById('tipun');
-           var message = '';
-           if (txt.length <= 6) {
-	          message += '推荐密码7个以上字符<br>';
-	       }
-	       var patrn= /^[A-Za-z0-9]+$/;
-	       if (!patrn.exec(txt)){
-	          message += '密码仅由数字和英文字母组成<br>';
-	       }
-	       tipun.innerHTML = message;
-       }
-       function checkName(){
-           var span = document.getElementById("tipun");
-           var cu = document.getElementById("ha");
-           var cname = cu.value; 
-           var request =new XMLHttpRequest();//创建XMLHttpRequest对象
-           request.onreadystatechange = function press(){//回调方法
-              if(request.readyState < 4) {  //请求中
-                 span.innerHTML="正在检测";  
-              }  
-              if(request.readyState == 4) {  
-                   if(request.status == 200) {  //成功接受请求
-                        if(request.responseText == "no") {  
-                             span.innerHTML="ID已存在";  
-                        }else {              
-                             span.innerHTML="可以使用哦~";  
-                        }              
-                   }  
-               }  
-             
-           };
-           request.open("GET","customer/customer_quName?name="+cname,true);//新建一个请求，向action中发送name
-           request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-           request.send("");//发送请求
-       }
-       function check() {
-           var tipun = document.getElementById('tipun');
-           if (tipun.value!="") {
-	          alert("用户名不合格/密码格式不正确！无法注册！");
-	       }
-       }
-    </script> 
+    
     <!-- 
     <script type="text/javascript">
        $(document).ready(function(){
@@ -176,5 +138,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        });
     </script>
      -->
+     <script type="text/javascript">
+       function checkPassword() {
+           var pa = document.getElementById("pa");
+           var txt = pa.value;
+           var tipun = document.getElementById('tipu');
+           var message = '';
+           if (txt.length <= 6) {
+	          message += '推荐密码7个以上字符<br>';
+	       }
+	       var patrn= /^[A-Za-z0-9]+$/;
+	       if (!patrn.exec(txt)){
+	          message += '密码仅由数字和英文字母组成<br>';
+	       }
+	       tipun.innerHTML = message;
+       }
+       function checkName(){
+           var span = document.getElementById("tipun");
+           var cu = document.getElementById("ha");
+           var cname = cu.value; 
+           var request =new XMLHttpRequest();//创建XMLHttpRequest对象
+           request.onreadystatechange = function press(){//回调方法
+              if(request.readyState < 4) {  //请求中
+                 //span.innerHTML="正在检测";  
+              }  
+              if(request.readyState == 4) {  
+                   if(request.status == 200) {  //成功接受请求
+                        if(request.responseText == "no") {  
+                             span.innerHTML="用户名已存在"; 
+                              
+                             //alert("用户名已存在");
+                        }else {              
+                            span.innerHTML="可以使用哦~";  
+                             //alert("可以使用哦");
+                        }              
+                   }  
+               }  
+             
+           };
+           request.open("GET","customer/customer_quName?name="+cname,true);//新建一个请求，向action中发送name
+           request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+           request.send("");//发送请求
+       }
+       function check() {
+           var a = document.getElementById('tipun');
+           var b = document.getElementById('tipu');
+           if (a.value!="" || b.value!="") {
+	          alert("用户名不合格/密码格式不正确！无法注册！");
+	       }
+       }
+       
+       function checkConfirm() {
+           var aa = document.getElementById("papa");
+           var bb = document.getElementById("pa");
+           var sp1 = document.getElementById("sp1");
+           var sp2 = document.getElementById("sp2");
+           if(aa.value!==bb.value){
+               sp2.innerHTML='<i class="fa fa-times" style="color:red">';
+           }else{
+               sp2.innerHTML='<i class="fa fa-check" style="color:green">';
+           }
+       }
+    </script> 
+     
   </body>
 </html>
