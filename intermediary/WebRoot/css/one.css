@@ -18,7 +18,7 @@ body{
 .icon_arrow{width:16px;height:16px;background:url(http://img01.51jobcdn.com/im/2016/icon/arrow.png) no-repeat}
 .container{width:1002px;margin:0 auto}
 /*头部*/
-.header{position:relative;min-width:1002px;font:14px "Microsoft YaHei";z-index:998}
+.header{position:relative;width:100%;font:14px "Microsoft YaHei";z-index:998}
 .header p,.header ul{margin:0;padding:0}
 .header li{font-family:"Microsoft YaHei";list-style:none}
 .header a{font-family:"microsoft yahei" !important;color:#333;text-decoration:none}

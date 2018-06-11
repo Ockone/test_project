@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div class="header">
+  <div class="header" style="position:fixed;font:14px;z-index:998;width:100%" >
     <!-- bar start -->
     <div class="bar">
         <div class="in">
@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-   <div id="circleContent" class="carousel slide"> 
+   <div id="circleContent" class="carousel slide" style="padding-top:90px"> 
        <ol class="carousel-indicators"> 
          <li data-target="#circleContent" data-slide-to="0" class="active"></li> 
          <li data-target="#circleContent" data-slide-to="1"></li> 
