@@ -26,22 +26,6 @@ public class customerorderAction extends ActionSupport {
 	private int keydd;
 	private List<Customerorder> customerorderList;
 	public String wantOrder() throws Exception{
-		System.out.println("resume:"+customerorder.getResume());
-		if(flag==0){
-			System.out.println("过了");//不限
-		}else if(flag==1){
-			if(degree==1)//大专以上
-				return "ban";
-		}else if(flag==2){
-			if(degree<=2)//本科以上
-				return "ban";
-		}else if(flag==3){
-			if(degree<=3)//研究生以上
-				return "ban";
-		}else if(flag==4){
-			if(degree<=4)//博士以上
-				return "ban";
-		}	
 		System.out.println("过了");
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String s=df.format(new Date());
@@ -57,7 +41,21 @@ public class customerorderAction extends ActionSupport {
 	}
 
 	public String tran(){
-		//System.out.println(customerorder.getJobid());
+		if(flag==0){
+			System.out.println("过了");//不限
+		}else if(flag==1){
+			if(degree==1)//大专以上
+				return "ban";
+		}else if(flag==2){
+			if(degree<=2)//本科以上
+				return "ban";
+		}else if(flag==3){
+			if(degree<=3)//研究生以上
+				return "ban";
+		}else if(flag==4){
+			if(degree<=4)//博士以上
+				return "ban";
+		}
         return "resume";
 	}
 

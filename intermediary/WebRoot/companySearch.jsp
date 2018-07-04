@@ -245,7 +245,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	             <div class="text-desc">
 		                    	<h3>${message.jobname}<br></h3>
 		                    	<a href="message/message_getComMessage?message.jobid=${message.jobid}" class="btn">详情</a>
-		                       <p><a href="customerorder/customerorder_tran?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}" class="add-order">
+		                       <p><a href="customerorder/customerorder_tran?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}&flag=${message.demand}&degree=${customer.degree}" class="add-order">
 	                  <i class="fa fa-check-square"></i>申请</a></p>
 	                
 		                        
