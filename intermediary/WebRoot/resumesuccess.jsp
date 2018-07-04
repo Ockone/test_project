@@ -1,47 +1,35 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE HTML>
-
-<html>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
 <head>
-<title>下载文件显示页面</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<base href="<%=basePath%>">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+    <meta http-equiv="Refresh" content="2;url=message/message_queryMessage?keyWords=">
+	
+	<title>EWork - Creative work website</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<!-- <link rel="stylesheet" href="css/simple-line-icons.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
-<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
-
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
 </head>
-<style>
- input { 
-	width: 224.19px; 
-	height:50px;
-	margin-bottom: 10px; 
-	background: rgba(0,0,0,0.3);
-	border: none;
-	outline: none;
-	padding: 10px;
-	font-size: 13px;
-	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-	border: 1px solid rgba(0,0,0,0.3);
-	border-radius: 4px;
-	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
-	-webkit-transition: box-shadow .5s ease;
-	-moz-transition: box-shadow .5s ease;
-	-o-transition: box-shadow .5s ease;
-	-ms-transition: box-shadow .5s ease;
-	transition: box-shadow .5s ease;
-}
-  </style>
- <body>
- <div class="header">
+<body>
+	<div class="header">
     <!-- bar start -->
     <div class="bar">
         <div class="in">
@@ -57,6 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="l">|</span>
                 <a href="https://ehire.51job.com" target="_blank">企业服务</a>
             </p>
+            
             <div class="uer">
                     <p class="op">
                     <c:choose>
@@ -77,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </p>
                 
             </div>
-              <!-- 添加的搜索方法，需要调整位置 -->
+            <!-- 添加的搜索方法，需要调整位置 -->
                 <div class="search">
                     <form action="message/message_queryMessage" method="post" class="form-inline">
                        <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
@@ -94,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <p class="nlink">
             <c:choose>
             <c:when test="${session.customer.name==null}">
-            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="main.jsp">首页</a>
             <a class="" href="#">关于我们</a>
             <a class="" href="#">成果展示</a>
             <a class="" href="#">公司优势</a>
@@ -103,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:otherwise>
             <c:choose>
             <c:when test="${session.customer.ifcustomer==1}">
-            <a class="on" href="main.jsp">首页</a>
+            <a class="" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">我的工作</a>
             <a class="" href="customerorder/customerorder_editOrder?key=${session.customer.customerid}">我的预约</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
@@ -112,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:otherwise>
             <a class="" href="main.jsp">首页</a>
             <a class="" href="message/message_queryMessage?keyWords=">工作</a>
-            <a class="on" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
+            <a class="" href="message/message_fwork?message.fid=${session.customer.customerid}">我发布的工作</a>
             <a class="" href="customerorder/customerorder_editOrder2?key=${session.customer.customerid}">回应</a>
             <a class="" href="Customer_message.jsp">我的信息</a>
             </c:otherwise>
@@ -123,24 +112,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-	<center>
-         <h1>确认下载简历？</h1>     
-    <form action="${pageContext.request.contextPath}/listFile" enctype="multipart/form-data" method="post">       
-       <input type="text" name="username" style="display:none" value="<%=request.getParameter("key")%>" ><br>       
-               <input type="submit" value="确认" class="btn btn-primary btn-block btn-large" style="width:9%">
-    </form>
-    <c:forEach var="me" items="${fileNameMap}">
-       <c:url value="/download" var="downurl">
-           <c:param name="filename" value="${me.key}"></c:param>
-       </c:url>
-       ${me.value}<a href="${downurl}" class="btn btn-primary btn-block btn-large" >下载</a>
-       <br>
-   </c:forEach>
-   </center>
-   <footer class="site-footer container text-center">
+<center>
+	<h1>恭喜您，操作成功！</h1>
+</center>
+	
+	
+
+
+	<footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">
-				<p>Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>
+				<p style="padding-top:188px">Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>
 			</div>
 		</div>
 	</footer>
@@ -150,6 +132,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<span class="border-bottom"></span>
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
- </body>
 
+	<script src="201706077/html/js/jquery.min.js"></script>
+	<script src="201706077/html/js/templatemo_custom.js"></script>
+</body>
 </html>

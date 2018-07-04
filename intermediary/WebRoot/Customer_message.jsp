@@ -23,6 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
   </head>
   
   <body>
@@ -159,7 +162,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             </c:choose></h2>
 	            <h2 style="margin-left:600px">用户编号:${customer.customerid}</h2>
 	            <h2><a href="customer/customer_showEdit?customer.customerid=${customer.customerid}" class="btn btn-primary btn-block btn-large">编辑</a></h2>
+	            
+	            
   				</div>
+  				<div class="cresume">
+		<a href="resume_edit.jsp">我的简历<em class="e_icon"></em></a>
+		<img src="images/pen_32px_504846_easyicon.net.png" style="width:20px">
+	</div>	
  </center>
  <footer class="site-footer container text-center">
 		<div class="row">

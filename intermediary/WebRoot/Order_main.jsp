@@ -24,6 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
   </head>
   <style>
  a {
@@ -155,10 +157,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-   
+   <br>
+   <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid"> 
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+       <!--<a class="navbar-brand" href="#">菜鸟教程</a>  --> 
+    </div>
+           <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li ><a href="customerorder/customerorder_sortOrder?keydd=1&key=${session.customer.customerid}">高中以上</a></li>
+            <li><a href="customerorder/customerorder_sortOrder?keydd=2&key=${session.customer.customerid}">大专以上</a></li>
+            <li><a href="customerorder/customerorder_sortOrder?keydd=3&key=${session.customer.customerid}">本科以上</a></li>
+            <li><a href="customerorder/customerorder_sortOrder?keydd=4&key=${session.customer.customerid}">研究生以上</a></li>
+            <li><a href="customerorder/customerorder_sortOrder?keydd=5&key=${session.customer.customerid}">博士以上</a></li>
+        </ul>
+        </div>
+    </div>
+</nav>
+    <div style="width:1500px">
     <c:choose>
        <c:when test="${customerorderList.size()==0}">
-          <h1>没有信息</h1>
+          <h1 style="text-align:center">没有信息</h1>
        </c:when>
        <c:otherwise>
        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -198,7 +224,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                  <c:when test="${customerorder.retime==null}"><span style="color:black">待操作</span></c:when>
                                  <c:otherwise><span style="color:black">${customerorder.retime}面试</span></c:otherwise>
                            </c:choose> 
-                           <a href="listFile.jsp?key=${customerorder.id}">
+                           <a href="customerorder/customerorder_getorder?key=${customerorder.orderid}">
                            <span style="color:red">简历</span></a>
                            </c:if>
                          </td>
@@ -257,6 +283,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </table>
        </c:otherwise>
     </c:choose>
+    </div>
 
     <script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
@@ -305,6 +332,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	});
 	</script>
 
+<script type="text/javascript">
+         $('.navbar-nav').find('a').each(function () {
+            if (this.href == document.location.href) {
+                $(this).parent().addClass('active'); // this.className = 'active';
+            }
+        });
+        </script>
 	<footer class="site-footer container text-center">
 			<div class="col-md-12 copyright">
 				<p>Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>

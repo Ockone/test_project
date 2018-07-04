@@ -18,7 +18,7 @@ body{
 .icon_arrow{width:16px;height:16px;background:url(http://img01.51jobcdn.com/im/2016/icon/arrow.png) no-repeat}
 .container{width:1002px;margin:0 auto}
 /*头部*/
-.header{position:relative;width:100%;font:14px "Microsoft YaHei";z-index:998}
+.header{position:relative;font:14px "Microsoft YaHei";z-index:998}
 .header p,.header ul{margin:0;padding:0}
 .header li{font-family:"Microsoft YaHei";list-style:none}
 .header a{font-family:"microsoft yahei" !important;color:#333;text-decoration:none}
@@ -27,7 +27,7 @@ body{
 .header .e_icon{background:url(http://img01.51jobcdn.com/im/2016/icon/header.png) no-repeat}
 .header .in{width:1002px;margin:0 auto}
 .header .bar,.header .nag,.header .snag{position:relative;z-index:1}
-.header .bar{height:32px;line-height:32px;font-size:14px;background-color:#FF6633;z-index:2}
+.header .bar{height:35px;line-height:32px;font-size:14px;background-color:#FF6633;z-index:2}
 .header .bar .icon_arrow{position:relative;display:inline-block;top:3px;*top:0;margin-left:3px;background-position:-16px 0}
 .header .bar a{font-size:14px !important}
 .header .app{float:left;width:106px;height:32px;color:#fff}
@@ -40,7 +40,7 @@ body{
 .header .rlk{float:right;height:32px;margin-left:15px}
 .header .rlk a,.header .rlk a:hover{font-size:14px;color:#fff !important}
 .header .rlk .l{float:none;margin:0 15px}
-.header .uer .op{float:left;width:140px;height:32px;font-size:14px;color:#fff;text-align:center;background-color:#ffa000}
+.header .uer .op{float:left;width:140px;height:35px;font-size:14px;color:#fff;text-align:center;background-color:#ffa000}
 .header .uer .op a{color:#fff}
 .header .uer .op a:hover{color:#fff !important;text-decoration:underline}
 .header .uer .l{position:absolute;left:140px;margin:0;z-index:2}
@@ -135,4 +135,42 @@ body{
 }
 #topIndex{
 	height:52px;
+}
+.box{
+    position:fixed;
+    right:30px;
+    bottom: 30px;
+    height:70px;
+    width: 70px;    
+    text-align:center;
+    padding-top:20px;    
+    background-color:lightblue;
+    border-radius: 20%;
+    overflow: hidden;
+}
+.box:hover:before{
+    top:50%
+}
+.box:hover .box-in{
+    visibility: hidden;
+}
+.box:before{
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    content:'top';
+    width:60px;
+    color:white;
+    font-weight:bold;
+    font-size:30px;
+}    
+.box-in{
+    visibility: visible;
+    display:inline-block;
+    height:40px;
+    width: 40px;
+    border: 5px solid black;
+    border-color: white transparent transparent white;
+    transform:rotate(45deg);
 }

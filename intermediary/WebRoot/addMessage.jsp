@@ -23,19 +23,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
   </head>
   <style>
-  input { 
-	width: 100%; 
+  input {
+    width:200px;
 	height:50px;
-	margin-bottom: 10px; 
+	margin-bottom: 6px; 
 	background: rgba(0,0,0,0.3);
 	border: none;
 	outline: none;
 	padding: 10px;
 	font-size: 18px;
 	color: white;
-}
+	}
+	.form{
+		width:50%;
+		height:35px;
+		
+	}
+	.label {
+	    display: inline;
+	    padding: .2em .6em .3em;
+	    font-size: 75%;
+	    font-weight: 700;
+	    line-height: 1;
+	    color:black;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: baseline;
+	    border-radius: .25em;
+	    
+	}
+	
  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
 .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
@@ -137,90 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
- <!-- <main class="container-fluid">
-    <div class="row">
-        <div class="col-md-10">
-            <s:form action = "message/message_addComMessage" cssClass="form-horizontal"  enctype="multpart/form-data" method="post">
-               <div class="panel-heading">
-                 
-                    <h1 style="text-align:center"><i class="fa fa-plus" aria-hidden="true"></i>添加工作</h1>
-                 
-               </div>
-               <div class="panel-body">
-                   <div class="form-group">
-                     <label class="control-label col-md-3">公司名称</label>
-                     <div class="col-md-4">
-                        <input type="text" name="message.companyname" class="form-control input-sm" required>
-                     </div>
-                   </div>
-                   <div class="form-group">
-                     <label class="control-label col-md-3">地址</label>
-                     <div class="col-md-4">
-                        <input type="text" name="message.companyaddress" class="form-control input-sm" required>
-                     </div>
-                   </div>
-                   <div class="form-group">                 
-                     <label class="control-label col-md-3">薪资</label>
-                     <div class="col-md-4">
-                         <input type="text" name="message.salary" class="form-control input-sm" required>
-                     </div>
-                   </div>
-                   <div class="form-group">
-                     <label class="control-label col-md-3">联系方式</label>
-                     <div class="col-md-4">
-                        <input type="text" name="message.companycontact" class="form-control input-sm" required>
-                     </div>
-                   </div>
-                   <div class="form-group">                     
-                     <label class="control-label col-md-3">职位</label>
-                     <div class="col-md-4">
-                        <input type="text" name="message.jobname" class="form-control input-sm" required>
-                     </div>
-                   </div>
-                   <div class="form-group">
-                     <label class="control-label col-md-3">数量</label>
-                     <div class="col-md-4">
-                       <input type="text" name="message.available" class="form-control input-sm" required>
-                     </div> 
-                   </div>
-                   <div class="form-group">
-                     <label class="control-label col-md-3">要求</label>
-                     <div class="col-md-4">
-                         <input type="text" name="message.demand" class="form-control input-sm" required>
-                     </div>
-                   </div>
-                   <div class="form-group">
-                      <s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden>
-                   </div>
-                   <div class="form-group">
-                      <label class="control-label col-md-3">示例图片</label>
-                      <div class="col-md-4">
-                         <div class="fileupload fileuoload-new" data-provides="fileuoload">
-                            <div class="fileupload-new thumbnail" style="width:200px; height:150px">
-                               <img src="<%=basePath%>upload/de.jpg" alt=""/>
-                            </div>
-                            <div class="fileupload-previw fileupload-exists thumbnail" style="max-width:200px;max-height:150px;line-height:20px">
-                            </div>
-                            <div>
-                                <span class="btn btn-file btn-primary">
-                                    <span class="fileupload-new">浏览</span>
-                                    <span class="fileupload-exists">浏览</span>
-                                    <input type="file" name="companyphoto"/>
-                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
-                                </span>       
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="form-group col-md-3">
-                       <button type="submit" class="btn btn-success pull-right">提交</button>
-                                      
-                   </div>
-               </div>
-            </s:form>
-        </div>
-    </div>
- </main>  -->
+
 <center>
     <div>
       
@@ -232,15 +169,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <s:textfield name="message.jobname" label="职　　位" placeholder="jobname"></s:textfield>
            <s:textfield name="message.available" label="招聘数量" placeholder="acount"></s:textfield>
            <s:textfield name="message.demand" label="要　　求" placeholder="require"></s:textfield>
-           <s:select name="message.sorts" label="分　　类" placeholder="Catagory" list="{'商务/营销','生活/医疗','劳工/制造','艺术/教育','科技/设计'}"></s:select>
-           <select name="deg" class="form-control">
-			   <option>不限</option>
-               <option>大专以上</option>
-               <option>本科以上</option>
-               <option>研究生以上</option>
-               <option>博士以上</option>
-			</select>
-           <s:file name="uploadFile" label="选择文件"/>
+           <s:select name="message.sorts" label="职业类型" placeholder="Catagory" style="margin-bottom:4px"  list="{'商务/营销','生活/医疗','劳工/制造','艺术/教育','科技/设计'}"></s:select>
+           <s:select name="message.sorts" label="学历要求" placeholder="Catagory" style="margin-bottom:4px;background-color:" list="{'不限','大专以上','本科以上','研究生以上','博士生以上'}"></s:select>
+          
+           <s:file name="uploadFile"  label="选择文件"/><br>
+                             截止日期<input type="date" name="message.deadline"  style="margin-bottom:0px;margin-top:10px">
            
        <h3><s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden></h3>
        

@@ -24,6 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	body{background:url(images/city1.jpg);
 	background-color:white;opacity: 0.9;}
 	</style>
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
   </head>
   
   <body>

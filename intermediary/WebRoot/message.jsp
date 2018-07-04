@@ -17,6 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--<link rel="stylesheet" href="css/animate.css">  -->
 	<!--<link rel="stylesheet" href="css/templatemo_style.css">  -->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
 </head>
  
 <body>
@@ -111,7 +113,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <center><h3>未上传简历，申请成功！</h3></center>
    </c:otherwise>
  </c:choose>
-   
      <footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">
@@ -125,6 +126,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<span class="border-bottom"></span>
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
+<div id="box" class="box">
+    <div class="box-in"></div>
+</div>    
+<script>
+var timer  = null;
+box.onclick = function(){
+    cancelAnimationFrame(timer);
+    //获取当前毫秒数
+    var startTime = +new Date();     
+    //获取当前页面的滚动高度
+    var b = document.body.scrollTop || document.documentElement.scrollTop;
+    var d = 1000;
+    var c = b;
+    timer = requestAnimationFrame(function func(){
+        var t = d - Math.max(0,startTime - (+new Date()) + d);
+        document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+        timer = requestAnimationFrame(func);
+        if(t == d){
+          cancelAnimationFrame(timer);
+        }
+    });
+}
+</script>
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>

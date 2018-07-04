@@ -7,6 +7,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
+<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+
 <head>
 <base href="<%=basePath%>">
 	<meta charset="utf-8">

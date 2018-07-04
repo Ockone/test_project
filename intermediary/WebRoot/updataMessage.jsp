@@ -24,6 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
   </head>
   <style>
   input { 
@@ -52,8 +54,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
   </style>
-  <body>
-  <body>
+
+  <body onload="degree(),wol()">
      <div class="header">
     <!-- bar start -->
     <div class="bar">
@@ -140,6 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <center>
     <div>  
  	  <s:form  action ="message/message_editMessage" enctype="multipart/form-data" method="post">
+ 	     <s:hidden name="orgintime" value="%{#attr.message.deadline}"/>
          <s:textfield name="message.jobid" label="工作编号" readonly="true"></s:textfield>
          <s:textfield name="message.jobname" label="工作职位"></s:textfield>
          <s:textfield name="message.companyaddress" label="地　　址"></s:textfield>
@@ -148,16 +151,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <s:textfield name="message.available" label="招聘人数"></s:textfield>
          <s:textfield name="message.companycontact" label="联系方式"></s:textfield>
          <s:select name="message.sorts" label="分　　类" placeholder="Catagory" list="{'商务/营销','生活/医疗','劳工/制造','艺术/教育','科技/设计'}"></s:select>
-         <select name="deg" class="form-control">
+         <!--<select  name="deg" class="form-control">
 			   <option>不限</option>
                <option>大专以上</option>
                <option>本科以上</option>
                <option>研究生以上</option>
                <option>博士以上</option>
-		</select>
-		<input type="file" name="companyphoto"/>
-         <s:hidden name="message.companyphoto" value="%{#attr.message.companyphoto}"></s:hidden>
-         <s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden>
+		</select>-->
+		<s:hidden id="degree" value="%{#attr.message.demand}"/>
+		<s:select id="sc" name="deg" label="学　　历" placeholder="Catagory" list="{'不限','大专以上','本科以上','研究生以上','博士以上'}"></s:select>
+		 <s:file name="companyphoto"/>
+		<!--<input type="file" name="companyphoto"/>-->
+         <s:hidden name="orginphoto" value="%{#attr.message.companyphoto}"></s:hidden>
+         <s:hidden name="message.fid" value="%{#session.customer.customerid}"></s:hidden><br>
+                         截至日期<input type="date" name="message.deadline" id="mydate">
         <s:submit value="保存" cssClass="btn btn-primary btn-block btn-large" style="width: 31%;
     margin: 10px 60px 0px 0px"></s:submit>
        </s:form>
@@ -176,8 +183,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<span class="border-bottom"></span>
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
-
+    <script type="text/javascript">
+	  function degree(){
+	    var de = document.getElementById("degree");   
+	    var sec = document.getElementById("sc").children;
+	    if(de.value==='1'){
+	        sec[1].selected=true;
+	    }else if(de.value==='2'){
+	        sec[2].selected=true;
+	    }else if(de.value==='3'){
+	        sec[3].selected=true;
+	    }else if(de.value==='4'){
+	        sec[4].selected=true;
+	    }else if(de.value==='0'){
+	       sec[0].selected=true;
+	    }
+	  }
+	  
+	</script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
+	
  </body>
 </html>

@@ -73,6 +73,42 @@ public class customerAction extends ActionSupport implements SessionAware{
 		
 	}
 
+	public String resume() throws Exception{
+    	System.out.println("sss");
+    	String path = ServletActionContext.getServletContext().getRealPath("/upload/customerp");
+    	String filename = "";
+    	if(customerphoto!=null){
+    		System.out.println("ssss");
+    		InputStream is = new FileInputStream(customerphoto);
+    		String fileContentType = this.getCustomerphotoContentType();
+    		System.out.println(fileContentType);
+    		if(fileContentType.equals("image/jpeg") || fileContentType.equals("imageeg"))
+    			filename = UUID.randomUUID().toString()+".jpg";
+			else if(fileContentType.equals("image/gif"))
+				 filename = UUID.randomUUID().toString()+".gif";
+			else if(fileContentType.equals("image/png"))
+				 filename = UUID.randomUUID().toString()+".png";
+    		OutputStream os =new FileOutputStream(new File(path,filename));
+    		byte[] b = new byte[1024];
+    		System.out.println("sssss");
+    		int bs = 0;
+			while((bs = is.read(b))>0){
+				 os.write(b,0,bs);
+			}
+			 is.close();
+			 os.close();
+			 System.out.println(filename);
+    	}else{
+    		System.out.println("没有图片");
+    		filename = orginphoto;
+    		System.out.println(filename);
+    	}
+    	customer.setCustomerphoto(filename);
+    	customerDao.updateCustomer(customer);
+        session.put("customer", customer);
+        return "resumesuccess";
+    }
+	
 	public String reg() throws Exception{
 		ArrayList<Customer> listCustomer=customerDao.QueryCustomerInfo2(customer.getIdentification());
 		if(listCustomer.size()==0){
@@ -211,10 +247,10 @@ public class customerAction extends ActionSupport implements SessionAware{
     	customer.setCustomerphoto(filename);
     	
     	if((this.getFlag()).equals("我是招聘方")){
-			customer.setIfcustomer(1);
+			customer.setIfcustomer(0);
 		}
 		else{
-			customer.setIfcustomer(0);
+			customer.setIfcustomer(1);
 		}
     	System.out.println(deg);
 		if(deg.equals("高中")){
@@ -228,6 +264,7 @@ public class customerAction extends ActionSupport implements SessionAware{
 		}else{
 			customer.setDegree(5);
 		}
+		System.out.println("keyi");
         customerDao.updateCustomer(customer);
         session.put("customer", customer);
         return "main";

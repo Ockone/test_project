@@ -40,5 +40,8 @@
         <property name="sorts" type="java.lang.String">
             <column name="sorts" length="30" />
         </property>
+        <property name="deadline" type="java.util.Date">
+            <column name="deadline" length="10" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -28,5 +28,89 @@
         <property name="retime" type="java.lang.String">
             <column name="retime" length="30" />
         </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="30" />
+        </property>
+        <property name="customeradress" type="java.lang.String">
+            <column name="customeradress" length="30" />
+        </property>
+        <property name="customercontact" type="java.lang.String">
+            <column name="customercontact" length="30" />
+        </property>
+        <property name="customerphoto" type="java.lang.String">
+            <column name="customerphoto" length="100" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="sex" length="4" />
+        </property>
+        <property name="birth" type="java.lang.String">
+            <column name="birth" length="20" />
+        </property>
+        <property name="nation" type="java.lang.String">
+            <column name="nation" length="10" />
+        </property>
+        <property name="politicstatus" type="java.lang.String">
+            <column name="politicstatus" length="30" />
+        </property>
+        <property name="height" type="java.lang.Integer">
+            <column name="height" />
+        </property>
+        <property name="schoolsystem" type="java.lang.String">
+            <column name="schoolsystem" length="10" />
+        </property>
+        <property name="education" type="java.lang.String">
+            <column name="education" length="20" />
+        </property>
+        <property name="householdregister" type="java.lang.String">
+            <column name="householdregister" length="30" />
+        </property>
+        <property name="major" type="java.lang.String">
+            <column name="major" length="10" />
+        </property>
+        <property name="school" type="java.lang.String">
+            <column name="school" length="20" />
+        </property>
+        <property name="foreignlanguage" type="java.lang.String">
+            <column name="foreignlanguage" length="20" />
+        </property>
+        <property name="computer" type="java.lang.String">
+            <column name="computer" length="10" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="20" />
+        </property>
+        <property name="zipcode" type="java.lang.String">
+            <column name="zipcode" length="8" />
+        </property>
+        <property name="evaluation" type="java.lang.String">
+            <column name="evaluation" length="200" />
+        </property>
+        <property name="t1" type="java.lang.String">
+            <column name="t1" length="20" />
+        </property>
+        <property name="c1" type="java.lang.String">
+            <column name="c1" length="30" />
+        </property>
+        <property name="e1" type="java.lang.String">
+            <column name="e1" length="50" />
+        </property>
+        <property name="t2" type="java.lang.String">
+            <column name="t2" length="20" />
+        </property>
+        <property name="c2" type="java.lang.String">
+            <column name="c2" length="30" />
+        </property>
+        <property name="e2" type="java.lang.String">
+            <column name="e2" length="50" />
+        </property>
+        <property name="t3" type="java.lang.String">
+            <column name="t3" length="20" />
+        </property>
+        <property name="c3" type="java.lang.String">
+            <column name="c3" length="30" />
+        </property>
+        <property name="e3" type="java.lang.String">
+            <column name="e3" length="50" />
+        </property>
     </class>
 </hibernate-mapping>

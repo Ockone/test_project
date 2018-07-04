@@ -1,5 +1,7 @@
 package com.intermediary.model;
 
+import java.util.Date;
+
 /**
  * Message entity. @author MyEclipse Persistence Tools
  */
@@ -19,6 +21,7 @@ public class Message implements java.io.Serializable {
 	private Integer demand;
 	private Integer fid;
 	private String sorts;
+	private Date deadline;
 
 	// Constructors
 
@@ -29,7 +32,8 @@ public class Message implements java.io.Serializable {
 	/** full constructor */
 	public Message(String companyname, String companyaddress, Integer salary,
 			Integer available, String companycontact, String companyphoto,
-			String jobname, Integer demand, Integer fid, String sorts) {
+			String jobname, Integer demand, Integer fid, String sorts,
+			Date deadline) {
 		this.companyname = companyname;
 		this.companyaddress = companyaddress;
 		this.salary = salary;
@@ -40,6 +44,7 @@ public class Message implements java.io.Serializable {
 		this.demand = demand;
 		this.fid = fid;
 		this.sorts = sorts;
+		this.deadline = deadline;
 	}
 
 	// Property accessors
@@ -130,6 +135,14 @@ public class Message implements java.io.Serializable {
 
 	public void setSorts(String sorts) {
 		this.sorts = sorts;
+	}
+
+	public Date getDeadline() {
+		return this.deadline;
+	}
+
+	public void setDeadline(Date deadline) {
+		this.deadline = deadline;
 	}
 
 }

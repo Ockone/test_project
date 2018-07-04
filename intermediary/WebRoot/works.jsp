@@ -17,32 +17,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+		<link rel="stylesheet" href="css/imge.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/simple-line-icons.css">
-	<link rel="stylesheet" href="css/main.css">
+	
 	<!-- <link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
   </head>
-  <style>
-  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-.btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
-.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
-.btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-.btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
-.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
-.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
-.btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
-.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
-.btn-block {     
-    width: 20%;
-    display: block;
-    }
-
-* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
   
-  </style>
   <body>
 <div class="header">
     <!-- bar start -->
@@ -129,21 +115,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    <br>
    <main>
-   <ul>
-
-          <c:forEach var="message" items="${messageList}" varStatus="status">
-              <li>
+  <ul>
+             <li>		
+             <div class="port-4 effect-3 " style="border:0px;"> 
+              <div class="image-box">        
+		            <div class="add"><a href="addMessage.jsp"><i class="fa fa-plus"></i> 添加工作</a></div>
+		              <p>点击上面的链接可以添加一种工作</p>		
+	        </li>
+              <c:forEach var="message" items="${messageList}" varStatus="status">
+              <li> 
+               <div class="port-4 effect-3 " style="border:0px;"> 
+               <div class="image-box"> 
                  <a href="message/message_getComMessage2?message.jobid=${message.jobid}">
 	             <img src="<%=basePath%>upload/${message.companyphoto}"/>
 	             </a>
-	             <p style="font-size:12px;">
-	                <a href="message/message_getComMessage2?message.jobid=${message.jobid}">
-	                  <span><c:out value="${message.jobname}"></c:out></span>
-	                </a>
+	             </div>
+	              <div class="text-desc">
+		                    	<h3>${message.jobname}<br></h3>
+		                    	<a href="message/message_getComMessage2?message.jobid=${message.jobid}" class="btn">编辑</a>
+	             <a href="message/message_deleteComMessage?message.jobid=${message.jobid}"  class="btn">删除</a>   
+	             </div>
+	               <p>
+	               <!--  <a href="message/message_getComMessage?message.jobid=${message.jobid}"> -->
+	                  <c:out value="${message.jobname}"></c:out>
 	                <span class="price"> <c:out value="${message.companyname}"></c:out></span>
-	                <a href="message/message_deleteComMessage?message.jobid=${message.jobid}">删除</a>
-	             </p>
-	             
+                    </p>
+                 </div>
 	          </li>
  
   </c:forEach>
@@ -162,7 +159,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </c:forEach>
    <a href="addMessage.jsp" class="btn btn-primary btn-block btn-large">发布新工作</a>
  </main> -->
- 
+ <div id="box" class="box">
+    <div class="box-in"></div>
+</div>    
+<script>
+var timer  = null;
+box.onclick = function(){
+    cancelAnimationFrame(timer);
+    //获取当前毫秒数
+    var startTime = +new Date();     
+    //获取当前页面的滚动高度
+    var b = document.body.scrollTop || document.documentElement.scrollTop;
+    var d = 1000;
+    var c = b;
+    timer = requestAnimationFrame(function func(){
+        var t = d - Math.max(0,startTime - (+new Date()) + d);
+        document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+        timer = requestAnimationFrame(func);
+        if(t == d){
+          cancelAnimationFrame(timer);
+        }
+    });
+}
+</script>
   <footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">

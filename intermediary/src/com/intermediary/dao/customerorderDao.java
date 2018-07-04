@@ -29,6 +29,13 @@ public class customerorderDao {
 		return (ArrayList<Customerorder>)  orderList;
 	}
 	
+	public Customerorder getCustomerorderById(Integer orderid){
+		   Session s=factory.getCurrentSession();
+		   Customerorder c=(Customerorder)s.get(Customerorder.class, orderid);
+		   return c;
+	}
+
+	
 	public void deleteOrder(Integer orderid)throws Exception{
 		   Session s=factory.getCurrentSession();
 		   Object order=s.load(Customerorder.class, orderid);

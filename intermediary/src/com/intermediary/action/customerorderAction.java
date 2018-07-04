@@ -23,9 +23,10 @@ public class customerorderAction extends ActionSupport {
 	private int flag;
 	private int degree;
 	private int key;
+	private int keydd;
 	private List<Customerorder> customerorderList;
 	public String wantOrder() throws Exception{
-		System.out.println(degree);
+		System.out.println("resume:"+customerorder.getResume());
 		if(flag==0){
 			System.out.println("过了");//不限
 		}else if(flag==1){
@@ -49,6 +50,18 @@ public class customerorderAction extends ActionSupport {
 		System.out.println(customerorder.getTime());
 		return "success2";
 	}
+	
+	public String getorder(){
+		customerorder = customerorderDao.getCustomerorderById(key);
+		return "show_resume";
+	}
+
+	public String tran(){
+		//System.out.println(customerorder.getJobid());
+        return "resume";
+	}
+
+	
 	public int getcid(){
 		return customerorder.getId();
 	}
@@ -62,6 +75,23 @@ public class customerorderAction extends ActionSupport {
 		}*/
 		return "ed";
 	}
+	
+	public String sortOrder(){
+		customerorderList = customerorderDao.queryCustomerorderInfo2(key);
+		//学历要求筛选
+		//String boxStr2[]=request.getParameterValues("box2");
+		//System.out.println(customerorderList.size());
+		for(int i=0;i<customerorderList.size();i++){
+			Customerorder m= customerorderList.get(i);
+			System.out.println(m.getResume());
+			if(Integer.parseInt(m.getResume())<keydd){
+				customerorderList.remove(i);
+				i--;
+			}
+		}
+		return "ed";
+    }
+
 	
 	public String editOrder2(){
 		customerorderList = customerorderDao.queryCustomerorderInfo2(key);
@@ -110,5 +140,11 @@ public class customerorderAction extends ActionSupport {
 	}
 	public void setDegree(int degree) {
 		this.degree = degree;
+	}
+	public int getKeydd() {
+		return keydd;
+	}
+	public void setKeydd(int keydd) {
+		this.keydd = keydd;
 	}
 }

@@ -23,6 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
   </head>
   <style>
   .class1 h2{
@@ -51,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
   
   </style>
-  <body>
+  <body onload="comparetime()">
     <div class="header">
     <!-- bar start -->
     <div class="bar">
@@ -139,13 +141,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
  <center>
+        <s:hidden value="%{#attr.message.deadline}"  id="day"></s:hidden>
        <h1>${message.companyname}</h1>
-       <img src="<%=basePath%>images/${message.companyphoto}" style="float:left;width:250px;height:250px;margin-left: 350px"/>
+       <img src="<%=basePath%>upload/${message.companyphoto}" style="float:left;width:250px;height:250px;margin-left: 350px"/>
        <div class="class1">
        <h2>地　址:${message.companyaddress}</h2>
        <h2>薪　资:${message.salary}</h2>
        <h2>剩　余:${message.available}</h2>
        <h2>联系方式:${message.companycontact}</h2>
+       <h2 style="margin-left:600px">截至日期：${message.deadline}</h2>
        <h2 style="margin-left:600px">需　求:<c:choose>
                                                 <c:when test="${message.demand==0}">无
                                                 </c:when>
@@ -160,7 +164,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             </c:choose></h2>
        <c:choose>
           <c:when test="${session.customer.name!=null}">
-             <a href="customerorder/customerorder_wantOrder?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}&flag=${message.demand}&degree=${customer.degree}" class="btn btn-primary btn-block btn-large">申请</a>
+             <span id="re"><a href="customerorder/customerorder_tran?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}&flag=${message.demand}&degree=${customer.degree}" class="btn btn-primary btn-block btn-large">申请</a></span>
+
           </c:when>
        </c:choose>
        </div>
@@ -178,7 +183,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<span class="border-bottom"></span>
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
-
+    
+    <script>
+       function comparetime(){
+         var now = new Date();
+         //var test = document.getElementById("day").value;
+         var test = "${message.deadline}";
+         var ctime = new Date(test);
+         if(test !== null && ctime<now){
+            var re = document.getElementById("re");
+            re.innerHTML='<input type="button" class="btn btn-primary btn-block btn-large" value="已过期">';
+         }
+       
+       }
+    </script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
  </body>

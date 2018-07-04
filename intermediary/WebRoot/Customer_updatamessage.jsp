@@ -23,24 +23,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
-  </head>
-  <style>
-  input { 
-	width: 100%; 
-	height:50px;
-	margin-bottom: 10px; 
-	background: rgba(0,0,0,0.3);
-	border: none;
-	outline: none;
-	padding: 10px;
-	font-size: 13px;
-	color: #fff;
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
 	
-}
- 
-
-  </style>
-  <body>
+  </head>
+  
+  <body onload="change()">
      <div class="header">
     <!-- bar start -->
     <div class="bar">
@@ -127,11 +114,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <main class="container-fluid">
     <div class="row">
         <div class="col-md-10">
+        
             <s:form action = "customer/customer_editCustomer" cssClass="form-horizontal"  enctype="multipart/form-data" method="post">
+            <s:hidden name="customer.customerid" value="%{#session.customer.customerid}"></s:hidden>
             <s:hidden name="orginphoto" value="%{#session.customer.customerphoto}"></s:hidden>
             <s:hidden name="customer.identification" value="%{#session.customer.identification}"></s:hidden>
-            <s:hidden name="customer.customerid" label="id" value="%{#session.customer.customerid}"></s:hidden>   
-               
+            <s:hidden name="customer.sex"  value="%{#session.customer.sex}"></s:hidden>   
+            <s:hidden name="customer.nation"  value="%{#session.customer.nation}"></s:hidden>
+            <s:hidden name="customer.birth"  value="%{#session.customer.birth}"></s:hidden>
+            <s:hidden name="customer.politicstatus"  value="%{#session.customer.politicstatus}"></s:hidden>
+            <s:hidden name="customer.height"  value="%{#session.customer.height}"></s:hidden>
+            <s:hidden name="customer.schoolsystem"  value="%{#session.customer.schoolsystem}"></s:hidden>
+            <s:hidden name="customer.education"  value="%{#session.customer.education}"></s:hidden>
+            <s:hidden name="customer.householdregister"  value="%{#session.customer.householdregister}"></s:hidden>
+            <s:hidden name="customer.major"  value="%{#session.customer.major}"></s:hidden>
+            <s:hidden name="customer.school"  value="%{#session.customer.school}"></s:hidden>
+            <s:hidden name="customer.foreignlanguage"  value="%{#session.customer.foreignlanguage}"></s:hidden>
+            <s:hidden name="customer.computer"  value="%{#session.customer.computer}"></s:hidden>
+            <s:hidden name="customer.t1"  value="%{#session.customer.t1}"></s:hidden>
+            <s:hidden name="customer.c1"  value="%{#session.customer.c1}"></s:hidden>
+            <s:hidden name="customer.e1"  value="%{#session.customer.e1}"></s:hidden>
+            <s:hidden name="customer.t2"  value="%{#session.customer.t2}"></s:hidden>
+            <s:hidden name="customer.c2"  value="%{#session.customer.c2}"></s:hidden>
+            <s:hidden name="customer.e2"  value="%{#session.customer.e2}"></s:hidden>
+            <s:hidden name="customer.t3"  value="%{#session.customer.t3}"></s:hidden>
+            <s:hidden name="customer.c3"  value="%{#session.customer.c3}"></s:hidden>
+            <s:hidden name="customer.e3"  value="%{#session.customer.e3}"></s:hidden>
+            <s:hidden name="customer.email"  value="%{#session.customer.email}"></s:hidden>
+            <s:hidden name="customer.zipcode"  value="%{#session.customer.zipcode}"></s:hidden>
+            <s:hidden name="customer.evaluation"  value="%{#session.customer.evaluation}"></s:hidden> 
                <div class="panel-body">
                    <div class="form-group">
                      <label class="control-label col-md-3">名称</label>
@@ -163,7 +174,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    <label class="control-label col-md-3">用户类别</label>
                       <div class="col-md-4">
                       
-                      <select name="flag" class="form-control">
+                      <select id="sc1" name="flag" class="form-control">
 			                <option>我是应聘方</option>
                             <option>我是招聘方</option>
 		              </select>
@@ -173,15 +184,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    <label class="control-label col-md-3">学历</label>
                       <div class="col-md-4">
                       
-                      <select name="deg" class="form-control">
+                      <select id="sc2" name="deg" class="form-control">
 			                <option>高中</option>
                             <option>大专</option>
                             <option>本科</option>
                             <option>研究生</option>
                             <option>博士</option>
 		              </select>
+		              <s:hidden value="%{#session.customer.ifcustomer}" id="hi1"/>
+		              <s:hidden value="%{#session.customer.degree}" id="hi2"/>
 		              </div>
                    </div>
+                   
+                   
+                   
                    <div class="form-group">
                       <label class="control-label col-md-3">我的头像</label>
                       <div class="col-md-4">
@@ -193,15 +209,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                             <div>
                                 <span class="btn btn-file btn-primary">
-                                    <span class="fileupload-new">浏览</span>
-                                    <span class="fileupload-exists">浏览</span>
                                     <input type="file" name="customerphoto"/>
-                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>         
-                      			   <button type="submit" class="btn btn-success pull-right">提交</button>
-                       </span>       
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
+                                </span>       
                             </div>
                          </div>
                       </div>
+                   </div>
+                   <div class="form-group col-md-3">
+                       <button type="submit" class="btn btn-success pull-right">提交</button>
+                                      
                    </div>
                </div>
             </s:form>
@@ -241,7 +258,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<span class="border-bottom"></span>
 	<span class="shape-1"></span>
 	<span class="shape-2"></span>
-
+    <script>
+      function change(){
+         var sc1 = document.getElementById("sc1").children;
+         var sc2 = document.getElementById("sc2").children;
+         var hi1 = document.getElementById("hi1");
+         var hi2 = document.getElementById("hi2");
+         if(hi1.value==="1"){
+             sc1[0].selected = true;
+         }else{
+             sc1[1].selected = true;
+         }
+         if(hi2.value==="1"){
+             sc2[0].selected = true;
+         }else if(hi2.value==="2"){
+             sc2[1].selected = true;
+         }else if(hi2.value==="3"){
+             sc2[2].selected = true;
+         }else if(hi2.value==="4"){
+             sc2[3].selected = true;
+         }else{
+             sc2[4].selected = true;
+         }
+      }
+    </script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/templatemo_custom.js"></script>
 	<script src="js/bootstrap.min.js"></script>

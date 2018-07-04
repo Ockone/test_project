@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +28,7 @@ public class messageAction extends ActionSupport{
 	private List<Message> messageList;
 	private Message message;
 	private String keyWords;
+	private Date orgintime;
 	String sortname;
 	private String deg;
 	private File uploadFile;
@@ -50,8 +54,60 @@ public class messageAction extends ActionSupport{
 	
 	public String queryMessage() throws Exception {
 		messageList=messageDao.queryMessageInfo(keyWords);
+		Collections.reverse(messageList);
         return "show_view";
     }
+	
+	public String sortMessageBySalary(){
+		System.out.println("getin");
+		messageList = messageDao.queryAllMessage();
+		comparebysalary c = new comparebysalary();
+		Collections.sort(messageList,c);
+		return "show_view";
+	}
+	
+	public String sortMessageBySalary2(){
+		messageList = messageDao.queryAllMessage();
+		comparebysalary c = new comparebysalary();
+		Collections.sort(messageList,c);
+		Collections.reverse(messageList);
+		return "show_view";
+	}
+	
+	public String sortMessageByDegree(){
+		messageList = messageDao.queryAllMessage();
+		comparebydegree c = new comparebydegree();
+		Collections.sort(messageList,c);
+		return "show_view";
+	}
+	
+	public String sortMessageByDegree2(){
+		messageList = messageDao.queryAllMessage();
+		comparebydegree c = new comparebydegree();
+		Collections.sort(messageList,c);
+		Collections.reverse(messageList);
+		return "show_view";
+	}
+	
+	public String sortMessageByAvaliable(){
+		messageList = messageDao.queryAllMessage();
+		comparebyavaliable c = new comparebyavaliable();
+		Collections.sort(messageList,c);
+		return "show_view";
+	}
+	
+	public String sortMessageByAvaliable2(){
+		messageList = messageDao.queryAllMessage();
+		comparebyavaliable c = new comparebyavaliable();
+		Collections.sort(messageList,c);
+		Collections.reverse(messageList);
+		return "show_view";
+	}
+	/*public int compareTo(Message m){
+		
+		if()
+		return 0;
+	}*/
 	
 	public String sortMessage() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -160,8 +216,10 @@ public class messageAction extends ActionSupport{
 			 }
 			 is.close();
 			 os.close();
+			 message.setCompanyphoto(companyphotoFileName);
+		 }else{
+			 message.setCompanyphoto("ework.png");
 		 }
-		 message.setCompanyphoto(companyphotoFileName);
 		    if(deg.equals("不限")){
 				message.setDemand(0);
 			}else if(deg.equals("大专以上")){
@@ -187,6 +245,9 @@ public class messageAction extends ActionSupport{
      
 	  
 	 public String editMessage()  throws Exception{
+		 if(message.getDeadline() == null){
+			 message.setDeadline(orgintime);
+		 }
 		 String path = ServletActionContext.getServletContext().getRealPath("/upload");
 	    	String filename = "";
 	    	if(companyphoto!=null){
@@ -328,6 +389,55 @@ public class messageAction extends ActionSupport{
 
 	public void setOrginphoto(String orginphoto) {
 		this.orginphoto = orginphoto;
+	}
+
+
+
+	
+	class comparebydegree implements Comparator{
+
+		public int compare(Object o1, Object o2) {
+			// TODO Auto-generated method stub
+			Message m1 = (Message)o1;
+			Message m2 = (Message)o2;
+			if(m1.getDemand()-m2.getDemand()>0)
+				return -1;
+			else
+				return 1;
+		}
+		
+	}
+	
+	class comparebysalary implements Comparator{
+		public int compare(Object o1, Object o2) {
+			// TODO Auto-generated method stub
+			Message m1 = (Message)o1;
+			Message m2 = (Message)o2;
+			if(m1.getSalary()-m2.getSalary()>0)
+				return -1;
+			else
+				return 1;
+		}
+	}
+	
+	class comparebyavaliable implements Comparator{
+		public int compare(Object o1, Object o2) {
+			Message m1 = (Message)o1;
+			Message m2 = (Message)o2;
+			if(m1.getAvailable()-m2.getAvailable()>0)
+				return -1;
+			else
+				return 1;
+		}
+	}
+
+	public Date getOrgintime() {
+		return orgintime;
+	}
+
+
+	public void setOrgintime(Date orgintime) {
+		this.orgintime = orgintime;
 	}
 
 }

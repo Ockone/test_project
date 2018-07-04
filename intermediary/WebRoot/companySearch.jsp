@@ -17,38 +17,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
 	<link rel="stylesheet" href="css/main.css">
-	
+	<link rel="stylesheet" href="css/imge.css">
 	<script type="text/javascript" src="js/icheck.min.js"></script>
 	<link rel="stylesheet" href="css/base.css" type="text/css"></link>
 	<link rel="stylesheet" href="css/home.css" type="text/css"></link>
-	<style>
-	.black_overlay{ 
-            display: none; 
-            position: absolute; 
-            top: 0%; 
-            left: 0%; 
-            width: 100%; 
-            height: 100%; 
-            background-color: black; 
-            z-index:1001; 
-            -moz-opacity: 0.8; 
-            opacity:.80; 
-            filter: alpha(opacity=88); 
-        } 
-        .white_content { 
-            display: none; 
-            position: absolute; 
-            top: 25%; 
-            left: 25%; 
-            width: 55%; 
-            height: 55%; 
-            padding: 20px; 
-            border: 10px solid orange; 
-            background-color: white; 
-            z-index:1002; 
-            overflow: auto; 
-        } 
-	</style>
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+	
 </head>
 <body>
 	 <div class="header">
@@ -92,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="search">
                     <form action="message/message_queryMessage" method="post" class="form-inline">
                        <input type="text" name="keyWords" class="form-control" placeholder="请输入关键词" style="width:250px">
-                       <button type="submit" class="btn btn-default">查询</button>    
+                       <button type="submit" style="btn btn-default">查询</button>    
                     </form>
                 </div>
         </div>
@@ -134,34 +108,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
    </div>
    </div>
-<main>
-<!-- 筛选框 -->
-<!--<a href = "javascript:void(0)" onclick = "display();"><i class="fa fa-hourglass-o fa-2x" style="color:red;">筛选</i> </a>
-<div id="light" class="white_content">
-<div>
-筛选 
-<form action="message/message_sortMessage" method="post">
-<span>工作类别</span><br>
-<input type="checkbox" name="box" value="商务/营销">商务/营销<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box" value="生活/医疗">生活/医疗<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box" value="劳工/制造">劳工/制造<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box" value="艺术/教育">艺术/教育<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box" value="科技/设计">科技/设计<br>
-<br><span>学历要求</span><br>
-<input type="checkbox" name="box2" value="0">高中及以下<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="1">大专<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="2">本科<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="3">硕士<span>&nbsp;&nbsp;</span>
-<input type="checkbox" name="box2" value="4">博士及以上<br>
-<br><span>薪资水平</span><br>
-<input name="minsalary" type="text" placeholder="最低薪酬">
-<span>~</span>
-<input name="maxsalary" type="text" placeholder="最高薪酬"><br>
-<br><input type="submit" value="筛选"><a href = "javascript:select();"><span style="color:red;">取消</span></a>
-</form>
-</div>
-</div> 
-<div id="fade" class="black_overlay"></div> -->
+<main><br>
+
+
+<!--<select class="form-control" onchange="self.location.href=options[selectedIndex].value" id="select">显示不合理
+   <option value="message/message_sortMessageBySalary">薪资降序</option>
+   <option value="message/message_sortMessageBySalary2">薪资升序</option>
+   <option value="message/message_sortMessageByDegree">学历降序</option>
+   <option value="message/message_sortMessageByDegree2">学历升序</option>
+   <option value="message/message_sortMessageByAvaliable">需求人数降序</option>
+   <option value="message/message_sortMessageByAvaliable2">需求人数升序</option>
+</select>-->
+
 <section class="aui-screen-box" >
             <div class="aui-screen-content" >
                 <div class="aui-choice-screen">
@@ -184,8 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <a href="javascript:void(0)" values2="" values1="" attrval="本科"><input type="checkbox" name="box2" value="2">本科</a>
                                 <a href="javascript:void(0)" values2="" values1="" attrval="硕士"><input type="checkbox" name="box2" value="3">硕士</a>
                                 <a href="javascript:void(0)" values2="" values1="" attrval="博士及以上"><input type="checkbox" name="box2" value="4">博士及以上</a>
-                                <a href="javascript:void(0)" values2="" values1="" attrval="无学历要求">无学历要求</a>
-                                
+                                <a href="javascript:void(0)" values2="" values1="" attrval="无学历要求">无学历要求</a>  
                             </dd>
                         </dl>
                         <dl class="aui-screen-list-item" attr="">
@@ -202,7 +159,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <input name="minsalary" type="text" placeholder="min">
                                     -
 		                            <input name="maxsalary" type="text" placeholder="max">
-                                    <button>确认</button>
+                                    <button >确认</button>
                                 </label>
                             </dd>
                         </dl>
@@ -238,7 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="submit" value="筛选">
+                                            <input type="submit" value="筛选" class="btn">
                                         </label>
                                     </li>
                                 </ul>
@@ -251,40 +208,84 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </section>
 <ul>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid"> 
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+       <!--<a class="navbar-brand" href="#">菜鸟教程</a>  --> 
+    </div>
+           <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li ><a href="message/message_sortMessageBySalary">薪资降序</a></li>
+            <li><a href="message/message_sortMessageBySalary2">薪资升序</a></li>
+            <li><a href="message/message_sortMessageByDegree">学历降序</a></li>
+            <li><a href="message/message_sortMessageByDegree2">学历升序</a></li>
+            <li><a href="message/message_sortMessageByAvaliable">需求人数降序</a></li>
+            <li><a href="message/message_sortMessageByAvaliable2" >需求人数降序</a></li>
+        </ul>
+        </div>
+    </div>
+</nav>
 
-          <c:forEach var="message" items="${messageList}" varStatus="status">
-              <li>
-                 <a href="message/message_getComMessage?message.jobid=${message.jobid}">
+            <c:forEach var="message" items="${messageList}" varStatus="status">
+             <li>
+              <div class="port-2 effect-3" style="border:0px"> 
+               <div class="image-box">      
+                 <a href="message/message_getComMessage?message.jobid=${message.jobid}">        
 	             <img src="<%=basePath%>upload/${message.companyphoto}">
-	             </a>
-	             <p>
-	                <a href="message/message_getComMessage?message.jobid=${message.jobid}">
+	               </a>
+	              </div>
+	            
+	             <div class="text-desc">
+		                    	<h3>${message.jobname}<br></h3>
+		                    	<a href="message/message_getComMessage?message.jobid=${message.jobid}" class="btn">详情</a>
+		                       <p><a href="customerorder/customerorder_tran?customerorder.jobid=${message.jobid}&customerorder.id=${customer.customerid}&customerorder.fid=${message.fid}" class="add-order">
+	                  <i class="fa fa-check-square"></i>申请</a></p>
+	                
+		                        
+	             </div>
+	               <p>
+	               <!--  <a href="message/message_getComMessage?message.jobid=${message.jobid}"> -->
 	                  <c:out value="${message.jobname}"></c:out>
-	                </a>
+	               
 	                <span class="price"> <c:out value="${message.companyname}"></c:out></span>
-	             </p>
+                    </p>
+                 </div>
 	          </li>
  
   </c:forEach>
   </ul>
 </main>
-
-
-	<footer class="site-footer container text-center">
-
-			<div class="col-md-12 copyright">
-				<p>Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>
-			
-		</div>
-	</footer>
-	<span class="border-top"></span>
-	<span class="border-left"></span>
-	<span class="border-right"></span>
-	<span class="border-bottom"></span>
-	<span class="shape-1"></span>
-	<span class="shape-2"></span>
-
-	<script src="js/jquery.min.js"></script>
+<div id="box" class="box">
+    <div class="box-in"></div>
+</div>    
+<script>
+var timer  = null;
+box.onclick = function(){
+    cancelAnimationFrame(timer);
+    //获取当前毫秒数
+    var startTime = +new Date();     
+    //获取当前页面的滚动高度
+    var b = document.body.scrollTop || document.documentElement.scrollTop;
+    var d = 1000;
+    var c = b;
+    timer = requestAnimationFrame(function func(){
+        var t = d - Math.max(0,startTime - (+new Date()) + d);
+        document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+        timer = requestAnimationFrame(func);
+        if(t == d){
+          cancelAnimationFrame(timer);
+        }
+    });
+}
+</script>
+<script src="js/jquery.min.js"></script>
 
 	<script type="text/javascript">
 	function display(){
@@ -342,6 +343,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            $(".aui-screen-list-item a ").removeClass("selected");
 	        });
         </script>
+	
+	<script type="text/javascript">
+         $('.navbar-nav').find('a').each(function () {
+            if (this.href == document.location.href) {
+                $(this).parent().addClass('active'); // this.className = 'active';
+            }
+        });
+        </script>
+
+	 <footer class="site-footer container text-center">
+		<div class="row">
+			<div class="col-md-12 copyright">
+				<p>Copyright &copy; 2018 <a href="#">Company Name:E Work</a></p>
+			</div>
+		</div>
+	</footer>
+	<span class="border-top"></span>
+	<span class="border-left"></span>
+	<span class="border-right"></span>
+	<span class="border-bottom"></span>
+	<span class="shape-1"></span>
+	<span class="shape-2"></span>
+
 	
 </body>
 </html>

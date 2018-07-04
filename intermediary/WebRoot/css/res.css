@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+body{
+	background-color: #FAF8F5;
+		margin: 0px;
+	padding: 0px;
+}
+.step {
+    position: relative;
+    height: 128px;
+    overflow: hidden;
+    background: url(http://img01.51jobcdn.com/im/2016/step/mail.png) 30px bottom no-repeat;
+}
+.da {
+    width: 800px;
+    margin: 0 auto;
+}
+.container{
+    padding: 37px 20px 10px;
+    background: url(http://img01.51jobcdn.com/im/2016/step/cbar.png) #fff repeat-x;
+    border-bottom: 2px solid #ddd;
+}
+.basic{
+	margin-bottom: 30px;
+    border-bottom: 1px dashed #ddd;
+}
+.da .title{
+	line-height: 30px;
+    color: #999;
+    margin-bottom: 25px;
+    padding-left: 38px;
+    background: url(http://img01.51jobcdn.com/im/2016/step/icon.png) no-repeat;
+}
+.da .title .strong{
+    font-weight: normal;
+    font-size: 32px;
+    color: #ff9f20;
+}
+.e{
+	border-bottom: 1px dashed #ddd;
+}
+.else{
+	border-bottom: 1px dashed #ddd;
+}

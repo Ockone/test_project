@@ -19,6 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
     <title>文件上传</title>
+    <link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
+    
   </head>
   <style>
   @import url(https://fonts.googleapis.com/css?family=Open+Sans);

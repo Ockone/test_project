@@ -24,12 +24,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<!-- <link rel="stylesheet" href="css/templatemo_style.css">-->
 	<link rel="stylesheet" href="css/one.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/favicon.png">
 	
 	
   </head>
   
   <body>
-  <div class="header" style="position:fixed;font:14px;z-index:998;width:100%" >
+ <div class="header"style="position:fixed; width:100%;font:14px "Microsoft YaHei";z-index:998;">
     <!-- bar start -->
     <div class="bar">
         <div class="in">
@@ -419,7 +420,29 @@ E work会对各种招聘信息进行审核，并在每项信息中加以提示�
 		</div>
 	</div>
 
-
+<div id="box" class="box">
+    <div class="box-in"></div>
+</div>    
+<script>
+var timer  = null;
+box.onclick = function(){
+    cancelAnimationFrame(timer);
+    //获取当前毫秒数
+    var startTime = +new Date();     
+    //获取当前页面的滚动高度
+    var b = document.body.scrollTop || document.documentElement.scrollTop;
+    var d = 1000;
+    var c = b;
+    timer = requestAnimationFrame(function func(){
+        var t = d - Math.max(0,startTime - (+new Date()) + d);
+        document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+        timer = requestAnimationFrame(func);
+        if(t == d){
+          cancelAnimationFrame(timer);
+        }
+    });
+}
+</script>
 	<footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12 copyright">
